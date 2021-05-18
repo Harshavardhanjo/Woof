@@ -1,0 +1,17 @@
+.input
+{
+    height : 30px;
+    width : 400px;
+    margin-top : 0px;
+}
+
+.label
+{
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.bio
+{
+    height : 100px;
+}
