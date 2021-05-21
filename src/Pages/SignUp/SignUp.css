@@ -1,8 +1,17 @@
 .input
 {
-    height : 30px;
-    width : 400px;
-    margin-top : 0px;
+    height : 40px;
+    width : 300px;
+    background-color: snow;
+    border-width : 1px;
+    border-radius: 2px;
+
+    :active
+    {
+        background-color: red;
+    }
+
+    
 }
 
 .label
@@ -14,4 +23,10 @@
 .bio
 {
     height : 100px;
+}
+
+.SignUp
+{
+    height : 900px;
+    background-color: black;
 }
