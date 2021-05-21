@@ -36,12 +36,12 @@ export const TagsAddContainer = styled.div`
 
 export const TagsAddSearch = styled.input`
     width : 300px;
-    height : 40px; 
+    height :30px; 
 `
 
 export const TagsAddButton = styled.button`
     width : 100px;
-    height : 46px;
+    height : 36px;
     font-size : 1.02rem;
 `
 
