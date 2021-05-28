@@ -3,37 +3,47 @@ import styled from 'styled-components'
 export const MyProfileContainer = styled.div`
     display : flex;
     flex-direction : row;
-    background-color : blue;
     width : 100%;
     flex-wrap : wrap;
+    height : 100%;
 `
 
 export const MyProfileTopContainer = styled.div`
     display : flex;
     width : 100%;
-    background-color : red;
+    background-color : white;
     flex-direction : row;
     height : 10%;
+    
 `
 
 export const MyProfilePostsContainer = styled.div`
     display : flex;
+    flex-direction : column;
     width : 70%;
-    background-color : green;
+    background-color : black;
+    padding : 10px;
+    margin-top : 5%;
 `
 
 export const MyProfileUtilContainer = styled.div`
     display : flex;
-    width : 30%;
-    background-color : pink;
+    width : 28.5%;
+    margin-top : 5%;
+    background-color : whitesmoke;
 `
 
 export const MyProfileProfileImg = styled.img`
-    width : 20%;
-    height : 20rem;
-    border : 3px solid black;
-    padding : 10px;
+    width : 10%;
+    height : 10rem;
+    border : 3px solid white;
+    border-radius : 20rem;
     background-color : cyan;
+    z-index : 2;
+    position : absolute;
+    margin-left : 5%;
+    margin-top : 20%;
+    
 `
 
 export const MyProfilePetIcon = styled.img`
@@ -50,11 +60,13 @@ export const MyProfilePetIcon = styled.img`
 `
 
 export const MyProfileCoverImg = styled.img`
-    width : 80%;
-    height : 20rem;
-    border : 3px solid black;
-    padding : 10px;
+    width : 100%;
+    height : 25rem;
+    border : 3px solid white;
     background-color : cyan;
+    z-index : 1;
+    align-items : stretch;
+    object-fit : cover;
 `
 
 export const MyprofileNavContainer = styled.div`
@@ -62,6 +74,10 @@ export const MyprofileNavContainer = styled.div`
     flex-direction : row;
     width : 100%;
     justify-content : space-between;
+    background-color : #12a4d9;
+    position : fixed;
+    z-index : 3;
+    margin-top : -1rem;
 
 `
 
@@ -75,11 +91,12 @@ export const MyProfileNavContents = styled.li`
     height : 1rem;
     padding : 20px;
     color : white;
+    font-size : 1.2rem;
 
     &:hover
     {
         transition : 0.2 ease-in-out;
-        border-bottom : 2px solid green;
+        border-bottom : 3px solid #e2d810;
     }
 `
 
@@ -87,5 +104,14 @@ export const MyProfilePetsNav = styled.nav`
     display : flex;
     flex-direction : row;
     padding : 10px;
+    
 
+`
+
+export const MyProfileLogo = styled.text`
+    font-size : 2rem;
+    color : white;
+    margin-top : 1.2rem;
+    margin-left : 1rem;
+    font-family : Georgia, 'Times New Roman', Times, serif;
 `
