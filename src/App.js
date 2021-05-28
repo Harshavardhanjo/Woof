@@ -11,29 +11,31 @@ import {
 import './App.css';
 import SignUp from './Pages/SignUp/SignUp'
 import Login from './Pages/Login/Login'
-import Tags from "./Pages/Tags/Tags";
 import {useStateValue} from './StateProvider'
+import EditProfile from "./Pages/EditProfile/EditProfile";
+import MyProfile from './Pages/MyProfile/MyProfile'
 
 
 const App = () => {
 
-  const [{user}, dispatch] = useStateValue();
+  const [{CurrentAuthUser}, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
         if(authUser){
           //User is logged in
           dispatch({
-            type: "SET_USER",
-            user: authUser,
+            type: "SET_AUTH_USER",
+            data: authUser,
           })
-          console.log(authUser);
+          console.log("App.js",CurrentAuthUser);
+          console.log("App.js",authUser)
         }
         else{
           //No one is
           dispatch({
-            type: "SET_USER",
-            user: null,
+            type: "SET_AUTH_USER",
+            data: "No One",
           })
         }
       });
@@ -56,8 +58,12 @@ const App = () => {
             <Login/>
           </Route>
 
-          <Route exact path = '/Tags'>
-            <Tags/>
+          <Route exact path = '/EditProfile'>
+            <EditProfile/>
+          </Route>
+
+          <Route exact path = '/MyProfile'>
+            <MyProfile/>
           </Route>
         </Switch>
       </Router>

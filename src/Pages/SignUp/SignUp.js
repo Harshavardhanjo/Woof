@@ -9,7 +9,7 @@ import {
   Route,
   useHistory,
 } from 'react-router-dom'
-import { SignUpCardContainer, SignUpCardServices, SignUpContents1,GoogleButton,AppleButton,FacebookButton,SignUpContents2,VerifyButton,BackgroundImg, SignUpHeader, Logo } from './SignUpElements';
+import { SignUpCardContainer, SignUpCardServices, SignUpContents1,GoogleButton,AppleButton,FacebookButton,SignUpContents2,VerifyButton,BackgroundImg, SignUpHeader, Logo, ContinueButton } from './SignUpElements';
 import './SignUp.css'
 import { CompareArrowsOutlined } from '@material-ui/icons';
 
@@ -22,7 +22,7 @@ export default function SignUp() {
   const [password2,setPassword2] = useState('2');
   const [mobile,setMobile] = useState('')
   const [username,setUsername] = useState('')
-  const [user,setUser] = useState('')
+  const [{User},dispatch] = useStateValue()
   const [email,setEmail] = useState('')
 
   const [content1,setContent1] = useState(['E-mail','Mobile','Password','Re-Enter Password','What would you like your display name to be?','A little description about you'])
@@ -37,7 +37,11 @@ export default function SignUp() {
     firebase.auth().signInWithEmailAndPassword(email,password2);
     firebase.auth().signInWithPopup(provider).then(res =>{
       console.log('logged',res.user)
-      history.push('/Tags')
+      dispatch({
+        type : "SET_USER",
+        CurrentAuthUser : auth.user
+      })
+      history.push('/SetUpProfile')
     }).catch(e =>{
       console.log('error',e)
     })
@@ -45,6 +49,15 @@ export default function SignUp() {
 
   const verifyNumber=(e)=>{
     e.preventDefault();
+    if(mobile == '')
+    {
+      alert("No Number Entered")
+    }
+    else{
+
+      if(password1 == password2)
+      {
+
     var recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
     var number = '+91' + mobile;
     auth.createUserWithEmailAndPassword(email,password1)
@@ -72,6 +85,18 @@ export default function SignUp() {
         console.error( error);
 
     });
+  }
+
+  else{
+    alert('Passwords do not match')
+  }
+
+  }
+  }
+
+   const Continue = (e) =>
+  {
+    history.push('/EditProfile')
   }
 
   return (
@@ -103,6 +128,8 @@ export default function SignUp() {
             <VerifyButton onClick = {(e) => verifyNumber(e) }>Verify</VerifyButton>
             <div id = 'recaptcha'></div>
           </SignUpContents2>
+
+          <ContinueButton onClick = {(e) => Continue(e)}>Continue</ContinueButton>
 
         </SignUpCardServices>
       </SignUpCardContainer>

@@ -1,7 +1,12 @@
 
 
 export const initialState = {
-    user: null,
+    CurrentAuthUser: null,
+    tags : [], 
+    name : "", 
+    bio : "", 
+    website : "", 
+    user : null 
 };
 
 
@@ -9,10 +14,22 @@ export const initialState = {
 const reducer = (state,action) => {
     switch(action.type) {
 
+        case "SET_AUTH_USER":
+            return {
+                ...state,
+                CurrentAuthUser: action.data
+            }
+
         case "SET_USER":
             return {
                 ...state,
-                user: action.user
+
+                name : action.Name,
+                bio : action.bio,
+                website : action.website,
+                tags : action.tags
+
+
             }
             
         default: 

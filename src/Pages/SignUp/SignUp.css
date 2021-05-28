@@ -1,18 +1,19 @@
 .input
 {
-    height : 40px;
-    width : 300px;
+    height : 25%;
+    width : 100%;
     background-color: snow;
     border-width : 1px;
     border-radius: 2px;
-
-    :active
-    {
-        background-color: red;
-    }
-
+    border : none;
+    border-bottom : 2px solid blue;
     
 }
+
+input:focus {
+    border-bottom : 2px solid red;
+    outline: none;
+  }
 
 .label
 {

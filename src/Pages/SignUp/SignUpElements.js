@@ -5,11 +5,12 @@ export const SignUpCardServices = styled.div`
     display : flex;
     /* flex-wrap : wrap; */
     align-items : center;
-    width : 25%;
+    width : 40%;
     flex-direction : column;
     outline : rgb(232,233,236) solid;
     outline-width : 2px;
-    height : 600px;
+    height : 100%;
+    
 
 `;
 
@@ -18,7 +19,8 @@ export const SignUpCardContainer = styled.div`
     justify-content : center;
     flex-direction : column;
     align-items : center;
-    height : 900px;
+    height : 100%;
+    width : 100%;
     background-color : snow;
     
 `
@@ -31,8 +33,8 @@ export const SignUpHeader = styled.div`
 export const SignUpContents1 = styled.div`
     display : flex;
     flex-direction : row;
-    height : 100px;
-    width : 600px;
+    height : 100%;
+    width : 100%;
     justify-content : space-around;
 `
 
@@ -43,16 +45,18 @@ export const SignUpContents2 = styled.div`
     align-items : center;
     justify-content : center;
     /* background-color : red; */
-    height : 120px;
+    height : 10rem;
+    width : 80%;
 `
 export const GoogleButton = styled.button`
     background-color : 	#4285F4;
-    height : 50px;
+    height : 2.5rem;
     border-radius : 40px;
     font-size : 1.05rem;
     color : white;
     border-style : hidden;
-    width : 300px;
+    width : 70%;
+    outline : none;
 
     &:hover{
         transition : 0.2s all ease-in-out;
@@ -96,9 +100,9 @@ export const AppleButton = styled.button`
 
 export const VerifyButton = styled.button`
     background-color : #0095f6;
-    margin-top : 10px;
-    height : 40px;
-    width : 200px;
+    margin-top : 5%;
+    height : 35%;
+    width : 50%;
     border-radius : 10px;
     font-size : 1.05rem;
     color : white;
@@ -121,9 +125,29 @@ export const BackgroundImg = styled.img`
 `
 
 export const Logo = styled.img`
-    height : 100px;
-    width : 200px;
+    margin-top : -10%;
+    height : 20%;
+    width : 80%;
 `
+
+export const ContinueButton = styled.button`
+    background-color : #0095f6;
+    margin-top : 5%;
+    height : 3rem;
+    width : 50%;
+    border-radius : 10px;
+    font-size : 1.05rem;
+    color : white;
+    border-style : hidden;
+
+    &:hover{
+        transition : 0.2s all ease-in-out;
+        background-color : #4bb543;
+        cursor: pointer;
+    }
+`
+
+
 
 
 
