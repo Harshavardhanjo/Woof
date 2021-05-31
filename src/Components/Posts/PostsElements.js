@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PostCard = styled.div`
     display : flex;
     flex-direction : column;
-    background-color : #322e2f;
+    background-color : #2A2B2DFF;
     margin-left : 4rem;
     margin-right : 4rem;
     border : 2px solid black;
@@ -17,6 +17,7 @@ export const PostTop = styled.div`
     flex-direction : row;
     justify-content : space-between;
     width : 100%;
+    margin-top : 1rem;
 `
 
 export const PostProfile = styled.div`
@@ -52,6 +53,7 @@ export const PostImg = styled.img`
     margin-left : 1.4rem;
     border : 3px;
     border-radius : 10px;
+    object-fit : cover;
 `
 
 export const PostBot = styled.div`
@@ -65,7 +67,7 @@ export const PostBot = styled.div`
 
 export const PostLike = styled.button`
     
-    background-color : #322e2f;
+    background-color : #2A2B2DFF;
     width : 3rem;
     height : 1.5rem;
     margin-bottom : 1rem;
@@ -75,7 +77,7 @@ export const PostLike = styled.button`
 
 export const PostShare = styled.button`
     
-    background-color : #322e2f;
+    background-color : #2A2B2DFF;
     width : 3rem;
     height : 1.5rem;
     margin-bottom : 1rem;
@@ -85,7 +87,7 @@ export const PostShare = styled.button`
 
 export const PostComment = styled.button`
 
-    background-color : #322e2f;
+    background-color : #2A2B2DFF;
     width : 3rem;
     height : 1.5rem;
     margin-bottom : 1rem;

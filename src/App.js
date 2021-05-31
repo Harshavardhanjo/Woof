@@ -1,7 +1,7 @@
 import Home  from "./Pages/Home/Home";
 import React,{useState,useEffect} from 'react'
 import firebase from 'firebase'
-import { auth } from './firebase'
+import { auth,db } from './firebase'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,8 +15,7 @@ import {useStateValue} from './StateProvider'
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import MyProfile from './Pages/MyProfile/MyProfile'
 
-
-const App = () => {
+const  App = () => {
 
   const [{CurrentAuthUser}, dispatch] = useStateValue();
 
@@ -28,47 +27,46 @@ const App = () => {
             type: "SET_AUTH_USER",
             data: authUser,
           })
-          console.log("App.js",CurrentAuthUser);
-          console.log("App.js",authUser)
+          console.log(authUser);
         }
         else{
-          //No one is
           dispatch({
             type: "SET_AUTH_USER",
-            data: "No One",
+            data: null,
           })
         }
       });
-    },[]);
+    },[])
 
-
-  return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path = "/SignUp">
-            <SignUp/>
-          </Route>
-
-          <Route exact path = "/Home">
-            <Home/>
-          </Route>
-
-          <Route exact path = '/Login'>
-            <Login/>
-          </Route>
-
-          <Route exact path = '/EditProfile'>
-            <EditProfile/>
-          </Route>
-
-          <Route exact path = '/MyProfile'>
-            <MyProfile/>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+    return (
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path = "/SignUp">
+              <SignUp/>
+            </Route>
+  
+            <Route exact path = "/Home">
+              <Home/>
+            </Route>
+  
+            <Route exact path = '/Login'>
+              <Login/>
+            </Route>
+  
+            <Route exact path = '/EditProfile'>
+              <EditProfile/>
+            </Route>
+  
+            <Route exact path = '/MyProfile'>
+              <MyProfile/>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+            
+          
 }
 
 export default App;

@@ -1,17 +1,13 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import firebase from 'firebase'
-import dog from '../../images/dog.jpg'
-import { auth } from '../../firebase'
+import { auth, db } from '../../firebase'
 import {useStateValue} from '../../StateProvider'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   useHistory,
 } from 'react-router-dom'
 import { SignUpCardContainer, SignUpCardServices, SignUpContents1,GoogleButton,AppleButton,FacebookButton,SignUpContents2,VerifyButton,BackgroundImg, SignUpHeader, Logo, ContinueButton } from './SignUpElements';
 import './SignUp.css'
-import { CompareArrowsOutlined } from '@material-ui/icons';
 
 
 export default function SignUp() {
@@ -22,14 +18,10 @@ export default function SignUp() {
   const [password2,setPassword2] = useState('2');
   const [mobile,setMobile] = useState('')
   const [username,setUsername] = useState('')
-  const [{User},dispatch] = useStateValue()
+  const [{name,CurrentAuthUser},dispatch] = useStateValue()
   const [email,setEmail] = useState('')
 
-  const [content1,setContent1] = useState(['E-mail','Mobile','Password','Re-Enter Password','What would you like your display name to be?','A little description about you'])
-
   const googleprovider = new firebase.auth.GoogleAuthProvider()
-  const facebookprovider = new firebase.auth.FacebookAuthProvider()
-  const appleprovider = new firebase.auth.OAuthProvider('apple.com');
 
   const handleClick = (provider,e) =>
   {
@@ -38,66 +30,41 @@ export default function SignUp() {
     firebase.auth().signInWithPopup(provider).then(res =>{
       console.log('logged',res.user)
       dispatch({
-        type : "SET_USER",
-        CurrentAuthUser : auth.user
+        type : "SET_AUTH_USER",
+        CurrentAuthUser : res.user
       })
-      history.push('/SetUpProfile')
+
+      
     }).catch(e =>{
       console.log('error',e)
     })
   }
 
-  const verifyNumber=(e)=>{
+  const Continue=(e)=>{
     e.preventDefault();
-    if(mobile == '')
-    {
-      alert("No Number Entered")
-    }
-    else{
 
       if(password1 == password2)
       {
+        auth.createUserWithEmailAndPassword(email,password1).then(res => {
 
-    var recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
-    var number = '+91' + mobile;
-    auth.createUserWithEmailAndPassword(email,password1)
-    firebase.auth().signInWithPhoneNumber(number, recaptcha).then( function(e) {
-      var code = prompt('Enter the otp', '');
+          console.log(res.user.email)
+          db.collection('User Details').doc(res.user.email).set({
 
-        if(code === null) 
-        {
-          {<h1>Some Funs</h1>}
-        }
+                  User_name : username,
+                  Email : res.user.email,
 
-        e.confirm(code).then(function (result) {
-            console.log(result.user);
+      })
 
-            // document.querySelector('label').textContent +=   result.user.phoneNumber + "Number verified";
-            history.push('/Tags')
-            
-        }).catch(function (error) {
-            console.error( error);
-            
-        });
-
+      history.push('/login')
     })
-    .catch(function (error) {
-        console.error( error);
-
-    });
-  }
-
-  else{
-    alert('Passwords do not match')
-  }
 
   }
-  }
 
-   const Continue = (e) =>
+  else
   {
-    history.push('/EditProfile')
+    alert("Passwords Do Not Match")
   }
+}
 
   return (
 
@@ -123,11 +90,11 @@ export default function SignUp() {
             <input type = 'password' className = 'input' placeholder = 'Confirm Password' onChange = {e => setPassword2(e.target.value)}/>
           </SignUpContents2>
 
-          <SignUpContents2>
+          {/* <SignUpContents2>
             <input type = 'text' className = 'input' placeholder = "Mobile Number" onChange = {e => setMobile(e.target.value)}/>
             <VerifyButton onClick = {(e) => verifyNumber(e) }>Verify</VerifyButton>
             <div id = 'recaptcha'></div>
-          </SignUpContents2>
+          </SignUpContents2> */}
 
           <ContinueButton onClick = {(e) => Continue(e)}>Continue</ContinueButton>
 

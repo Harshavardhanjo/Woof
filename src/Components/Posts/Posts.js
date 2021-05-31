@@ -39,7 +39,7 @@ const Posts = () => {
                 <PostImg src = 'https://cdn.pixabay.com/photo/2016/12/28/09/36/web-1935737__340.png'/>
                 <PostBot>
                     <PostLike onClick = {(e) => Like(e)}>
-                        {like ? <RiVipDiamondFill className = 'icons'/> : <RiVipDiamondLine className = 'icons'/>}
+                        {like ? <RiVipDiamondFill className = 'icons icons-color'/> : <RiVipDiamondLine className = 'icons'/>}
                     </PostLike>
 
                     <PostComment onClick = {(e) => Like(e)}>

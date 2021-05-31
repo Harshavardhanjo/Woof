@@ -51,7 +51,6 @@ export const MyProfilePetIcon = styled.img`
     height : 2rem;
     border-radius : 100%;
     padding : 1rem;
-
     &:hover
     {
         transition : 0.2s ease-in-out;
@@ -74,24 +73,30 @@ export const MyprofileNavContainer = styled.div`
     flex-direction : row;
     width : 100%;
     justify-content : space-between;
-    background-color : #12a4d9;
+    background-color : black;
     position : fixed;
     z-index : 3;
     margin-top : -1rem;
-
+    height : 3.8rem;
 `
 
 export const MyProfileNav = styled.nav`
     display : flex;
     flex-direction : row;
-    padding : 10px;
+    margin-top : 1rem;
 `
-export const MyProfileNavContents = styled.li`
+export const MyProfileNavContents = styled.button`
     list-style : none;
     height : 1rem;
     padding : 20px;
     color : white;
     font-size : 1.2rem;
+    background-color : transparent;
+    outline : none;
+    border : none;
+    justify-content : center;
+    align-items : center;
+    display : flex;
 
     &:hover
     {
@@ -105,7 +110,6 @@ export const MyProfilePetsNav = styled.nav`
     flex-direction : row;
     padding : 10px;
     
-
 `
 
 export const MyProfileLogo = styled.text`
@@ -114,4 +118,12 @@ export const MyProfileLogo = styled.text`
     margin-top : 1.2rem;
     margin-left : 1rem;
     font-family : Georgia, 'Times New Roman', Times, serif;
+`
+
+export const MyProfileName = styled.text`
+    font-size : 2rem;
+    color : white;
+    margin-top : 1.2rem;
+    margin-left : 1rem;
+    font-family : Georgia, 'Times New Roman', Times, serif;    
 `

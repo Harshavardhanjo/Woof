@@ -6,7 +6,8 @@ export const initialState = {
     name : "", 
     bio : "", 
     website : "", 
-    user : null 
+    user : null ,
+    selectedUtil : null
 };
 
 
@@ -25,13 +26,20 @@ const reducer = (state,action) => {
                 ...state,
 
                 name : action.Name,
-                bio : action.bio,
-                website : action.website,
-                tags : action.tags
+                bio : action.Bio,
+                website : action.Website,
+                tags : action.Tags
 
 
             }
             
+        case "SET_UTIL":
+            return{
+
+                ...state,
+
+                selectedUtil : action.data,
+            }
         default: 
         return state;
             
