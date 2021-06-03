@@ -16,7 +16,6 @@ const Utils = () => {
     const [petscomp, setPetscomp] = useState()
 
     useEffect(() => {
-        console.log("Utils useEffect",tagComp)
     }, [tagComp])
 
     useEffect(() => {
@@ -49,7 +48,6 @@ const Utils = () => {
 
         else if(selectedUtil == "Pets")
         {
-            console.log("Utils",selectedUtil)
             setPetscomp(true)
             setTagcomp(false)
             setAboutcomp(false)
