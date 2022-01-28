@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import blue from '../../img/blue.jpg'
+import cover from '../../img/cover.jpg';
 
 export const Container = styled.div`
     display: flex;
@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 1000px;
+    height: 130vh;
 `
 
 export const Section1 = styled.div`
@@ -16,7 +16,7 @@ export const Section1 = styled.div`
     align-items: top;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 60%;
 
 `
 
@@ -51,11 +51,13 @@ export const CoverTab = styled.div`
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100%;
+    height: 70%;
     justify-content: space-around;
     align-items: center;
-    background-image: url(${blue});
-    object-fit: cover;
+    background-image: url(${cover});
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-color: black;
 `
 
 export const TabHolder = styled.div`
@@ -86,12 +88,18 @@ export const Search = styled.button`
     background-color: green;
     font-size: 1rem;
     margin-left: 10px;
+    caret-color: red;
 
     &:hover {
         cursor: pointer;
         background-color: white;
         color: black;
         transition: 0.5s;
+    }
+
+    &:focus {
+        outline: none;
+        caret-color: red;
     }
 `
 
@@ -104,6 +112,8 @@ export const Location = styled.button`
     background-color : black;
     color : white;
     font-size : 1rem;
+    overflow : hidden;
+    text-overflow : ellipsis;
 
     &:hover {
         cursor : pointer;

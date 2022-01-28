@@ -16,7 +16,7 @@ export const Row1 = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     background-color: #f5f5f5;
@@ -46,7 +46,7 @@ export const IconTab = styled.div`
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    width: 25%;
+    width: 7rem;
     height: 100px;
 
     &:hover {
@@ -62,7 +62,7 @@ export const IconTabSelected = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 15px;
+    margin: 1rem;
     width: 7rem;
     height: 100px;
     background-color: #b4dee0;
