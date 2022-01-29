@@ -1,6 +1,6 @@
 import React from 'react';
 import Services from '../../Components/Services/Services';
-import { Container, CoverImg, CoverTab, IconsTab, Search, SearchBar, Section1, Section2, TabHolder,Location, HeroText,PetTab } from './HomeElements';
+import { Container, CoverImg, CoverTab, IconsTab, Search, SearchBar, Section1, Section2, TabHolder,Location, HeroText,PetTab, CoverContainer } from './HomeElements';
 import Pets from '../../Components/Pets/Pets';
 
 const Home = () => {
@@ -54,12 +54,14 @@ const Home = () => {
   return <div>
       <Container>
         <CoverTab>
-          <HeroText>Wiggly tails is all we want</HeroText>
-          <TabHolder>
-            {location == '' ? <Location onClick={e => getLocation(e)}>Choose your location?</Location> : <Location>{location.split(" ")[0]}</Location>}
-            <SearchBar/>
-            <Search>Search</Search>
-          </TabHolder>
+          <CoverContainer>
+            <HeroText>Wiggly tails is all we want</HeroText>
+            <TabHolder>
+              {location == '' ? <Location onClick={e => getLocation(e)}>Choose your location?</Location> : <Location>{location.split(" ")[0]}</Location>}
+              <SearchBar/>
+              <Search>Search</Search>
+            </TabHolder>
+          </CoverContainer>
         </CoverTab>
           <Section1>
               <PetTab>

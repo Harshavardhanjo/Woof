@@ -9,6 +9,7 @@ import fish from '../../img/fish.png';
 import bird from '../../img/bird.png';
 import reptile from '../../img/reptile.png';
 import hamster from '../../img/hamster.png';
+import cancel from '../../img/cancel.png';
 
 const Pets = () => {
   const [{pet}, dispatch] = useStateValue();
@@ -72,6 +73,14 @@ const Pets = () => {
         <IconTab onClick={e => handleClick(e,'hamster')}>
           <Icon src = {hamster} />
           <Name>Hamsters</Name>
+        </IconTab>}
+        {selected == 'pet' ? <IconTabSelected onClick = {e => handleClick(e,'pet')}>
+          <Icon src = {cancel} />
+          <Name>Cancel</Name>
+        </IconTabSelected> :
+        <IconTab onClick={e => handleClick(e,'pet')}>
+          <Icon src = {cancel} />
+          <Name>Cancel</Name>
         </IconTab>}
       </Row1>
     </Container>

@@ -6,9 +6,9 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 130vh;
-`
+`;
 
 export const Section1 = styled.div`
     display: flex;
@@ -49,15 +49,24 @@ export const PetTab = styled.div`
 
 export const CoverTab = styled.div`
     display: flex;
-    flex-direction: column;
-    width: 100vw;
+    flex-direction: row;
+    width: 100%;
     height: 70%;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     background-image: url(${cover});
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-color: black;
+`
+
+export const CoverContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height : 20rem;
+    align-items: center;
+    justify-content: space-around;
+    padding-right: 7rem;
 `
 
 export const TabHolder = styled.div`
@@ -78,6 +87,7 @@ export const HeroText = styled.h1`
     font-size: 3rem;
     color: white;
     margin: 10px;
+    font-family: Garamond, serif;
 `
 
 export const Search = styled.button`
