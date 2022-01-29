@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     width: 100%;
     height: 20rem;
-    background-color: #f5f5f5;
+    background-color: transparent;
 `
 
 export const Row1 = styled.div`
@@ -29,6 +29,25 @@ export const Row1 = styled.div`
         height: 0.2rem;
     }
 `
+
+// export const Row1 = styled.div`
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+//     height: 100%;
+//     background-color: black;
+//     box-shadow: 0px 0px 5px grey;
+//     border-radius: 10px;
+//     overflow-y: scroll;
+
+//     ::-webkit-scrollbar {
+//         width: 0.5rem;
+//         height: 0.2rem;
+//     }
+// `
 
 export const Row2 = styled.div`
     display: flex;
@@ -78,9 +97,14 @@ export const IconTabSelected = styled.div`
 export const Icon = styled.img`
     width: 3rem;
     height: 3rem;
-`
+`;
 
 export const Name = styled.h1`
     font-size: 1rem;
-    `
+`;
+
+// export const Name = styled.h1`
+//     font-size: 1rem;
+//     color: white;
+// `
 

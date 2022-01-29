@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     width: 100%;
     height: 20rem;
-    background-color: #f5f5f5;
+    background-color: transparent;
 `
 
 export const Row1 = styled.div`

@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
+export const VendorContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+`
+
 export const VendorCard = styled.div`
-    width : 30rem;
-    height : 30rem;
+    width : 20rem;
+    height : 20rem;
     border-radius : 10px;
     background-color : #f5f5f5;
     margin : 1rem;

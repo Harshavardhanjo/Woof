@@ -17,8 +17,20 @@ export const Section1 = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 60%;
+    background-color: #f5f5f5;
 
 `
+
+// export const Section1 = styled.div`
+//     display: flex;
+//     flex-direction: row;
+//     align-items: top;
+//     justify-content: space-between;
+//     width: 100%;
+//     height: 60%;
+//     background-color: black;
+
+// `
 
 export const Section2 = styled.div`
     display: flex;
