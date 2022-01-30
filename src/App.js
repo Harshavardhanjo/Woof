@@ -4,7 +4,6 @@ import './App.css';
 import Home from './Pages/Home/Home';
 import Navbar from './Components/NavBar/Navbar';
 import React, {useEffect,useState} from 'react';
-import {useStateValue} from './StateProvider'
 import DisplayVendors from './Pages/DisplayVendors/DisplayVendors';
 
 function App() {

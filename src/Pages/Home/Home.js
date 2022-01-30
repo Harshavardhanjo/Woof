@@ -2,6 +2,7 @@ import React from 'react';
 import Services from '../../Components/Services/Services';
 import { Container, CoverImg, CoverTab, IconsTab, Search, SearchBar, Section1, Section2, TabHolder,Location, HeroText,PetTab, CoverContainer } from './HomeElements';
 import Pets from '../../Components/Pets/Pets';
+import { useHistory } from 'react-router';
 
 const Home = () => {
   

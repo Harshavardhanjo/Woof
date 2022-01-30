@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link as LinkR } from 'react-router-dom'
 
 export const Container = styled.div`
     display: flex;
@@ -56,3 +57,10 @@ export const NavItems = styled.button`
         transition: 0.5s;
     }
 `
+
+export const NavLink = styled(LinkR)`
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin: 10px;
+    `;
