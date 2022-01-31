@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import {BrowserRouter as Router, Switch, Route} from  'react-router-dom'
+import {BrowserRouter, Routes, Route} from  'react-router-dom'
 import './App.css';
 import Home from './Pages/Home/Home';
 import Navbar from './Components/NavBar/Navbar';
@@ -11,21 +11,14 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Router>
-        <Switch>
-          <Route exact path = '/'>
-            <Home/>
-          </Route>
+        <Routes>
+          <Route exact path = '/' element = {<Home/>}/>
 
-          <Route exact path = '/Profile'>
-            <h1>stedi</h1>
-          </Route>
+          <Route exact path = '/Profile' element ={<h1>stedi</h1>}/>
 
-          <Route exact path = '/Vendors'>
-            <DisplayVendors/>
-          </Route>
-        </Switch>
-      </Router>
+          <Route exact path = '/Vendors' element ={<DisplayVendors/>}/>
+            
+        </Routes>
     </div>
   );
 }
