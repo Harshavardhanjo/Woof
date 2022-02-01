@@ -6,7 +6,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 35vw;
     height: 20rem;
     background-color: transparent;
 `
@@ -16,7 +16,7 @@ export const Row1 = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: 100%;
     background-color: #f5f5f5;

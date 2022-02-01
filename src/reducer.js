@@ -1,6 +1,10 @@
 export const initialState = {
-    pet : 'pet',
+    pet : 'services and products',
     user : null,
+    service : null,
+    lattitude : null,
+    longitude : null,
+    location : '',
 };
 
 
@@ -15,6 +19,20 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 user : action.user,
+            }
+
+        case "SET_SERVICE":
+            return {
+                ...state,
+                service : action.service,
+            }
+
+        case "SET_LOCATION":
+            return {
+                ...state,
+                lattitude : action.lattitude,
+                longitude : action.longitude,
+                location : action.location,
             }
     
         default:

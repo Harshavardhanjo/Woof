@@ -6,7 +6,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 45vw;
     height: 20rem;
     background-color: transparent;
 `

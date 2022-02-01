@@ -66,7 +66,7 @@ export const CoverTab = styled.div`
     height: 70%;
     justify-content: flex-end;
     align-items: center;
-    background-image: url(${cover});
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/woof-dev-fed7f.appspot.com/o/cover.jpg?alt=media&token=27ff955a-7253-4d61-ae2a-9128d7837a2f');
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-color: black;
