@@ -9,6 +9,7 @@ export const VendorContainer = styled.div`
     width: 100%;
     height: 100%;
     background-color: red;
+    overflow-y: scroll;
 `
 
 export const VendorCard = styled.div`

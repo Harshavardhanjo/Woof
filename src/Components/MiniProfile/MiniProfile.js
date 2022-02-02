@@ -1,11 +1,14 @@
 import React from 'react';
-import { MiniProfileButtonHolder,MiniProfileButton, MiniProfileContainer, MiniProfileCoverPhoto, MiniProfileCoverTab, MiniProfileHeader, MiniProfileHeaderName, MiniProfileIconsTab, MiniProfileCarousel, MiniProfileHeaderWrapper, MiniProfileBody, MiniProfileBodyContent } from './MiniProfileElements';
+import { MiniProfileButtonHolder,MiniProfileButton, MiniProfileContainer, MiniProfileCoverPhoto, MiniProfileCoverTab, MiniProfileHeader, MiniProfileHeaderName, MiniProfileIconsTab, MiniProfileCarousel, MiniProfileHeaderWrapper, MiniProfileBody, MiniProfileBodyContent, MiniProfileIcons } from './MiniProfileElements';
 
 const MiniProfile = () => {
   return <div>
       <MiniProfileContainer>
           <MiniProfileCoverTab>
-              <MiniProfileIconsTab>hi</MiniProfileIconsTab>
+              <MiniProfileIconsTab>
+                <MiniProfileIcons src = ''/>
+                <MiniProfileIcons src = ''/>
+              </MiniProfileIconsTab>
               <MiniProfileCoverPhoto src = 'https://images.unsplash.com/photo-1643240337036-fa77dbc87c13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80'/>
               <MiniProfileCarousel>next</MiniProfileCarousel>
             </MiniProfileCoverTab>

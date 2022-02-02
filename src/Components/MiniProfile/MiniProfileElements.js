@@ -20,7 +20,7 @@ export const MiniProfileCoverTab= styled.div`
     width: 100%;
     height: 50%;
     background-color: green;
-    align-items: flex-end;
+    align-items: center;
     object-fit: cover;
     `;
 
@@ -50,7 +50,7 @@ export const MiniProfileIconsTab = styled.div`
     flex-direction: row;
     width : 10rem;
     height : 2.7rem;
-    background-color: yellow;
+    background-color: transparent;
     position: absolute;
     `;
 export const MiniProfileIcons = styled.img`
