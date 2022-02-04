@@ -5,6 +5,8 @@ export const initialState = {
     lattitude : null,
     longitude : null,
     location : '',
+    selectedVendor : null,
+    data : null,
 };
 
 
@@ -33,6 +35,20 @@ const reducer = (state, action) => {
                 lattitude : action.lattitude,
                 longitude : action.longitude,
                 location : action.location,
+            }
+
+        case "SET_VENDORS":
+            return {
+                ...state,
+                vendorlocations : action.vendorlocations,
+                vendorlattitudes : action.vendorlattitudes,
+                vendorlongitudes : action.vendorlongitudes,
+                vendorNames : action.vendorNames,
+            }
+        case "SET_SELECTED_VENDOR":
+            return {
+                ...state,
+                selectedVendor : action.selectedVendor,
             }
     
         default:

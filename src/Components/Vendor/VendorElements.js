@@ -4,12 +4,13 @@ export const VendorContainer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: top;
+    justify-content: space-around;
     width: 100%;
     height: 100%;
-    background-color: red;
     overflow-y: scroll;
+    background-color: transparent;
+    margin-top: 2rem;
 `
 
 export const VendorCard = styled.div`

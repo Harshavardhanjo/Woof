@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const MiniProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background-color: blue;
+    width: 60rem;
+    height: 80vh;
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
@@ -14,14 +13,42 @@ export const MiniProfileContainer = styled.div`
     }
     `;
 
+export const MiniprofileTopBar = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e3e3e3;
+    `;
+
+export const MiniprofileTopBarLeft = styled.div`
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+    background-color: #f5f5f5;
+    `;
+    
+export const MiniProfileTopIcon = styled.img`
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e3e3e3;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    `;
+
+
 export const MiniProfileCoverTab= styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 50%;
-    background-color: green;
     align-items: center;
-    object-fit: cover;
     `;
 
 export const MiniProfileCoverPhoto = styled.img`
@@ -37,7 +64,6 @@ export const MiniProfileCarousel = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: red;
     `;
 
 export const MiniProfileCarouselIcon = styled.img`
@@ -63,14 +89,13 @@ export const MiniProfileHeader = styled.div`
     flex-direction: row;
     width: 100%;
     height: 10%;
-    background-color: purple;
     justify-content: space-between;
     `;
 
 export const MiniProfileHeaderWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    width : 20%;
+    width : 50%;
     `;
 
 export const MiniProfileHeaderName = styled.h1`
@@ -84,7 +109,6 @@ export const MiniProfileButtonHolder = styled.div`
     flex-direction: row;
     width : 25rem;
     height : 2rem;
-    background-color: orange;
     justify-content: space-between;
     margin-top: 0.5rem;
     `;
@@ -101,7 +125,6 @@ export const MiniProfileBody = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: blue;
     align-items: flex-start;
     `;
 

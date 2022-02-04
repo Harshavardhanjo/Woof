@@ -23,7 +23,6 @@ const Home = () => {
       },
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
-    console.log(lattitude, longitude);
     
   }, []);
 
@@ -52,9 +51,6 @@ const Home = () => {
         });
       })
       .catch(err => console.log(err));
-    console.log(lattitude);
-    console.log(longitude);
-    console.log(location);
 
     
 
@@ -71,7 +67,6 @@ const Home = () => {
           <CoverContainer>
             <HeroText>Wiggly tails is all we want</HeroText>
             <TabHolder>
-              {console.log('loc',location)}
               {location == '' ? <Location onClick={e => getLocation(e)}>Choose your location</Location> : <Location>{location}</Location>}
               <SearchBar/>
               <Search>Search</Search>

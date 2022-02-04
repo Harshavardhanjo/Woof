@@ -15,31 +15,19 @@ const Services = () => {
   const [serviceName, setServiceName] = useState([]);
   let navigate = useNavigate();
   
-  const toVendor = (e,s) => {
+  const setService = (e,s) => {
     e.preventDefault();
-    var details = {
-      service: s,
-      lattitude: lattitude,
-      longitude: longitude,
-      location: location.toLowerCase(),
-    }
-    console.log(details);
     navigate('/Vendors');
     dispatch({
       type: "SET_SERVICE",
       service: s,
     });
-    axios.post('http://127.0.0.1:5000/fetchVendors', details).then(function(response){
-      console.log(response)}).catch(function(error){
-        console.log(error);
-      });
   }
 
   async function getServiceImages() {
     let serviceimages = null;
     setServices([]);
     setServiceName([]);
-    console.log(pet);
     serviceimages = await db.collection('Images').doc(pet).get()
     let data = serviceimages.data();
     Object.keys(data).map(function(key,index) {
@@ -57,7 +45,7 @@ const Services = () => {
     <Container>
       <Row1>
         {services != [] ? services.map((service,index) => {
-          return <IconTab key={index} onClick = {e => toVendor(e,serviceName[index])}>
+          return <IconTab key={index} onClick = {e => setService(e,serviceName[index])}>
               <Icon src={services[index]}/>
               <Name>{serviceName[index]}</Name>
           </IconTab>

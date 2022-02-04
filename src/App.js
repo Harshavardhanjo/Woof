@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Navbar from './Components/NavBar/Navbar';
 import React, {useEffect,useState} from 'react';
 import DisplayVendors from './Pages/DisplayVendors/DisplayVendors';
+import RegisterEnterprise from './Pages/RegisterEnterprise/RegisterEnterprise';
 
 function App() {
   
@@ -17,6 +18,8 @@ function App() {
           <Route exact path = '/Profile' element ={<h1>stedi</h1>}/>
 
           <Route exact path = '/Vendors' element ={<DisplayVendors/>}/>
+
+          <Route exact path = '/RegisterEnterprise' element ={<RegisterEnterprise/>}/>
             
         </Routes>
     </div>

@@ -9,10 +9,11 @@ const Navbar = () => {
 
     const [{user},dispatch] = useStateValue();
     const navigate = useNavigate();
-    const routeChange = (e) =>{
-        console.log('clicked');
-        navigate('/Profile');
+    const routeChange = (e,path) =>{
+        navigate(path);
       }
+
+      
 
     const handleLogin = () => {
         if(user)
@@ -44,15 +45,15 @@ const Navbar = () => {
 
   return <div>
       <Container>
-          <NavSection1>
-              <Logo/>
+          <NavSection1 onClick = {e => routeChange(e,'/')}>
+              <Logo />
               <Name>WOOF</Name>
           </NavSection1>
 
           <NavSection2>
-                <NavItems>Register your Enterprise</NavItems>
+                <NavItems onClick={e => routeChange(e,'/RegisterEnterprise')}>Register your Enterprise</NavItems>
                 <NavItems>Need Help?</NavItems>
-                {user ? <NavItems onClick={e => routeChange(e)}>{user.displayName}</NavItems> : null}
+                {user ? <NavItems onClick={e => routeChange(e,'/Profile')}>{user.displayName}</NavItems> : null}
                 {!user ? <NavItems onClick = {e => handleLogin(e)}>Login/Sign Up</NavItems> : <NavItems onClick = {e => handleLogin(e)}>Logout</NavItems>}
           </NavSection2>
       </Container>

@@ -1,20 +1,38 @@
 import React from 'react';
-import { MiniProfileButtonHolder,MiniProfileButton, MiniProfileContainer, MiniProfileCoverPhoto, MiniProfileCoverTab, MiniProfileHeader, MiniProfileHeaderName, MiniProfileIconsTab, MiniProfileCarousel, MiniProfileHeaderWrapper, MiniProfileBody, MiniProfileBodyContent, MiniProfileIcons } from './MiniProfileElements';
+import { MiniProfileButtonHolder,MiniProfileButton, MiniProfileContainer, MiniProfileCoverPhoto, MiniProfileCoverTab, MiniProfileHeader, MiniProfileHeaderName, MiniProfileIconsTab, MiniProfileCarousel, MiniProfileHeaderWrapper, MiniProfileBody, MiniProfileBodyContent, MiniProfileIcons, MiniprofileTopBar, MiniprofileTopBarLeft, MiniProfileTopIcon } from './MiniProfileElements';
+import { useStateValue } from '../../StateProvider';
+const MiniProfile = ({data}) => {
 
-const MiniProfile = () => {
+  const [{selectedVendor},dispatch] = useStateValue();
+
+  const setVendor = (e) => {
+    e.preventDefault();
+    dispatch({
+      type : 'SET_SELECTED_VENDOR',
+      selectedVendor : null,
+    });
+  }
   return <div>
+    {console.log('data',data)}
       <MiniProfileContainer>
+        <MiniprofileTopBar>
+          <MiniprofileTopBarLeft>
+            <MiniProfileTopIcon src = '' onClick = {(e) => setVendor(e)}/>
+            <MiniProfileTopIcon src = ''/>
+            <MiniProfileTopIcon src = ''/>
+          </MiniprofileTopBarLeft>
+        </MiniprofileTopBar>
           <MiniProfileCoverTab>
               <MiniProfileIconsTab>
                 <MiniProfileIcons src = ''/>
                 <MiniProfileIcons src = ''/>
               </MiniProfileIconsTab>
-              <MiniProfileCoverPhoto src = 'https://images.unsplash.com/photo-1643240337036-fa77dbc87c13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80'/>
+              <MiniProfileCoverPhoto src = 'https://images.unsplash.com/photo-1643819179372-1f696a1dfa31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60'/>
               <MiniProfileCarousel>next</MiniProfileCarousel>
             </MiniProfileCoverTab>
             <MiniProfileHeader>
                 <MiniProfileHeaderWrapper>
-                    <MiniProfileHeaderName>Name</MiniProfileHeaderName>
+                    <MiniProfileHeaderName>{data[selectedVendor].Name}</MiniProfileHeaderName>
                     <MiniProfileHeaderName>4.5</MiniProfileHeaderName>
                 </MiniProfileHeaderWrapper>
                   

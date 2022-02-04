@@ -4,6 +4,8 @@ export const DisplayVendorContainer = styled.div`
     display: flex;
     flex-direction: row;
     height: 100%;
+    width: 100%;
+    justify-content: space-between;
     `;
 export const DisplayVendorTopBar = styled.div`
     display: flex;
