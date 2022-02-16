@@ -30,9 +30,14 @@ const Services = () => {
     setServiceName([]);
     serviceimages = await db.collection('Images').doc(pet).get()
     let data = serviceimages.data();
+    var keys = Object.keys(data);
     Object.keys(data).map(function(key,index) {
       setServices(prevState => [...prevState, data[key]])
       setServiceName(prevState => [...prevState, key])
+    })
+    dispatch({
+      type : "SET_SERVICES",
+      all_services : keys,
     })
   }
 

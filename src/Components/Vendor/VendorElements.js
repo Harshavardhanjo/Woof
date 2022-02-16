@@ -8,9 +8,13 @@ export const VendorContainer = styled.div`
     justify-content: space-around;
     width: 100%;
     height: 100%;
+    max-height: 100vh;
     overflow-y: scroll;
-    background-color: transparent;
-    margin-top: 2rem;
+
+    ::-webkit-scrollbar {
+        width: 0rem;
+        height: 0.2rem;
+    }
 `
 
 export const VendorCard = styled.div`

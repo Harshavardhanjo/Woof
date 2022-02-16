@@ -6,9 +6,54 @@ import {useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
-
-    const [{user},dispatch] = useStateValue();
+    const [lattitude, setLattitude] = React.useState(0);
+    const [longitude, setLongitude] = React.useState(0);
+    const [{user,pet,location,city}, dispatch] = useStateValue('');
     const navigate = useNavigate();
+    React.useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            setLattitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+          },
+          error => {
+            console.log(error);
+          },
+          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+        );
+        
+      }, []);
+
+      const getLocation = (e) => {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            setLattitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+          },
+          error => {
+            console.log(error);
+          },
+          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+        );
+        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lattitude},${longitude}&key=AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA`;
+        fetch(url)
+          .then(res => res.json())
+          .then(data => {
+            let city = data['plus_code']['compound_code'].split(',')[0].split(' ')[1];
+            let loc = data['results'][0]['formatted_address'];
+            dispatch({
+              type: "SET_LOCATION",
+              lattitude: lattitude,
+              longitude: longitude,
+              city : city,
+              location: loc,
+            });
+          })
+          .catch(err => console.log(err));
+    
+        
+    
+      };
     const routeChange = (e,path) =>{
         navigate(path);
       }
@@ -20,6 +65,7 @@ const Navbar = () => {
         {
             console.log("Logout");
             auth.signOut();
+            navigate('/');
         }
 
         else{
@@ -43,11 +89,12 @@ const Navbar = () => {
             })
         },[])
 
-  return <div>
+  return <div className='.navbar'>
       <Container>
-          <NavSection1 onClick = {e => routeChange(e,'/')}>
-              <Logo />
-              <Name>WOOF</Name>
+          <NavSection1 >
+              <Logo onClick = {e => routeChange(e,'/')}/>
+              <Name onClick = {e => routeChange(e,'/')}>WOOF</Name>
+              {city? <NavItems>{city}</NavItems> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>}
           </NavSection1>
 
           <NavSection2>
@@ -55,6 +102,7 @@ const Navbar = () => {
                 <NavItems>Need Help?</NavItems>
                 {user ? <NavItems onClick={e => routeChange(e,'/Profile')}>{user.displayName}</NavItems> : null}
                 {!user ? <NavItems onClick = {e => handleLogin(e)}>Login/Sign Up</NavItems> : <NavItems onClick = {e => handleLogin(e)}>Logout</NavItems>}
+                
           </NavSection2>
       </Container>
   </div>;

@@ -4,7 +4,8 @@ export const MiniProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 60rem;
-    height: 80vh;
+    height: 100%;
+    max-height: 100vh;
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
@@ -32,14 +33,26 @@ export const MiniprofileTopBarLeft = styled.div`
     padding: 0.2rem;
     background-color: #f5f5f5;
     `;
+
+export const MiniprofileTopBarRight = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+    background-color: #f5f5f5;
+    `;
+    
     
 export const MiniProfileTopIcon = styled.img`
-    height: 0.5rem;
-    width: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #e3e3e3;
-    padding: 0.5rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    padding: 0.1rem;
     margin-right: 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
     `;
 
 
@@ -53,7 +66,7 @@ export const MiniProfileCoverTab= styled.div`
 
 export const MiniProfileCoverPhoto = styled.img`
     width: 100%;
-    height: 90%;
+    height : 30rem;
     object-fit: cover;
     `;
 
@@ -96,28 +109,50 @@ export const MiniProfileHeaderWrapper = styled.div`
     display: flex;
     flex-direction: row;
     width : 50%;
+    border-bottom : 1px solid #e3e3e3;
     `;
 
-export const MiniProfileHeaderName = styled.h1`
+export const MiniProfileHeaderName = styled.p`
     font-size: 2rem;
     font-weight: bold;
+    margin: 0.5rem;
+    `;
+export const MiniProfileHeaderRating = styled.p`
+    font-size: 1.5rem;
     margin: 0.5rem;
     `;
 
 export const MiniProfileButtonHolder = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width : 25rem;
-    height : 2rem;
+    height : 3rem;
     justify-content: space-between;
     margin-top: 0.5rem;
+    margin-right: 0.5rem;
     `;
 
 export const MiniProfileButton = styled.button`
     width : 7rem;
     height : 2rem;
-    border-radius : 10px;
+    border : none;
     background-color : #f5f5f5;
+    margin-right: 0.5rem;
+    background-color: #31bde8;
+    font-size: 1rem;
+    color: white;
+    font-style: normal;
+    border-radius: 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+        width : 7rem;
+        height : 2.5rem;
+    }
+
+    transition: all 0.2s ease-in-out;
     `;
 
 export const MiniProfileBody = styled.div`
@@ -130,7 +165,14 @@ export const MiniProfileBody = styled.div`
 
 export const MiniProfileBodyContent = styled.div`
     font-size: 1.5rem;
-    font-weight: bold;
     margin: 0.5rem;
+    `;
+
+export const MiniProfileServiceHolder = styled.div`
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    width: 100%;
+    align-items: center;
     `;
 

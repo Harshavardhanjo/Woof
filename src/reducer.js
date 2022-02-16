@@ -1,12 +1,17 @@
 export const initialState = {
-    pet : 'services and products',
+    pet : 'pets',
     user : null,
     service : null,
     lattitude : null,
     longitude : null,
     location : '',
+    city : '',
     selectedVendor : null,
     data : null,
+    all_services : [],
+    all_pets : [],
+    sort : 'Distance',
+    all_sort : ['Distance','Rating','Price'],
 };
 
 
@@ -35,6 +40,7 @@ const reducer = (state, action) => {
                 lattitude : action.lattitude,
                 longitude : action.longitude,
                 location : action.location,
+                city : action.city,
             }
 
         case "SET_VENDORS":
@@ -49,6 +55,22 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 selectedVendor : action.selectedVendor,
+            }
+        case "SET_SERVICES":
+            return {
+                ...state,
+                all_services : action.all_services,
+            }
+        case "SET_PETS":
+            return {
+                ...state,
+                all_pets : action.all_pets,
+            }
+
+        case "SET_SORT":
+            return {
+                ...state,
+                sort : action.sort,
             }
     
         default:

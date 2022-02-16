@@ -79,6 +79,7 @@ export const CoverContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     padding-right: 7rem;
+    object-fit: cover;
 `
 
 export const TabHolder = styled.div`

@@ -28,9 +28,15 @@ const Pets = () => {
     setPetName([]);
     petimages = await db.collection('Images').doc('pets').get()
     let data = petimages.data();
+    var keys = Object.keys(data);
+    console.log('pets',keys);
     Object.keys(data).map(function(key,index) {
       setPets(prevState => [...prevState, data[key]])
       setPetName(prevState => [...prevState, key])
+    })
+    dispatch({
+      type : "SET_PETS",
+      all_pets : keys,
     })
   }
 
