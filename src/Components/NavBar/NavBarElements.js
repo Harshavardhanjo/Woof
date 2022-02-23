@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 import { Link as LinkR } from 'react-router-dom'
 
-export const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100vw;
-    height : 60px;
-    background-color: black;
-`
-
 export const NavSection1 = styled.div`
     display: flex;
     flex-direction: row;
@@ -64,3 +54,54 @@ export const NavLink = styled(LinkR)`
     color: white;
     margin: 10px;
     `;
+
+export const NavBarDropDown = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: black;
+    right: 100px;
+    color: black;
+    border-radius: 5px;
+    z-index: 1;
+    transition: 0.5s all ease-in-out;
+    margin:0
+    padding: 0;
+    &:hover {
+        cursor: pointer;
+        color: black;
+        transition: 0.5s;
+    }
+    
+`
+
+export const NavBarDropDownItem = styled.li`
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin: 10px;
+    border: none;
+    background-color: blue;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    height: 40px;
+    padding-top: 10px;
+`
+
+export const NavBarDropDownLogout = styled.li`
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    height: 40px;
+    padding-top: 10px;
+`

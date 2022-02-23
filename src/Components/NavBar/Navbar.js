@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { useStateValue } from '../../StateProvider';
-import { Container, Logo, Name, NavItems, NavSection1, NavSection2,NavLink } from './NavBarElements';
+import { Container, Logo, Name, NavItems, NavSection1, NavSection2,NavLink, NavBarDropDown, NavBarDropDownItem } from './NavBarElements';
 import { auth,firebase } from "../../Firebase";
 import {useNavigate } from "react-router-dom";
+import './NavBar.css';
 
 
 const Navbar = () => {
     const [lattitude, setLattitude] = React.useState(0);
     const [longitude, setLongitude] = React.useState(0);
     const [{user,pet,location,city}, dispatch] = useStateValue('');
+    const [toggle, setToggle] = React.useState(false);
     const navigate = useNavigate();
+
     React.useEffect(() => {
         navigator.geolocation.getCurrentPosition(
           position => {
@@ -23,6 +26,10 @@ const Navbar = () => {
         );
         
       }, []);
+
+      const handleToggle = (e) => {
+        setToggle(!toggle);
+      }
 
       const getLocation = (e) => {
         navigator.geolocation.getCurrentPosition(
@@ -89,10 +96,8 @@ const Navbar = () => {
             })
         },[])
 
-  return <div className='.navbar'>
-      <Container>
+  return <div className='navbar'>
           <NavSection1 >
-              <Logo onClick = {e => routeChange(e,'/')}/>
               <Name onClick = {e => routeChange(e,'/')}>WOOF</Name>
               {city? <NavItems>{city}</NavItems> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>}
           </NavSection1>
@@ -100,11 +105,15 @@ const Navbar = () => {
           <NavSection2>
                 <NavItems onClick={e => routeChange(e,'/RegisterEnterprise')}>Register your Enterprise</NavItems>
                 <NavItems>Need Help?</NavItems>
-                {user ? <NavItems onClick={e => routeChange(e,'/Profile')}>{user.displayName}</NavItems> : null}
-                {!user ? <NavItems onClick = {e => handleLogin(e)}>Login/Sign Up</NavItems> : <NavItems onClick = {e => handleLogin(e)}>Logout</NavItems>}
+                {user ? <>
+                  <NavItems onClick = {e => routeChange(e,'/Profile')}>Profile</NavItems>
+                  <NavItems onClick={e => routeChange(e,'/Favourites')}>Favourites</NavItems>
+                  <NavItems onClick={e => routeChange(e,'/Bookings')}>Bookings</NavItems>
+                  </> : null}
+                <NavItems onClick = {(e) => handleLogin(e)}>{user? 'Logout' : 'Login'}</NavItems>
+                
                 
           </NavSection2>
-      </Container>
   </div>;
 };
 

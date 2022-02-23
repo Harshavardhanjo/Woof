@@ -7,6 +7,7 @@ export const MiniProfileContainer = styled.div`
     height: 100%;
     max-height: 100vh;
     overflow-y: scroll;
+    transition: all 0.5s ease-in-out;
 
     ::-webkit-scrollbar {
         width: 0rem;

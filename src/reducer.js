@@ -1,5 +1,5 @@
 export const initialState = {
-    pet : 'pets',
+    pet : 'services and products',
     user : null,
     service : null,
     lattitude : null,

@@ -30,10 +30,6 @@ const Card = ({data}) => {
           <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
         </VendorCarousel>
 
-        <VendorButtonTab>
-          <VendorButton>Book</VendorButton>
-          <VendorButton>Contact</VendorButton>
-        </VendorButtonTab>
       </VendorCard>
       </div>
     }) : <h1>Woses</h1>}

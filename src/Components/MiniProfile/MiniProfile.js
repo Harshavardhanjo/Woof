@@ -38,6 +38,7 @@ const MiniProfile = ({data}) => {
                 </MiniProfileHeaderWrapper>
                   
                   <MiniProfileButtonHolder>
+                      <MiniProfileButton>book</MiniProfileButton>
                     <MiniProfileButton>message</MiniProfileButton>
                     <MiniProfileButton>GMaps</MiniProfileButton>
                   </MiniProfileButtonHolder>

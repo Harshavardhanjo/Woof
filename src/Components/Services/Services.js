@@ -10,18 +10,24 @@ import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 const Services = () => {
 
-  const [{pet,lattitude,longitude,location}, dispatch] = useStateValue();
+  const [{all_services,pet,lattitude,longitude,location}, dispatch] = useStateValue();
   const [services, setServices] = useState([]);
   const [serviceName, setServiceName] = useState([]);
   let navigate = useNavigate();
   
   const setService = (e,s) => {
     e.preventDefault();
-    navigate('/Vendors');
     dispatch({
       type: "SET_SERVICE",
       service: s,
     });
+    if(pet != null && lattitude != null && longitude != null && location != null && s != null)
+    {
+    navigate('/Vendors');
+    }
+    else{
+      alert("Please select location, pet and service desired");
+    }
   }
 
   async function getServiceImages() {
@@ -49,7 +55,7 @@ const Services = () => {
   return <div className="Services">
     <Container>
       <Row1>
-        {services != [] ? services.map((service,index) => {
+        {all_services != [] ? services.map((service,index) => {
           return <IconTab key={index} onClick = {e => setService(e,serviceName[index])}>
               <Icon src={services[index]}/>
               <Name>{serviceName[index]}</Name>
