@@ -22,12 +22,12 @@ export const VendorCard = styled.div`
     height : 20rem;
     border-radius : 10px;
     background-color : #f5f5f5;
-    margin : 1rem;
+    margin-bottom : 4rem;
+    margin-top : 2rem;
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content : space-around;
-    box-shadow : 0px 0px 10px 0px rgba(0,0,0,0.75);
     transition : 0.3s;
     :hover {
         box-shadow : 0px 0px 20px 0px rgba(0,0,0,0.75);

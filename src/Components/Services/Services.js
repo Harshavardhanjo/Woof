@@ -21,6 +21,8 @@ const Services = () => {
       type: "SET_SERVICE",
       service: s,
     });
+    localStorage.setItem('service',s);
+    console.log('services',pet,lattitude,longitude,location);
     if(pet != null && lattitude != null && longitude != null && location != null && s != null)
     {
     navigate('/Vendors');
@@ -45,6 +47,7 @@ const Services = () => {
       type : "SET_SERVICES",
       all_services : keys,
     })
+    localStorage.setItem('all_services',JSON.stringify(keys));
   }
 
   useEffect(() => {

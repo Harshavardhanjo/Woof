@@ -9,7 +9,15 @@ const Card = ({data}) => {
 
   const [{SelectedVendor},dispatch] = useStateValue();
 
+  useEffect(() => {
+    dispatch({
+      type : 'SET_SELECTED_VENDOR',
+      selectedVendor : 0,
+    });
+  },[])
+
   const setVendor = (e,v) => {
+    console.log('v',v)
     e.preventDefault();
     dispatch({
       type: "SET_SELECTED_VENDOR",
@@ -20,6 +28,30 @@ const Card = ({data}) => {
     <VendorContainer>
     {data != null ? data.map(function(name,index) {
       return <div>
+      <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
+        <Vendorheader>
+          <VendorName>{data[index].Name}</VendorName>
+          <VendorType>{data[index].Distance} miles</VendorType>
+          <VendorRating>{data[index].Rating}</VendorRating>
+        </Vendorheader>
+        <VendorCarousel>
+          <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+        </VendorCarousel>
+
+      </VendorCard>
+
+      <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
+        <Vendorheader>
+          <VendorName>{data[index].Name}</VendorName>
+          <VendorType>{data[index].Distance} miles</VendorType>
+          <VendorRating>{data[index].Rating}</VendorRating>
+        </Vendorheader>
+        <VendorCarousel>
+          <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+        </VendorCarousel>
+
+      </VendorCard>
+
       <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
         <Vendorheader>
           <VendorName>{data[index].Name}</VendorName>

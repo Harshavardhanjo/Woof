@@ -20,6 +20,7 @@ const Pets = () => {
       type : "SET_PET",
       pet : val
     })
+    localStorage.setItem('pet',val);
   };
 
   async function getPetImages() {
@@ -38,6 +39,7 @@ const Pets = () => {
       type : "SET_PETS",
       all_pets : keys,
     })
+    localStorage.setItem('all_pets',JSON.stringify(keys));
   }
 
   useEffect(() => {

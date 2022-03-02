@@ -36,6 +36,8 @@ const Navbar = () => {
           position => {
             setLattitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
+            localStorage.setItem('lattitude', position.coords.latitude);
+            localStorage.setItem('longitude', position.coords.longitude);
           },
           error => {
             console.log(error);
@@ -48,6 +50,8 @@ const Navbar = () => {
           .then(data => {
             let city = data['plus_code']['compound_code'].split(',')[0].split(' ')[1];
             let loc = data['results'][0]['formatted_address'];
+            localStorage.setItem('city', city);
+            localStorage.setItem('location', loc);
             dispatch({
               type: "SET_LOCATION",
               lattitude: lattitude,
@@ -87,6 +91,7 @@ const Navbar = () => {
             }
         }
 
+
         useEffect(() => {
             auth.onAuthStateChanged(user => {
                 dispatch({
@@ -94,22 +99,34 @@ const Navbar = () => {
                     user : user
                 })
             })
+            if(localStorage.getItem('lattitude') && localStorage.getItem('longitude'))
+            {
+                dispatch({
+                    type : "SET_LOCATION",
+                    lattitude: localStorage.getItem('lattitude'),
+                    longitude: localStorage.getItem('longitude'),
+                    city : localStorage.getItem('city'),
+                    location: localStorage.getItem('location'),
+                });
+            }
         },[])
 
   return <div className='navbar'>
           <NavSection1 >
               <Name onClick = {e => routeChange(e,'/')}>WOOF</Name>
-              {city? <NavItems>{city}</NavItems> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>}
+              {localStorage.getItem('lattitude') != null ? <NavItems>{localStorage.getItem('city')}</NavItems> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>}
+              {/* {localStorage.getItem('lattitude') != null ? <div>{console.log(localStorage.getItem('lattitude'))}</div> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>} */}
           </NavSection1>
 
           <NavSection2>
                 <NavItems onClick={e => routeChange(e,'/RegisterEnterprise')}>Register your Enterprise</NavItems>
-                <NavItems>Need Help?</NavItems>
+                
                 {user ? <>
-                  <NavItems onClick = {e => routeChange(e,'/Profile')}>Profile</NavItems>
+                  <NavItems onClick = {e => routeChange(e,'/Profile')}>My Profile</NavItems>
                   <NavItems onClick={e => routeChange(e,'/Favourites')}>Favourites</NavItems>
                   <NavItems onClick={e => routeChange(e,'/Bookings')}>Bookings</NavItems>
                   </> : null}
+                  <NavItems>Need Help?</NavItems>
                 <NavItems onClick = {(e) => handleLogin(e)}>{user? 'Logout' : 'Login'}</NavItems>
                 
                 

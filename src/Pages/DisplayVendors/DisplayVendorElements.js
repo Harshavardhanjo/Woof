@@ -79,5 +79,18 @@ export const DisplayVendorSelectedService = styled.h1`
     color : black;
     `;
 
+export const DisplayVendorLoading = styled.div`
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    `;
+
+export const DisplayVendorLoadingImg = styled.img`
+    width: 50%;
+    height: 50%;
+    `;
+
     
 

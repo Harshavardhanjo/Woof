@@ -1,11 +1,12 @@
 import React from 'react';
 import Vendor from '../../Components/Vendor/Vendor';
 import MiniProfile from '../../Components/MiniProfile/MiniProfile';
-import { DisplayVendorContainer, DisplayVendorResult, DisplayVendorResultButton, DisplayVendorSelectedService, DisplayVendorServiceDropdown, DisplayVendorServiceDropdownOption, DisplayVendorTopBar, DisplayVendorTopBarLeft, DisplayVendorTopBarRight } from './DisplayVendorElements';
+import { DisplayVendorContainer, DisplayVendorLoading, DisplayVendorLoadingImg, DisplayVendorLoadingText, DisplayVendorResult, DisplayVendorResultButton, DisplayVendorSelectedService, DisplayVendorServiceDropdown, DisplayVendorServiceDropdownOption, DisplayVendorTopBar, DisplayVendorTopBarLeft, DisplayVendorTopBarRight } from './DisplayVendorElements';
 import { useStateValue } from '../../StateProvider';
 import { useEffect,useState } from 'react';
 import './DisplayVendor.css'
 import axios from 'axios';
+import loading2 from '../../img/loading2.gif';
 
 const DisplayVendors = () => {
 
@@ -23,6 +24,7 @@ const DisplayVendors = () => {
       pet : pet,
       sort : sort,
     }
+    console.log('toVendorStart',details);
     axios.post('http://127.0.0.1:5000/fetchVendors', details).then(function(response){
       console.log('res',response.data)
       var tempdata = []
@@ -44,6 +46,7 @@ const DisplayVendors = () => {
 
   const toVendorService = (e) => {
     console.log('tovendorservice',e);
+    localStorage.setItem('service',e);
     var details = {
       service: e,
       lattitude: lattitude,
@@ -76,6 +79,7 @@ const DisplayVendors = () => {
     }
     const toVendorPet = (e) => {
       console.log('tovendorservice',e);
+      localStorage.setItem('pet',e);
       var details = {
         service: service,
         lattitude: lattitude,
@@ -108,6 +112,7 @@ const DisplayVendors = () => {
       }
       const toVendorSort = (e) => {
         console.log('tovendorsort called',e);
+        localStorage.setItem('sort',e);
         var details = {
           service: service,
           lattitude: lattitude,
@@ -165,8 +170,11 @@ const DisplayVendors = () => {
         </DisplayVendorServiceDropdown>
       </DisplayVendorTopBarRight>
     </DisplayVendorTopBar>
+    {console.log('all services',all_services)}
+    {console.log('all pets',all_pets)}
     <DisplayVendorContainer>
-      {data != null ?<div className='vendor'>{data != null ? <Vendor className='vendor' data = {data}  /> : <div >Loading</div>}</div> : <div>No services currently available</div>}
+      {data != null ?<div className='vendor'>{data != null ? <Vendor className='vendor' data = {data}  /> : <div >Loading</div>}</div> : <DisplayVendorLoading>
+        <DisplayVendorLoadingImg src = {loading2}/></DisplayVendorLoading>}
       { selectedVendor != null ? <div className='mini'>{selectedVendor != null ? <MiniProfile className='mini' data = {data}  /> : null}</div> : null}
     </DisplayVendorContainer>
   </div>;

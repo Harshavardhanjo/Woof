@@ -8,6 +8,7 @@ export const MiniProfileContainer = styled.div`
     max-height: 100vh;
     overflow-y: scroll;
     transition: all 0.5s ease-in-out;
+    border-left: 1px solid #e6e6e6;
 
     ::-webkit-scrollbar {
         width: 0rem;
@@ -138,12 +139,11 @@ export const MiniProfileButtonHolder = styled.div`
 export const MiniProfileButton = styled.button`
     width : 7rem;
     height : 2rem;
-    border : none;
-    background-color : #f5f5f5;
+    border : solid 1px #e3e3e3;
+    background-color : transparent;
     margin-right: 0.5rem;
-    background-color: #31bde8;
     font-size: 1rem;
-    color: white;
+    color: black;
     font-style: normal;
     border-radius: 0.5rem;
 
@@ -175,5 +175,73 @@ export const MiniProfileServiceHolder = styled.div`
     height: 3rem;
     width: 100%;
     align-items: center;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    `;
+
+export const MiniProfileBookButton = styled.button`
+width : 7rem;
+height : 2rem;
+border : solid 2px green;
+background-color : transparent;
+margin-right: 0.5rem;
+font-size: 1rem;
+color: black;
+font-style: normal;
+border-radius: 2rem;
+
+&:hover {
+    cursor: pointer;
+    width : 7rem;
+    height : 2.5rem;
+}
+
+transition: all 0.2s ease-in-out;
+`;
+
+export const MiniProfileMessageButton = styled.button`
+    width : 7rem;
+    height : 2rem;
+    border : solid 2px red;
+    background-color : transparent;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    color: black;
+    font-style: normal;
+    border-radius: 2rem;
+
+    &:hover {
+        cursor: pointer;
+        width : 7rem;
+        height : 2.5rem;
+    }
+
+    transition: all 0.2s ease-in-out;
+    `;
+
+export const MiniProfileMapsButton = styled.button`
+    width : 7rem;
+    height : 2rem;
+    border : solid 2px blue;
+    background-color : transparent;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    color: black;
+    font-style: normal;
+    border-radius: 2rem;
+    
+    &:hover {
+        cursor: pointer;
+        width : 7rem;
+        height : 2.5rem;
+    }
+    
+    transition: all 0.2s ease-in-out;
+    `;
+
+export const MiniProfileServiceIcon = styled.img`
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
     `;
 
