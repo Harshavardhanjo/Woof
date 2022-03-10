@@ -1,9 +1,10 @@
 .PostsContainer
 {
     display: flex;
-    flex-direction: row;
+    flex-direction: left;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     padding: 0.5rem;
     height: 100%;
     width: 100%;

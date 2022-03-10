@@ -165,7 +165,7 @@ export const MiniProfileBody = styled.div`
     `;
 
 export const MiniProfileBodyContent = styled.div`
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0.5rem;
     `;
 

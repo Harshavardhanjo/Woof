@@ -12,7 +12,7 @@ const Card = ({data}) => {
   useEffect(() => {
     dispatch({
       type : 'SET_SELECTED_VENDOR',
-      selectedVendor : 0,
+      selectedVendor : null,
     });
   },[])
 

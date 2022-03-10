@@ -2,15 +2,43 @@ import styled from "styled-components";
 
 
 export const PostBox = styled.div`
-    width: 32.33%;
-    height: 32.33%;
-    padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+    width: 50%;
+    height: 50%;
+    margin-bottom: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const PostImg = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 70%;
 `;
+
+export const PostsBottomBox = styled.div`
+    width: 60%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 2rem;
+    `;
+
+export const PostsLikeButton = styled.img`
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    `;
+
+export const PostsCommentButton = styled.img`
+    width: 1.5rem;
+    height: 1.5rem;
+    `;
+
+export const PostsShareButton = styled.img`
+    width: 1.5rem;
+    height: 1.5rem;
+    `;

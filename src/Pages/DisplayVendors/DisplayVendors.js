@@ -170,12 +170,12 @@ const DisplayVendors = () => {
         </DisplayVendorServiceDropdown>
       </DisplayVendorTopBarRight>
     </DisplayVendorTopBar>
-    {console.log('all services',all_services)}
-    {console.log('all pets',all_pets)}
+    {console.log('data',data)}
+    {console.log('selectedVendor',selectedVendor)}
     <DisplayVendorContainer>
       {data != null ?<div className='vendor'>{data != null ? <Vendor className='vendor' data = {data}  /> : <div >Loading</div>}</div> : <DisplayVendorLoading>
         <DisplayVendorLoadingImg src = {loading2}/></DisplayVendorLoading>}
-      { selectedVendor != null ? <div className='mini'>{selectedVendor != null ? <MiniProfile className='mini' data = {data}  /> : null}</div> : null}
+      { selectedVendor != null ? <div className='mini'>{data != null || data != [] ? <MiniProfile className='mini' data = {data}  /> : null}</div> : null}
     </DisplayVendorContainer>
   </div>;
 };
