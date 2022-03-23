@@ -162,11 +162,14 @@ export const MiniProfileBody = styled.div`
     width: 100%;
     height: 100%;
     align-items: flex-start;
+    margin-left: 0.5rem;
     `;
 
 export const MiniProfileBodyContent = styled.div`
     font-size: 1.3rem;
-    margin: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    margin-left : 0.1rem;
     `;
 
 export const MiniProfileServiceHolder = styled.div`
@@ -176,7 +179,7 @@ export const MiniProfileServiceHolder = styled.div`
     width: 100%;
     align-items: center;
     margin-top: 0.5rem;
-    margin-left: 1rem;
+    font-size: 1.3rem;
     `;
 
 export const MiniProfileBookButton = styled.button`
@@ -243,5 +246,23 @@ export const MiniProfileServiceIcon = styled.img`
     width: 2rem;
     height: 2rem;
     margin-right: 0.5rem;
+    `;
+
+export const MiniProfileContactHolder = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    `
+
+export const MiniProfileContact = styled.img`
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+    }
+
     `;
 

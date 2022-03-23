@@ -28,7 +28,7 @@ const Home = () => {
                   <Pets/>
               </PetTab>
               <IconsTab>
-                <h1>{pet}</h1>
+                <h1>Choose Your Service</h1>
                   <Services/>
               </IconsTab>
             </Section1>

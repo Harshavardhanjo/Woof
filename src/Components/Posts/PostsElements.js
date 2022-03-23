@@ -3,22 +3,22 @@ import styled from "styled-components";
 
 export const PostBox = styled.div`
     width: 50%;
-    height: 50%;
+    height: 100%;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: top;
     align-items: center;
 `;
 
 export const PostImg = styled.img`
     width: 90%;
-    height: 70%;
+    height: 90%;
 `;
 
 export const PostsBottomBox = styled.div`
     width: 60%;
-    height: 30%;
+    height: 7%;
     display: flex;
     flex-direction: row;
     margin-top: 0.5rem;

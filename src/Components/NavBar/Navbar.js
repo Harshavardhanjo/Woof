@@ -123,7 +123,7 @@ const Navbar = () => {
                 
                 {user ? <>
                   <NavItems onClick = {e => routeChange(e,'/Profile')}>My Profile</NavItems>
-                  <NavItems onClick={e => routeChange(e,'/Favourites')}>Favourites</NavItems>
+                  {/* <NavItems onClick={e => routeChange(e,'/Favourites')}>Favourites</NavItems> */}
                   <NavItems onClick={e => routeChange(e,'/Bookings')}>Bookings</NavItems>
                   </> : null}
                   <NavItems>Need Help?</NavItems>

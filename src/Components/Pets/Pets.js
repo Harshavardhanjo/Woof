@@ -51,10 +51,10 @@ const Pets = () => {
     <Container>
       <Row1>
         {pets != [] ? pets.map((pet,index) => {
-          return <IconTab key={index} onClick={(e) => handleClick(e,petName[index])}>
+          return <div><IconTab key={index} onClick={(e) => handleClick(e,petName[index])}>
               <Icon src={pets[index]}/>
               <Name>{petName[index]}</Name>
-          </IconTab>
+          </IconTab> </div>
         }) : <Icon src={loading}/>}
         {/* <IconTab>
           <Icon src={loading}/>

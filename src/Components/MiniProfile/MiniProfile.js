@@ -1,11 +1,17 @@
 import React from 'react';
-import { MiniProfileButtonHolder,MiniProfileButton, MiniProfileContainer, MiniProfileCoverPhoto, MiniProfileCoverTab, MiniProfileHeader, MiniProfileHeaderName, MiniProfileIconsTab, MiniProfileCarousel, MiniProfileHeaderWrapper, MiniProfileBody, MiniProfileBodyContent, MiniProfileIcons, MiniprofileTopBar, MiniprofileTopBarLeft, MiniProfileTopIcon, MiniprofileTopBarRight, MiniProfileHeaderRating, MiniProfileServiceHolder, MiniProfileBookButton, MiniProfileMessageButton, MiniProfileMapsButton } from './MiniProfileElements';
+import { MiniProfileButtonHolder,MiniProfileButton, MiniProfileContainer, MiniProfileCoverPhoto, MiniProfileCoverTab, MiniProfileHeader, MiniProfileHeaderName, MiniProfileIconsTab, MiniProfileCarousel, MiniProfileHeaderWrapper, MiniProfileBody, MiniProfileBodyContent, MiniProfileIcons, MiniprofileTopBar, MiniprofileTopBarLeft, MiniProfileTopIcon, MiniprofileTopBarRight, MiniProfileHeaderRating, MiniProfileServiceHolder, MiniProfileBookButton, MiniProfileMessageButton, MiniProfileMapsButton, MiniProfileContactHolder, MiniProfileContact } from './MiniProfileElements';
 import { useStateValue } from '../../StateProvider';
 import star_before from '../../img/star_before.png';
 import close from '../../img/close.png';
 import Posts from '../Posts/Posts';
 import warning from '../../img/warning.png';
 import {useNavigate } from "react-router-dom";
+import Instagram from '../../img/instagram.png';
+import Facebook from '../../img/facebook.png';
+import Twitter from '../../img/twitter.png';
+import Youtube from '../../img/youtube.png';
+import Linkedin from '../../img/linkedin.png';
+import Whatsapp from '../../img/whatsapp.png';
 const MiniProfile = ({data}) => {
 
   const [{selectedVendor},dispatch] = useStateValue();
@@ -22,6 +28,11 @@ const MiniProfile = ({data}) => {
   const toVendorProfile = (e) => {
     e.preventDefault();
     navigate(`/vendorprofile/${data[selectedVendor].Name}`);
+  }
+
+  const routeChange = (e,path) => {
+    e.preventDefault();
+    window.open(path);
   }
 
   return <div>
@@ -53,9 +64,31 @@ const MiniProfile = ({data}) => {
 
               <MiniProfileBody>
                   <MiniProfileBodyContent>{data[selectedVendor].Address}</MiniProfileBodyContent>
-                  <MiniProfileBodyContent>{data[selectedVendor].Open[0]} - {data[selectedVendor].Open[1]}</MiniProfileBodyContent>
-                  <MiniProfileBodyContent><b>other services:</b></MiniProfileBodyContent>
-                  <MiniProfileServiceHolder>{data[selectedVendor].Services.map((service,index) => {
+                  <MiniProfileBodyContent><b>Open Time: </b>{data[selectedVendor].Open[0]} - {data[selectedVendor].Open[1]}</MiniProfileBodyContent>
+                  <MiniProfileContactHolder>
+                    {data[selectedVendor].Contact.map((contact,index) => {
+                      console.log(contact);
+                      if(contact.Name == 'Instagram'){
+                        return <MiniProfileContact src = {Instagram} onClick = {e => routeChange(e,contact.Link)}/>
+                      }
+                      if(contact == 'Facebook'){
+                        return <MiniProfileContact src = {Facebook}/>
+                      }
+                      if(contact == 'Twitter'){
+                        return <MiniProfileContact src = {Twitter}/>
+                      }
+                      if(contact == 'Youtube'){
+                        return <MiniProfileContact src = {Youtube}/>
+                      }
+                      if(contact == 'Linkedin'){
+                        return <MiniProfileContact src = {Linkedin}/>
+                      }
+                      if(contact == 'Whatsapp'){
+                        return <MiniProfileContact src = {Whatsapp}/>
+                      }
+                    })}
+                  </MiniProfileContactHolder>
+                  <MiniProfileServiceHolder><b>Services :&nbsp;</b>{data[selectedVendor].Services.map((service,index) => {
                     return <MiniProfileButton key = {index}>{service}</MiniProfileButton>})}</MiniProfileServiceHolder>
                      <MiniProfileBodyContent><b>Posts</b></MiniProfileBodyContent>
                   <Posts/>

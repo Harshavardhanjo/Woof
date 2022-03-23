@@ -5,21 +5,23 @@ export const ProfileBox1 = styled.div`
     flex-direction: row;
     justify-content: left;
     align-items: top;
-    width: 100%;
+    width: 70%;
     height: 50vh;
+    background-color: #f5f5f5;
+    border-radius: 10px;
     `;
 
 export const ProfileBox1Left = styled.div`
     width: 30%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     `;
 
 export const ProfileBox1Middle = styled.div`
-    width: 38%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -34,7 +36,11 @@ export const ProfileBox1Right = styled.div`
     `;
 export const ProfileImg = styled.img`
     width: 90%;
-    height: 90%;
+    height: 70%;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-top: 10px;
+
     `;
 
 export const ProfileBoxMiddle_1 = styled.div`
@@ -93,7 +99,7 @@ export const ProfileShareButton = styled.button`
 
 export const ProfileBio = styled.p`
     font-size: 1.5em;
-    margin: 10px;
+    height: 100%;
     `;
 
 export const ProfilePetsHeading = styled.p`
@@ -120,9 +126,9 @@ export const ProfilePetIconHolder = styled.div`
 
 
 export const ProfilePetIcon = styled.img`
-    width: 7%;
-    height: 20%;
-    margin: 10%;
+    width: 60px;
+    height: 60px;
+    margin : 20px;
     margin-top: 1rem;
     border-radius: 100%;
     `;
@@ -141,3 +147,15 @@ export const ProfilePets = styled.div`
         width: 0px;
     }
     `;
+
+export const ProfileBox2 = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: top;
+    margin-top: 10px;
+    width: 70%;
+    height: 50vh;
+    `;
+
+
