@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import {BrowserRouter, Routes, Route} from  'react-router-dom'
+import { Routes, Route} from  'react-router-dom'
+import {useStateValue} from './StateProvider';
 import './App.css';
 import Home from './Pages/Home/Home';
 import Navbar from './Components/NavBar/Navbar';
@@ -11,8 +12,9 @@ import Bookings from './Pages/Bookings/Bookings';
 import Favourites from './Pages/Favourites/Favourites';
 import Settings from './Pages/Settings/Settings';
 
+
 function App() {
-  
+  const [{user}, dispatch] = useStateValue('');
   return (
     <div className='App'>
       <Navbar/>

@@ -12,9 +12,9 @@ import Twitter from '../../img/twitter.png';
 import Youtube from '../../img/youtube.png';
 import Linkedin from '../../img/linkedin.png';
 import Whatsapp from '../../img/whatsapp.png';
-const MiniProfile = ({data}) => {
+const MiniProfile = () => {
 
-  const [{selectedVendor},dispatch] = useStateValue();
+  const [{selectedVendor,mini},dispatch] = useStateValue();
   const navigate = useNavigate();
 
   const setVendor = (e) => {
@@ -27,7 +27,7 @@ const MiniProfile = ({data}) => {
 
   const toVendorProfile = (e) => {
     e.preventDefault();
-    navigate(`/vendorprofile/${data[selectedVendor].Name}`);
+    navigate(`/vendorprofile/${mini[selectedVendor].Name}`);
   }
 
   const routeChange = (e,path) => {
@@ -51,8 +51,8 @@ const MiniProfile = ({data}) => {
             </MiniProfileCoverTab>
             <MiniProfileHeader>
                 <MiniProfileHeaderWrapper>
-                    <MiniProfileHeaderName>{data[selectedVendor].Name}</MiniProfileHeaderName>
-                    <MiniProfileHeaderRating>{data[selectedVendor].Rating}/5</MiniProfileHeaderRating>
+                    <MiniProfileHeaderName>{mini[selectedVendor].Name}</MiniProfileHeaderName>
+                    <MiniProfileHeaderRating>{mini[selectedVendor].Rating}/5</MiniProfileHeaderRating>
                 </MiniProfileHeaderWrapper>
                   
                   <MiniProfileButtonHolder>
@@ -63,10 +63,10 @@ const MiniProfile = ({data}) => {
               </MiniProfileHeader>
 
               <MiniProfileBody>
-                  <MiniProfileBodyContent>{data[selectedVendor].Address}</MiniProfileBodyContent>
-                  <MiniProfileBodyContent><b>Open Time: </b>{data[selectedVendor].Open[0]} - {data[selectedVendor].Open[1]}</MiniProfileBodyContent>
+                  <MiniProfileBodyContent>{mini[selectedVendor].Address}</MiniProfileBodyContent>
+                  <MiniProfileBodyContent><b>Open Time: </b>{mini[selectedVendor].Open[0]} - {mini[selectedVendor].Open[1]}</MiniProfileBodyContent>
                   <MiniProfileContactHolder>
-                    {data[selectedVendor].Contact.map((contact,index) => {
+                    {mini[selectedVendor].Contact.map((contact,index) => {
                       console.log(contact);
                       if(contact.Name == 'Instagram'){
                         return <MiniProfileContact src = {Instagram} onClick = {e => routeChange(e,contact.Link)}/>
@@ -88,7 +88,7 @@ const MiniProfile = ({data}) => {
                       }
                     })}
                   </MiniProfileContactHolder>
-                  <MiniProfileServiceHolder><b>Services :&nbsp;</b>{data[selectedVendor].Services.map((service,index) => {
+                  <MiniProfileServiceHolder><b>Services :&nbsp;</b>{mini[selectedVendor].Services.map((service,index) => {
                     return <MiniProfileButton key = {index}>{service}</MiniProfileButton>})}</MiniProfileServiceHolder>
                      <MiniProfileBodyContent><b>Posts</b></MiniProfileBodyContent>
                   <Posts/>

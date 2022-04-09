@@ -10,8 +10,7 @@ import loading2 from '../../img/loading2.gif';
 
 const DisplayVendors = () => {
 
-  const [{all_services,all_pets,service,pet,lattitude,longitude,location,selectedVendor,city,all_sort,sort},dispatch] = useStateValue();
-  const [data,setData] = useState(null);
+  const [{all_services,all_pets,service,pet,lattitude,longitude,location,selectedVendor,city,all_sort,sort,mini},dispatch] = useStateValue();
   
   const toVendorStart = () => {
     console.log('toVendorStart',sort);
@@ -33,7 +32,10 @@ const DisplayVendors = () => {
         console.log(i,tempdata);
       }
       console.log('tempdata',tempdata);
-      setData(tempdata);
+      dispatch({
+        type : "SET_MINI",
+        mini : tempdata,
+      })
     }).catch(function(error){
         console.log(error);
       });
@@ -71,7 +73,10 @@ const DisplayVendors = () => {
         console.log(i,tempdata);
       }
       console.log('tempdata',tempdata);
-      setData(tempdata);
+      dispatch({
+        type : "SET_MINI",
+        mini : tempdata,
+      })
     }).catch(function(error){
         console.log(error);
       });
@@ -104,7 +109,10 @@ const DisplayVendors = () => {
           console.log(i,tempdata);
         }
         console.log('tempdata',tempdata);
-        setData(tempdata);
+        dispatch({
+          type : "SET_MINI",
+          mini : tempdata,
+        })
       }).catch(function(error){
           console.log(error);
         });
@@ -137,7 +145,10 @@ const DisplayVendors = () => {
             console.log(i,tempdata);
           }
           console.log('tempdata',tempdata);
-          setData(tempdata);
+          dispatch({
+            type : "SET_MINI",
+            mini : tempdata,
+          })
         }).catch(function(error){
             console.log(error);
           });
@@ -170,12 +181,12 @@ const DisplayVendors = () => {
         </DisplayVendorServiceDropdown>
       </DisplayVendorTopBarRight>
     </DisplayVendorTopBar>
-    {console.log('data',data)}
+    {console.log('mini',mini)}
     {console.log('selectedVendor',selectedVendor)}
     <DisplayVendorContainer>
-      {data != null ?<div className='vendor'>{data != null ? <Vendor className='vendor' data = {data}  /> : <div >Loading</div>}</div> : <DisplayVendorLoading>
+      {mini != null ?<div className='vendor'>{mini != null ? <Vendor className='vendor' mini = {mini}  /> : <div >Loading</div>}</div> : <DisplayVendorLoading>
         <DisplayVendorLoadingImg src = {loading2}/></DisplayVendorLoading>}
-      { selectedVendor != null ? <div className='mini'>{data != null || data != [] ? <MiniProfile className='mini' data = {data}  /> : null}</div> : null}
+      { selectedVendor != null ? <div className='mini'>{mini != null || mini != [] ? <MiniProfile className='mini'/> : null}</div> : null}
     </DisplayVendorContainer>
   </div>;
 };

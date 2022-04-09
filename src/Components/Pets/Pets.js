@@ -30,7 +30,7 @@ const Pets = () => {
     petimages = await db.collection('Images').doc('pets').get()
     let data = petimages.data();
     var keys = Object.keys(data);
-    console.log('pets',keys);
+    console.log('getPetImages',data);
     Object.keys(data).map(function(key,index) {
       setPets(prevState => [...prevState, data[key]])
       setPetName(prevState => [...prevState, key])
@@ -50,15 +50,27 @@ const Pets = () => {
   return <div className="Pets">
     <Container>
       <Row1>
-        {pets != [] ? pets.map((pet,index) => {
-          return <div><IconTab key={index} onClick={(e) => handleClick(e,petName[index])}>
+        {/* {pets != [] ? pets.map((pet,index) => {
+          return <div>
+            <IconTab key={index} onClick={(e) => handleClick(e,petName[index])}>
               <Icon src={pets[index]}/>
               <Name>{petName[index]}</Name>
           </IconTab> </div>
-        }) : <Icon src={loading}/>}
-        {/* <IconTab>
-          <Icon src={loading}/>
-        </IconTab> */}
+        }) : <Icon src={loading}/>} */}
+
+        
+
+        {pets != [] ? pets.map((pet,index) => {
+          return <div>
+          {selected == petName[index] ? <IconTabSelected key={index} onClick={(e) => handleClick(e,petName[index])}>
+            <Icon src={pets[index]}/>
+            <Name>{petName[index]}</Name>
+          </IconTabSelected> : <IconTab key={index} onClick={(e) => handleClick(e,petName[index])}>
+          {console.log('inside',petName[index])}
+            <Icon src={pets[index]}/>
+            <Name>{petName[index]}</Name>
+          </IconTab>}
+        </div>}) : <Icon src={loading}/>}
       </Row1>
     </Container>
   </div>;

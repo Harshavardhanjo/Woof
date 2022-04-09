@@ -5,9 +5,9 @@ import {useStateValue} from '../../StateProvider'
 import { useState,useEffect } from "react";
 
 
-const Card = ({data}) => {
+const Card = () => {
 
-  const [{SelectedVendor},dispatch] = useStateValue();
+  const [{SelectedVendor,mini},dispatch] = useStateValue();
 
   useEffect(() => {
     dispatch({
@@ -26,13 +26,13 @@ const Card = ({data}) => {
   }
   return <div>
     <VendorContainer>
-    {data != null ? data.map(function(name,index) {
+    {mini != null ? mini.map(function(name,index) {
       return <div>
       <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
         <Vendorheader>
-          <VendorName>{data[index].Name}</VendorName>
-          <VendorType>{data[index].Distance} miles</VendorType>
-          <VendorRating>{data[index].Rating}</VendorRating>
+          <VendorName>{mini[index].Name}</VendorName>
+          <VendorType>{mini[index].Distance} miles</VendorType>
+          <VendorRating>{mini[index].Rating}</VendorRating>
         </Vendorheader>
         <VendorCarousel>
           <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
@@ -42,9 +42,9 @@ const Card = ({data}) => {
 
       <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
         <Vendorheader>
-          <VendorName>{data[index].Name}</VendorName>
-          <VendorType>{data[index].Distance} miles</VendorType>
-          <VendorRating>{data[index].Rating}</VendorRating>
+          <VendorName>{mini[index].Name}</VendorName>
+          <VendorType>{mini[index].Distance} miles</VendorType>
+          <VendorRating>{mini[index].Rating}</VendorRating>
         </Vendorheader>
         <VendorCarousel>
           <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
@@ -54,9 +54,9 @@ const Card = ({data}) => {
 
       <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
         <Vendorheader>
-          <VendorName>{data[index].Name}</VendorName>
-          <VendorType>{data[index].Distance} miles</VendorType>
-          <VendorRating>{data[index].Rating}</VendorRating>
+          <VendorName>{mini[index].Name}</VendorName>
+          <VendorType>{mini[index].Distance} miles</VendorType>
+          <VendorRating>{mini[index].Rating}</VendorRating>
         </Vendorheader>
         <VendorCarousel>
           <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />

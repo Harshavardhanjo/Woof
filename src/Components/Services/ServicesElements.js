@@ -65,13 +65,9 @@ export const IconTabSelected = styled.div`
     margin: 15px;
     width: 7rem;
     height: 100px;
-    background-color: #b4dee0;
+    background-color: #d6d6d6;
     border-radius: 10%;
     ;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 
 

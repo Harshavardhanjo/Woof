@@ -122,7 +122,7 @@ const Navbar = () => {
                 <NavItems onClick={e => routeChange(e,'/RegisterEnterprise')}>Register your Enterprise</NavItems>
                 
                 {user ? <>
-                  <NavItems onClick = {e => routeChange(e,'/Profile')}>My Profile</NavItems>
+                  <NavItems onClick = {e => routeChange(e,`/Profile`)}>My Profile</NavItems>
                   {/* <NavItems onClick={e => routeChange(e,'/Favourites')}>Favourites</NavItems> */}
                   <NavItems onClick={e => routeChange(e,'/Bookings')}>Bookings</NavItems>
                   </> : null}

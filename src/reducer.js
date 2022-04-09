@@ -2,6 +2,7 @@ export const initialState = {
     pet : localStorage.getItem('pet'),
     user : null,
     service : localStorage.getItem('service'),
+    mini: null,
     lattitude : localStorage.getItem('lattitude'),
     longitude : localStorage.getItem('longitude'),
     location : localStorage.getItem('location'),
@@ -71,6 +72,12 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 sort : action.sort,
+            }
+        
+        case "SET_MINI":
+            return {
+                ...state,
+                mini : action.mini,
             }
     
         default:
