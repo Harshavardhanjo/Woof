@@ -28,6 +28,7 @@ export const VendorCard = styled.div`
     flex-direction : column;
     align-items : center;
     justify-content : space-around;
+    background-color : red;
     transition : 0.3s;
     :hover {
         box-shadow : 0px 0px 20px 0px rgba(0,0,0,0.75);

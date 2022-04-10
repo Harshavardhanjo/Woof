@@ -5,7 +5,7 @@ import {useStateValue} from '../../StateProvider'
 import { useState,useEffect } from "react";
 
 
-const Card = () => {
+const Vendor= () => {
 
   const [{SelectedVendor,mini},dispatch] = useStateValue();
 
@@ -72,4 +72,4 @@ const Card = () => {
   </div>;
 };
 
-export default Card;
+export default Vendor;

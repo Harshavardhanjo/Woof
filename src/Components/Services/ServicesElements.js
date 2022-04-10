@@ -44,7 +44,6 @@ export const Row1 = styled.div`
     ::-webkit-scrollbar {
         width: 0.5rem;
         height: 0.2rem;
-        background-color: #f5f5f5;
     }
     `
 
@@ -91,7 +90,7 @@ export const IconTabSelected = styled.div`
 
 
 export const Icon = styled.img`
-    width: 50%;
+    width: 40%;
     height: 50%;
 `
 
