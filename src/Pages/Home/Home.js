@@ -24,11 +24,9 @@ const Home = () => {
         </CoverTab>
           <Section1>
               <PetTab>
-                <h1>Which angel do you have?</h1>
                   <Pets/>
               </PetTab>
               <IconsTab>
-                <h1>Choose Your Service</h1>
                   <Services/>
               </IconsTab>
             </Section1>

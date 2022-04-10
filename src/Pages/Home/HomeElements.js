@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 130vh;
+    height: 100%;
 `;
 
 export const Section1 = styled.div`
@@ -16,8 +16,7 @@ export const Section1 = styled.div`
     align-items: top;
     justify-content: space-between;
     width: 100%;
-    height: 60%;
-    background-color: #f5f5f5;
+    background-color: pink;
 
 `
 
@@ -37,33 +36,29 @@ export const Section2 = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
 `
 
 export const IconsTab = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 50rem;
-    align-items: center;
-    justify-content: space-around;
-    margin: 100px;
+    width: 100%;
+    margin-top : 2%;
+    margin-bottom : 10%;
+    margin-left : 2%;
+    margin-right : 2%;
 `
 
 export const PetTab = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 37rem;
-    align-items: center;
-    justify-content: space-around;
-    margin: 100px;
+    width: 100%;
+    margin-top : 2%;
+    margin-bottom : 10%;
+    margin-left : 2%;
+    margin-right : 2%;
 `
 
 export const CoverTab = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 70%;
+    height: 40rem;
     justify-content: flex-end;
     align-items: center;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/woof-dev-fed7f.appspot.com/o/cover.jpg?alt=media&token=27ff955a-7253-4d61-ae2a-9128d7837a2f');
