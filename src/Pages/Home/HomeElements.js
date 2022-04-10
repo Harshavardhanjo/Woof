@@ -7,7 +7,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
 `;
 
 export const Section1 = styled.div`
@@ -16,8 +15,6 @@ export const Section1 = styled.div`
     align-items: top;
     justify-content: space-between;
     width: 100%;
-    background-color: pink;
-
 `
 
 // export const Section1 = styled.div`
@@ -40,18 +37,21 @@ export const Section2 = styled.div`
 
 export const IconsTab = styled.div`
     width: 100%;
-    margin-top : 2%;
-    margin-bottom : 10%;
-    margin-left : 2%;
-    margin-right : 2%;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2%;
+    margin-bottom: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
 `
 
 export const PetTab = styled.div`
     width: 100%;
-    margin-top : 2%;
-    margin-bottom : 10%;
-    margin-left : 2%;
-    margin-right : 2%;
+    margin-top: 2%;
+    margin-bottom: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+    justify-content: space-around;
 `
 
 export const CoverTab = styled.div`

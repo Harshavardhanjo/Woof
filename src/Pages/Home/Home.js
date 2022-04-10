@@ -9,7 +9,7 @@ const Home = () => {
   
   const [lattitude, setLattitude] = React.useState(0);
   const [longitude, setLongitude] = React.useState(0);
-  const [{pet,location,city}, dispatch] = useStateValue('');
+  const [{user}, dispatch] = useStateValue('');
 
   return <div>
       <Container>
@@ -22,14 +22,15 @@ const Home = () => {
             </TabHolder>
           </CoverContainer>
         </CoverTab>
-          <Section1>
+        <h1>Choose your Service!</h1>
+          { user ? <Section1>
               <PetTab>
-                  <Pets/>
+                <Pets/>
               </PetTab>
               <IconsTab>
-                  <Services/>
+                <Services/>
               </IconsTab>
-            </Section1>
+            </Section1> : null}
       </Container>
   </div>;
 };

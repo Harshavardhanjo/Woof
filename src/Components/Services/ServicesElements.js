@@ -7,31 +7,16 @@ export const Container = styled.div`
     border-radius: 10%;
 `
 
-export const Row1 = styled.div`
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-radius: 10px;
-    height: 100%;
-    width: 100%;
-    overflow-y: scroll;
-
-    ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.2rem;
-    }
-    background-color: red;
-`
-
 // export const Row1 = styled.div`
 //     display: flex;
 //     flex-direction: row;
 //     flex-wrap: wrap;
 //     align-items: center;
+//     align-self: left;
 //     justify-content: space-between;
 //     width: 100%;
 //     height: 100%;
-//     background-color: black;
+//     background-color: #f5f5f5;
 //     box-shadow: 0px 0px 5px grey;
 //     border-radius: 10px;
 //     overflow-y: scroll;
@@ -40,7 +25,28 @@ export const Row1 = styled.div`
 //         width: 0.5rem;
 //         height: 0.2rem;
 //     }
+
+//     ::-after {
+//         flex : auto;
+//         content: "";
 // `
+
+export const Row1 = styled.div`
+    display : grid;
+    gap : 1rem;
+    grid-template-columns : 1fr 1fr 1fr 1fr;
+    box-shadow: 0px 0px 5px grey;
+    border-radius: 10px;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.2rem;
+        background-color: #f5f5f5;
+    }
+    `
 
 export const Row2 = styled.div`
     display: flex;
@@ -57,10 +63,10 @@ export const IconTab = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin : 1rem;
+    margin: 1rem;
     width: 70%;
     height: 70%;
-    background-color: blue;
+    
 
     &:hover {
         cursor: pointer;
@@ -75,31 +81,21 @@ export const IconTabSelected = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin : 1rem;
-    width: 70%;
-    height: 70%;
-    background-color: #b4dee0;
+    margin: 15px;
+    width: 7rem;
+    height: 100px;
+    background-color: #d6d6d6;
     border-radius: 10%;
     ;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 
 
 export const Icon = styled.img`
-    width : 50%;
+    width: 50%;
     height: 50%;
-
-`;
+`
 
 export const Name = styled.h1`
     font-size: 1rem;
-`;
-
-// export const Name = styled.h1`
-//     font-size: 1rem;
-//     color: white;
-// `
+    `
 
