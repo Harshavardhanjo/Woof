@@ -10,28 +10,23 @@ import loading2 from '../../img/loading2.gif';
 
 const DisplayVendors = () => {
 
-  const [{all_services,all_pets,service,pet,lattitude,longitude,location,selectedVendor,city,all_sort,sort,mini},dispatch] = useStateValue();
+  const [{all_services,all_pets,service,pet,selectedVendor,all_sort,sort,mini},dispatch] = useStateValue();
   
   const toVendorStart = () => {
-    console.log('toVendorStart',sort);
     var details = {
       service: service,
-      lattitude: lattitude,
-      longitude: longitude,
-      location: location,
-      city : city.toLowerCase(),
+      lattitude: localStorage.getItem('lattitude'),
+      longitude: localStorage.getItem('longitude'),
+      location: localStorage.getItem('location'),
+      city : localStorage.getItem('city').toLowerCase(),
       pet : pet,
       sort : sort,
     }
-    console.log('toVendorStart',details);
     axios.post('http://127.0.0.1:5000/fetchVendors', details).then(function(response){
-      console.log('res',response.data)
       var tempdata = []
       for(var i=0;i<Object.keys(response.data).length;i++){
         tempdata.push(response.data[i]);
-        console.log(i,tempdata);
       }
-      console.log('tempdata',tempdata);
       dispatch({
         type : "SET_MINI",
         mini : tempdata,
@@ -47,14 +42,13 @@ const DisplayVendors = () => {
   }, []);
 
   const toVendorService = (e) => {
-    console.log('tovendorservice',e);
     localStorage.setItem('service',e);
     var details = {
       service: e,
-      lattitude: lattitude,
-      longitude: longitude,
-      location: location,
-      city : city.toLowerCase(),
+      lattitude: localStorage.getItem('lattitude'),
+      longitude: localStorage.getItem('longitude'),
+      location: localStorage.getItem('location'),
+      city : localStorage.getItem('city').toLowerCase(),
       pet : pet,
       sort : sort,
     }
@@ -70,9 +64,7 @@ const DisplayVendors = () => {
       var tempdata = []
       for(var i=0;i<Object.keys(response.data).length;i++){
         tempdata.push(response.data[i]);
-        console.log(i,tempdata);
       }
-      console.log('tempdata',tempdata);
       dispatch({
         type : "SET_MINI",
         mini : tempdata,
@@ -83,15 +75,14 @@ const DisplayVendors = () => {
       
     }
     const toVendorPet = (e) => {
-      console.log('tovendorservice',e);
       localStorage.setItem('pet',e);
       var details = {
         service: service,
-        lattitude: lattitude,
-        longitude: longitude,
-        location: location,
-        city : city.toLowerCase(),
-        pet : e,
+        lattitude: localStorage.getItem('lattitude'),
+        longitude: localStorage.getItem('longitude'),
+        location: localStorage.getItem('location'),
+        city : localStorage.getItem('city').toLowerCase(),
+        pet : pet,
         sort : sort,
       }
       dispatch({
@@ -106,9 +97,7 @@ const DisplayVendors = () => {
         var tempdata = []
         for(var i=0;i<Object.keys(response.data).length;i++){
           tempdata.push(response.data[i]);
-          console.log(i,tempdata);
         }
-        console.log('tempdata',tempdata);
         dispatch({
           type : "SET_MINI",
           mini : tempdata,
@@ -119,16 +108,15 @@ const DisplayVendors = () => {
         
       }
       const toVendorSort = (e) => {
-        console.log('tovendorsort called',e);
         localStorage.setItem('sort',e);
         var details = {
           service: service,
-          lattitude: lattitude,
-          longitude: longitude,
-          location: location,
-          city : city.toLowerCase(),
+          lattitude: localStorage.getItem('lattitude'),
+          longitude: localStorage.getItem('longitude'),
+          location: localStorage.getItem('location'),
+          city : localStorage.getItem('city').toLowerCase(),
           pet : pet,
-          sort : e,
+          sort : sort,
         }
         dispatch({
           type : "SET_SORT",
@@ -142,9 +130,7 @@ const DisplayVendors = () => {
           var tempdata = []
           for(var i=0;i<Object.keys(response.data).length;i++){
             tempdata.push(response.data[i]);
-            console.log(i,tempdata);
           }
-          console.log('tempdata',tempdata);
           dispatch({
             type : "SET_MINI",
             mini : tempdata,
@@ -181,10 +167,8 @@ const DisplayVendors = () => {
         </DisplayVendorServiceDropdown>
       </DisplayVendorTopBarRight>
     </DisplayVendorTopBar>
-    {console.log('mini',mini)}
-    {console.log('selectedVendor',selectedVendor)}
     <DisplayVendorContainer>
-      {mini != null ?<div className='vendor'>{mini != null ? <Vendor className='vendor' mini = {mini}  /> : <div >Loading</div>}</div> : <DisplayVendorLoading>
+      {mini != null ?<div className='vendor'>{mini != null ? <Vendor className='vendor'/> : <div >Loading</div>}</div> : <DisplayVendorLoading>
         <DisplayVendorLoadingImg src = {loading2}/></DisplayVendorLoading>}
       { selectedVendor != null ? <div className='mini'>{mini != null || mini != [] ? <MiniProfile className='mini'/> : null}</div> : null}
     </DisplayVendorContainer>

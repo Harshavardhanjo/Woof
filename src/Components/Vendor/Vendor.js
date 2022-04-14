@@ -1,5 +1,5 @@
 import React from 'react';
-import { VendorCard, Vendorheader, VendorName, VendorType,VendorRating, VendorCarousel, VendorCarouselImg, VendorCarouselTab, VendorCarouselButton, VendorButtonTab,VendorButton, VendorContainer } from './VendorElements';
+import { VendorCard, Vendorheader, VendorName, VendorType,VendorRating, VendorCarousel, VendorCarouselImg, VendorCarouselTab, VendorCarouselButton, VendorButtonTab,VendorButton, VendorContainer, VendorSelectedContainer } from './VendorElements';
 import axios from 'axios';
 import {useStateValue} from '../../StateProvider'
 import { useState,useEffect } from "react";
@@ -7,7 +7,7 @@ import { useState,useEffect } from "react";
 
 const Vendor= () => {
 
-  const [{SelectedVendor,mini},dispatch] = useStateValue();
+  const [{selectedVendor,mini},dispatch] = useStateValue();
 
   useEffect(() => {
     dispatch({
@@ -25,8 +25,8 @@ const Vendor= () => {
     });
   }
   return <div>
-    <VendorContainer>
-    {mini != null ? mini.map(function(name,index) {
+    {selectedVendor === null ? <VendorContainer>
+    {mini.map(function(name,index) {
       return <div>
       <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
         <Vendorheader>
@@ -39,19 +39,11 @@ const Vendor= () => {
         </VendorCarousel>
 
       </VendorCard>
-
-      <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
-        <Vendorheader>
-          <VendorName>{mini[index].Name}</VendorName>
-          <VendorType>{mini[index].Distance} miles</VendorType>
-          <VendorRating>{mini[index].Rating}</VendorRating>
-        </Vendorheader>
-        <VendorCarousel>
-          <VendorCarouselImg src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-        </VendorCarousel>
-
-      </VendorCard>
-
+      </div>
+    })}
+    </VendorContainer> :<VendorSelectedContainer>
+    {mini.map(function(name,index) {
+      return <div>
       <VendorCard key={index} onClick = {(e) =>setVendor(e,index)}>
         <Vendorheader>
           <VendorName>{mini[index].Name}</VendorName>
@@ -64,12 +56,11 @@ const Vendor= () => {
 
       </VendorCard>
       </div>
-    }) : <h1>Woses</h1>}
-
-    
-    
-    </VendorContainer>
-  </div>;
+    })}
+      </VendorSelectedContainer>}  
+      
+      
+      </div>;
 };
 
 export default Vendor;

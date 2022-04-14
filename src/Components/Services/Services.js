@@ -22,7 +22,7 @@ const Services = () => {
       service: s,
     });
     localStorage.setItem('service',s);
-    if(pet != null && lattitude != null && longitude != null && location != null && s != null)
+    if(pet != null && localStorage.getItem('lattitude') != null && localStorage.getItem('longitude') != null && localStorage.getItem('location') != null && s != null)
     {
     navigate('/Vendors');
     }

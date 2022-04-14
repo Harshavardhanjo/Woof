@@ -1,20 +1,29 @@
 import styled from "styled-components";
 
 export const VendorContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: top;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-    max-height: 100vh;
-    overflow-y: scroll;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // align-items: top;
+    // justify-content: space-around;
+    // width: 100%;
+    // height: 100%;
+    // max-height: 100vh;
+    // overflow-y: scroll;
 
-    ::-webkit-scrollbar {
-        width: 0rem;
-        height: 0.2rem;
-    }
+    // ::-webkit-scrollbar {
+    //     width: 0rem;
+    //     height: 0.2rem;
+    // }
+
+    display : grid;
+    grid-template-columns : 1fr 1fr 1fr 1fr;
+`
+
+export const VendorSelectedContainer = styled.div`
+    display : grid;
+    grid-template-columns : 1fr;
+    
 `
 
 export const VendorCard = styled.div`
@@ -22,8 +31,6 @@ export const VendorCard = styled.div`
     height : 20rem;
     border-radius : 10px;
     background-color : #f5f5f5;
-    margin-bottom : 4rem;
-    margin-top : 2rem;
     display : flex;
     flex-direction : column;
     align-items : center;

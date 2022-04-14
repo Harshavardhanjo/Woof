@@ -66,7 +66,6 @@ const Pets = () => {
             <Icon src={pets[index]}/>
             <Name>{petName[index]}</Name>
           </IconTabSelected> : <IconTab key={index} onClick={(e) => handleClick(e,petName[index])}>
-          {console.log('inside',petName[index])}
             <Icon src={pets[index]}/>
             <Name>{petName[index]}</Name>
           </IconTab>}
