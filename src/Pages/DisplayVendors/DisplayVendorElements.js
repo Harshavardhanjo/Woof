@@ -5,7 +5,6 @@ export const DisplayVendorContainer = styled.div`
     flex-direction: row;
     height: 100%;
     width: 100%;
-    background-color: red;
     `;
 export const DisplayVendorTopBar = styled.div`
     display: flex;

@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 
 export const PostBox = styled.div`
-    width: 50%;
     height: 100%;
-    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: top;

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import loading_normal from '../../img/loading_normal.gif';
 
 export const Container = styled.div`
     height: 20rem;
@@ -65,6 +66,7 @@ export const IconTab = styled.div`
     margin: 1rem;
     width: 70%;
     height: 70%;
+    
     
 
     &:hover {

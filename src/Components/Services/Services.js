@@ -8,6 +8,7 @@ import {db} from '../../Firebase';
 import loading from '../../img/loading.gif';
 import {useNavigate} from 'react-router-dom';
 import axios from "axios";
+import loading_normal from '../../img/loading_normal.gif';
 const Services = () => {
 
   const [{all_services,pet,lattitude,longitude,location}, dispatch] = useStateValue();
@@ -59,7 +60,7 @@ const Services = () => {
       <Row1>
         {all_services != [] ? services.map((service,index) => {
           return <IconTab key={index} onClick = {e => setService(e,serviceName[index])}>
-              <Icon src={services[index]}/>
+              <Icon src={services[index]} alt={serviceName[index]}/>
               <Name>{serviceName[index]}</Name>
           </IconTab>
         }) : <Icon src={loading}/>}

@@ -1,28 +1,36 @@
 import styled from "styled-components";
+import loading_normal from '../../img/loading_normal.gif';
 
 export const VendorContainer = styled.div`
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // align-items: top;
-    // justify-content: space-around;
-    // width: 100%;
-    // height: 100%;
-    // max-height: 100vh;
-    // overflow-y: scroll;
-
-    // ::-webkit-scrollbar {
-    //     width: 0rem;
-    //     height: 0.2rem;
-    // }
-
     display : grid;
     grid-template-columns : 1fr 1fr 1fr 1fr;
-`
+    margin-top : 2rem;
+    margin-left : 2rem;
+    grid-gap : 1rem;
+    width : 100%;
+    height : 100%;
+    overflow-y : scroll;
+    ::-webkit-scrollbar {
+        width: 0rem;
+        height: 0.2rem;
+    }
+`;
 
 export const VendorSelectedContainer = styled.div`
-    display : grid;
-    grid-template-columns : 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: top;
+    margin-top : 2rem;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+        width: 0rem;
+        height: 0.2rem;
+    }
     
 `
 
@@ -35,10 +43,9 @@ export const VendorCard = styled.div`
     flex-direction : column;
     align-items : center;
     justify-content : space-around;
-    // background-color : red;
     transition : 0.3s;
-    :hover {
-        box-shadow : 0px 0px 20px 0px rgba(0,0,0,0.75);
+    &:hover {
+        border : 1px solid #f5f5f5;
     }
 `;
 
@@ -76,6 +83,7 @@ export const VendorCarousel = styled.div`
     flex-direction : column;
     align-items : center;
     justify-content : center;
+    background : transparent url(${loading_normal});
 `;
 
 export const VendorCarouselTab = styled.div`
@@ -87,8 +95,8 @@ export const VendorCarouselTab = styled.div`
     `;
 
 export const VendorCarouselImg = styled.img`
-    width : 90%;
-    height : 90%;
+    width : 100%;
+    height : 100%;
     object-fit : cover;
 `;
 
