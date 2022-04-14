@@ -4,26 +4,45 @@ import { Container, Logo, Name, NavItems, NavSection1, NavSection2,NavLink, NavB
 import { auth,firebase } from "../../Firebase";
 import {useNavigate } from "react-router-dom";
 import './NavBar.css';
+import axios from 'axios';
 
 
 const Navbar = () => {
     const [lattitude, setLattitude] = React.useState(0);
     const [longitude, setLongitude] = React.useState(0);
-    const [{user,pet,location,city}, dispatch] = useStateValue('');
+    const [city, setCity] = React.useState(null);
+    const [{user}, dispatch] = useStateValue('');
     const [toggle, setToggle] = React.useState(false);
     const navigate = useNavigate();
 
     React.useEffect(() => {
+      if(localStorage.getItem('lattitude') === null){
+        alert("Please allow access to your location, we need it to show you the nearest vendors");
         navigator.geolocation.getCurrentPosition(
           position => {
             setLattitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
+            localStorage.setItem('lattitude',position.coords.latitude);
+            localStorage.setItem('longitude',position.coords.longitude);
+            dispatch({
+              type: "SET_LOCATION",
+              lattitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            });
+
           },
           error => {
             console.log(error);
           },
           { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
         );
+      }
+
+      else{
+        setLattitude(localStorage.getItem('lattitude'));
+        setLongitude(localStorage.getItem('longitude'));
+        setCity(localStorage.getItem('city'));
+      }
         
       }, []);
 
@@ -32,39 +51,26 @@ const Navbar = () => {
       }
 
       const getLocation = (e) => {
-        navigator.geolocation.getCurrentPosition(
-          position => {
-            setLattitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-            localStorage.setItem('lattitude', position.coords.latitude);
-            localStorage.setItem('longitude', position.coords.longitude);
-          },
-          error => {
-            console.log(error);
-          },
-          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-        );
-        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lattitude},${longitude}&key=AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA`;
-        fetch(url)
-          .then(res => res.json())
-          .then(data => {
-            let city = data['plus_code']['compound_code'].split(',')[0].split(' ')[1];
-            let loc = data['results'][0]['formatted_address'];
-            localStorage.setItem('city', city);
-            localStorage.setItem('location', loc);
-            dispatch({
-              type: "SET_LOCATION",
-              lattitude: lattitude,
-              longitude: longitude,
-              city : city,
-              location: loc,
-            });
-          })
-          .catch(err => console.log(err));
-    
-        
-    
-      };
+        var details = {
+          lattitude: lattitude,
+          longitude: longitude,
+        }
+        axios.post('http://127.0.0.1:5000/GetLocation', details).then(function(response){
+          console.log('res',response.data)
+          dispatch({
+            type : "SET_LOCATION",
+            location: response.data.location,
+            city: response.data.city,
+          });
+          localStorage.setItem('location',response.data.location);
+          localStorage.setItem('city',response.data.city);
+          setCity(response.data.city);
+
+
+      }).catch(function(error){
+          console.log(error);
+        });
+      }
     const routeChange = (e,path) =>{
         navigate(path);
       }
@@ -99,23 +105,13 @@ const Navbar = () => {
                     user : user
                 })
             })
-            if(localStorage.getItem('lattitude') && localStorage.getItem('longitude'))
-            {
-                dispatch({
-                    type : "SET_LOCATION",
-                    lattitude: localStorage.getItem('lattitude'),
-                    longitude: localStorage.getItem('longitude'),
-                    city : localStorage.getItem('city'),
-                    location: localStorage.getItem('location'),
-                });
-            }
         },[])
 
   return <div className='navbar'>
           <NavSection1 >
+            {console.log('city',localStorage.getItem('city'))}
               <Name onClick = {e => routeChange(e,'/')}>WOOF</Name>
-              {localStorage.getItem('lattitude') != null ? <NavItems>{localStorage.getItem('city')}</NavItems> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>}
-              {/* {localStorage.getItem('lattitude') != null ? <div>{console.log(localStorage.getItem('lattitude'))}</div> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>} */}
+              {city != null ? <NavItems>{city}</NavItems> : <NavItems onClick = {e => getLocation(e)}>Choose your location</NavItems>}
           </NavSection1>
 
           <NavSection2>
@@ -123,7 +119,6 @@ const Navbar = () => {
                 
                 {user ? <>
                   <NavItems onClick = {e => routeChange(e,`/Profile`)}>My Profile</NavItems>
-                  {/* <NavItems onClick={e => routeChange(e,'/Favourites')}>Favourites</NavItems> */}
                   <NavItems onClick={e => routeChange(e,'/Bookings')}>Bookings</NavItems>
                   </> : null}
                   <NavItems>Need Help?</NavItems>

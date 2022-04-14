@@ -11,6 +11,7 @@ import Profile from './Pages/Profile/Profile';
 import Bookings from './Pages/Bookings/Bookings';
 import Favourites from './Pages/Favourites/Favourites';
 import Settings from './Pages/Settings/Settings';
+import Landing from './Pages/Landing/Landing';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
     <div className='App'>
       <Navbar/>
         <Routes>
-          <Route exact path = '/' element = {<Home/>}/>
+          { user ? <Route exact path = '/' element = {<Home/>}/> : <Route exact path = '/' element = {<Landing/>}/>}
 
           <Route exact path = '/Profile' element ={<Profile/>}/>
 

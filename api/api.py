@@ -4,6 +4,8 @@ from firebase_admin import credentials, firestore
 import flask_cors as Cors
 from flask import Flask, request, jsonify
 import requests
+from decouple import config
+
 
 cred = credentials.Certificate("./cred.json")
 firebase_admin.initialize_app(cred)
@@ -27,7 +29,6 @@ def getVendor(location,service,lattitude,longitude,pet,city,sort):
     vendors = []
     print(sort)
     tag = sort
-    key = "AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA"
     for doc in vendor:
         doc = doc.to_dict()
         if service in doc['Services'] and pet in doc['Pets']:
@@ -47,11 +48,32 @@ def sortVendors(vendors,tag):
     
 
 def getDistance(origin,destination):
-    key = "AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA"
+    key = config('KEY')
     url = ('https://maps.googleapis.com/maps/api/distancematrix/json'+ '?language=en-US&units=imperial'+ '&origins={}'+ '&destinations={}'+ '&key={}').format(origin, destination, key)
     response = requests.request("GET", url).json()
     dist = float(response['rows'][0]['elements'][0]['distance']['text'].split(' ')[0])
     return dist
+
+@app.route('/CreateUser', methods=['POST','GET'])
+def createUser():
+    if request.method == "POST":
+        data = request.get_json()
+        db = firestore.client()
+        user_ref = db.collection('User')
+        user_ref.add(data)
+        return jsonify(data)
+
+@app.route('/GetLocation', methods=['POST','GET'])
+def getLocation():
+    if request.method == "POST":
+        data = request.get_json()
+        key = config('KEY')
+        url = ('https://maps.googleapis.com/maps/api/geocode/json?latlng={lattitude},{longitude}&key={key}').format(lattitude=data['lattitude'],longitude=data['longitude'],key=key)
+        response = requests.request("GET", url).json()
+        data = {'city' : response['plus_code']['compound_code'].split(',')[0].split(' ')[1],'location' : response['results'][0]['formatted_address']}
+        print(data)
+        return jsonify(data)
+        
 
 
 if __name__ == '__main__':

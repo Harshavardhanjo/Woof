@@ -23,14 +23,14 @@ const Home = () => {
           </CoverContainer>
         </CoverTab>
         <h1>Choose your Service!</h1>
-          { user ? <Section1>
+          <Section1>
               <PetTab>
                 <Pets/>
               </PetTab>
               <IconsTab>
                 <Services/>
               </IconsTab>
-            </Section1> : null}
+            </Section1>
       </Container>
   </div>;
 };

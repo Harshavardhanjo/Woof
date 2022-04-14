@@ -3,10 +3,6 @@ export const initialState = {
     user : null,
     service : localStorage.getItem('service'),
     mini: null,
-    lattitude : localStorage.getItem('lattitude'),
-    longitude : localStorage.getItem('longitude'),
-    location : localStorage.getItem('location'),
-    city : localStorage.getItem('city'),
     selectedVendor : null,
     data : null,
     all_services : JSON.parse(localStorage.getItem('all_services')),
@@ -33,15 +29,6 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 service : action.service,
-            }
-
-        case "SET_LOCATION":
-            return {
-                ...state,
-                lattitude : action.lattitude,
-                longitude : action.longitude,
-                location : action.location,
-                city : action.city,
             }
 
         case "SET_VENDORS":
