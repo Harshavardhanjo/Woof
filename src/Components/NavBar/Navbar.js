@@ -120,6 +120,7 @@ const Navbar = () => {
                 {user ? <>
                   <NavItems onClick = {e => routeChange(e,`/Profile`)}>My Profile</NavItems>
                   <NavItems onClick={e => routeChange(e,'/Bookings')}>Bookings</NavItems>
+                  <NavItems onClick={e => routeChange(e,'/Feed')}>Feed</NavItems>
                   </> : null}
                   <NavItems>Need Help?</NavItems>
                 <NavItems onClick = {(e) => handleLogin(e)}>{user? 'Logout' : 'Login'}</NavItems>

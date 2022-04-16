@@ -18,7 +18,7 @@ const Home = () => {
             <HeroText>Wiggly tails is all we want</HeroText>
             <TabHolder>
               <SearchBar/>
-              <Search>Search</Search>
+              <Search placeholder='Search For a Vendor'>Search</Search>
             </TabHolder>
           </CoverContainer>
         </CoverTab>

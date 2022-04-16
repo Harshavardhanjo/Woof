@@ -1,3 +1,4 @@
+import math
 from urllib import response
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -33,7 +34,7 @@ def getVendor(location,service,lattitude,longitude,pet,city,sort):
         doc = doc.to_dict()
         if service in doc['Services'] and pet in doc['Pets']:
             doc['Distance'] = getDistance(str(lattitude)+','+str(longitude),str(doc['Location'][0])+','+str(doc['Location'][1]))
-            doc['Rating'] = float(doc['Rating'])
+            doc['Rating'] = 5 - math.floor(float((doc['Rating'])))
             vendors.append(doc)
         print(vendors)
         if(vendors != []):

@@ -17,17 +17,6 @@ export const Section1 = styled.div`
     width: 100%;
 `
 
-// export const Section1 = styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     align-items: top;
-//     justify-content: space-between;
-//     width: 100%;
-//     height: 60%;
-//     background-color: black;
-
-// `
-
 export const Section2 = styled.div`
     display: flex;
     flex-direction: row;
@@ -58,7 +47,7 @@ export const CoverTab = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 40rem;
+    height: 80vh;
     justify-content: flex-end;
     align-items: center;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/woof-dev-fed7f.appspot.com/o/cover.jpg?alt=media&token=27ff955a-7253-4d61-ae2a-9128d7837a2f');

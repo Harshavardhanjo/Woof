@@ -27,7 +27,7 @@ const MiniProfile = () => {
 
   const toVendorProfile = (e) => {
     e.preventDefault();
-    navigate(`/vendorprofile/${mini[selectedVendor].Name}`);
+    navigate(`/vendorprofile`);
   }
 
   const routeChange = (e,path) => {
@@ -52,11 +52,11 @@ const MiniProfile = () => {
             <MiniProfileHeader>
                 <MiniProfileHeaderWrapper>
                     <MiniProfileHeaderName>{mini[selectedVendor].Name}</MiniProfileHeaderName>
-                    <MiniProfileHeaderRating>{mini[selectedVendor].Rating}/5</MiniProfileHeaderRating>
+                    <MiniProfileHeaderRating>{mini[selectedVendor].Rating}/5 Stars</MiniProfileHeaderRating>
                 </MiniProfileHeaderWrapper>
                   
                   <MiniProfileButtonHolder>
-                      <MiniProfileBookButton>Follow</MiniProfileBookButton>
+                      <MiniProfileBookButton>Book</MiniProfileBookButton>
                     <MiniProfileMessageButton onClick={(e) => toVendorProfile(e)}>View Profile</MiniProfileMessageButton>
                     <MiniProfileMapsButton>Maps</MiniProfileMapsButton>
                   </MiniProfileButtonHolder>

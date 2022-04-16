@@ -9,6 +9,7 @@ export const MiniProfileContainer = styled.div`
     overflow-y: scroll;
     transition: all 0.5s ease-in-out;
     border-left: 1px solid #e6e6e6;
+    background-color: white;
 
     ::-webkit-scrollbar {
         width: 0rem;
@@ -23,7 +24,6 @@ export const MiniprofileTopBar = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.2rem;
-    background-color: #f5f5f5;
     border-bottom: 1px solid #e3e3e3;
     `;
 
@@ -33,7 +33,6 @@ export const MiniprofileTopBarLeft = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.2rem;
-    background-color: #f5f5f5;
     `;
 
 export const MiniprofileTopBarRight = styled.div`
@@ -42,7 +41,6 @@ export const MiniprofileTopBarRight = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.2rem;
-    background-color: #f5f5f5;
     `;
     
     
@@ -125,15 +123,10 @@ export const MiniProfileHeaderRating = styled.p`
     `;
 
 export const MiniProfileButtonHolder = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width : 25rem;
-    height : 3rem;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
     margin-top: 0.5rem;
-    margin-right: 0.5rem;
     `;
 
 export const MiniProfileButton = styled.button`
@@ -149,8 +142,6 @@ export const MiniProfileButton = styled.button`
 
     &:hover {
         cursor: pointer;
-        width : 7rem;
-        height : 2.5rem;
     }
 
     transition: all 0.2s ease-in-out;
@@ -183,40 +174,57 @@ export const MiniProfileServiceHolder = styled.div`
     `;
 
 export const MiniProfileBookButton = styled.button`
-width : 7rem;
-height : 2rem;
-border : solid 2px green;
-background-color : transparent;
-margin-right: 0.5rem;
-font-size: 1rem;
-color: black;
-font-style: normal;
-border-radius: 2rem;
-
-&:hover {
-    cursor: pointer;
     width : 7rem;
-    height : 2.5rem;
-}
+    height : 2rem;
+    outline: none;
+    border : #6bed96 solid 1px;
+    background-color : white;
+    font-size: 1rem;
+    font-style: normal;
+    border-radius: 2rem;
+    color: #6bed96;
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+        width : 7rem;
+        height : 2rem;
+        border : none;
+        outline: none;
+        background-color : #6bed96;
+        font-size: 1rem;
+        font-style: normal;
+        border-radius: 2rem;
+        color: white;
+        font-weight: bold;
+    }
 
-transition: all 0.2s ease-in-out;
-`;
+    transition: all 0.2s ease-in-out;
+    `;
 
 export const MiniProfileMessageButton = styled.button`
     width : 7rem;
     height : 2rem;
-    border : solid 2px red;
-    background-color : transparent;
-    margin-right: 0.5rem;
+    outline: none;
+    border : #21b7ed solid 1px;
+    background-color : white;
     font-size: 1rem;
-    color: black;
+    color: #21b7ed;
     font-style: normal;
     border-radius: 2rem;
+    font-weight: bold;
 
     &:hover {
         cursor: pointer;
         width : 7rem;
-        height : 2.5rem;
+        height : 2rem;
+        border : none;
+        outline: none;
+        background-color : #21b7ed ;
+        font-size: 1rem;
+        font-style: normal;
+        border-radius: 2rem;
+        color: white;
+        font-weight: bold;
     }
 
     transition: all 0.2s ease-in-out;
@@ -225,18 +233,27 @@ export const MiniProfileMessageButton = styled.button`
 export const MiniProfileMapsButton = styled.button`
     width : 7rem;
     height : 2rem;
-    border : solid 2px blue;
-    background-color : transparent;
-    margin-right: 0.5rem;
+    border : #e66e65 solid 1px;
+    outline: none;
+    background-color : white;
     font-size: 1rem;
-    color: black;
+    color : #e66e65;
     font-style: normal;
     border-radius: 2rem;
+    font-weight: bold;
     
     &:hover {
         cursor: pointer;
         width : 7rem;
-        height : 2.5rem;
+        height : 2rem;
+        border : none;
+        outline: none;
+        background-color : #e66e65;
+        font-size: 1rem;
+        font-style: normal;
+        border-radius: 2rem;
+        color: white;
+        font-weight: bold;
     }
     
     transition: all 0.2s ease-in-out;

@@ -13,11 +13,22 @@ import Favourites from './Pages/Favourites/Favourites';
 import Settings from './Pages/Settings/Settings';
 import Landing from './Pages/Landing/Landing';
 
+import { createGlobalStyle } from "styled-components";
+import VendorProfile from './Components/VendorProfile/VendorProfile';
+import Feed from './Pages/Feed/Feed';
+const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&family=Ms+Madi&family=Plus+Jakarta+Sans&display=swap');
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+`
+
 
 function App() {
   const [{user}, dispatch] = useStateValue('');
   return (
     <div className='App'>
+      <GlobalStyles/>
       <Navbar/>
         <Routes>
           { user ? <Route exact path = '/' element = {<Home/>}/> : <Route exact path = '/' element = {<Landing/>}/>}
@@ -33,6 +44,10 @@ function App() {
           <Route exact path = '/Settings' element ={<Settings/>}/>
 
           <Route exact path = '/RegisterEnterprise' element ={<RegisterEnterprise/>}/>
+
+          <Route exact path = '/VendorProfile' element = {<VendorProfile/>}/>
+
+          <Route exact path = '/Feed' element = {<Feed/>}/>
             
         </Routes>
     </div>
