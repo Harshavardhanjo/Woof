@@ -27,12 +27,13 @@ const DisplayVendors = () => {
       for(var i=0;i<Object.keys(response.data).length;i++){
         tempdata.push(response.data[i]);
       }
+      console.log(tempdata);
       dispatch({
         type : "SET_MINI",
         mini : tempdata,
       })
     }).catch(function(error){
-        console.log(error);
+        console.log('shesh',error);
       });
       
     }

@@ -4,10 +4,11 @@ import styled from 'styled-components';
 export const FeedContainer = styled.div`
     display: grid;
     grid-template-columns: 0.7fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
     `;
 
 export const FeedBox1 = styled.div`
-    max-height: 30vh;
+    grid-row: 1/2;
     display : flex;
     flex-direction : column;
     justify-content : center;
@@ -26,7 +27,11 @@ export const FeedBox1 = styled.div`
 export const FeedBox2 = styled.div`
     display : flex;
     flex-direction : column;
-    align-items : top;
+    justify-content : flex-start;
+    align-items : center;
+    grid-column : 2/3;
+    grid-row : 1/-1;
+    flex-direction : column;
     padding : 10px;
     margin : 10px;
     background-color : red;
@@ -35,14 +40,26 @@ export const FeedBox2 = styled.div`
 
 export const FeedBox3 = styled.div`
     display : flex;
+    grid-row : 1/-1;
     flex-direction : column;
     align-items : center;
     background-color : #f5f5f5;
     border-radius : 10px;
+    border : 1px solid #e5e5e5;
+    padding : 10px;
+    margin : 10px;
+    `;
+
+export const FeedBox4 = styled.div`
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    background-color : #f5f5f5;
+    border-radius : 10px;
+    border : 1px solid #e5e5e5;
     padding : 10px;
     margin : 10px;
     max-height : 40vh;
-    box-shadow : 0px 0px 10px 0px rgba(0,0,0,0.75);
     `;
 
 export const ProfilePic = styled.img`
@@ -82,7 +99,8 @@ export const MessageContainer = styled.div`
     padding : 10px;
     margin-left : 1px;
     margin-right : 1px;
-    margin-bottom : 1px;
+    margin-top : 1rem;
+    width : 85%;
 
     &:hover {
         cursor : pointer;
@@ -119,12 +137,39 @@ export const MessageTime = styled.p`
     text-align : center;
     `;
 
+export const SearchBox = styled.div`
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    width : 100%;
+    align-items : center;
+    background-color : blue;
+    `;
+
+export const SearchFilter = styled.select`
+    font-size : 20px;
+    font-weight : bold;
+    `;
+
+export const SearchFilterOption = styled.option`
+    font-size : 20px;
+    font-weight : bold;
+    `;
+
 
 export const SearchBar = styled.input`
-    width : 100%;
+    width : 90%;
     height : 30px;
-    border-radius : 10px;
     border : 1px solid #e5e5e5;
+    font-size : 15px;
+
+    :focus {
+        outline : none;
+    }
+
+    ::placeholder {
+        color : #e5e5e5;
+    }
     `;
 
 export const FeedPost = styled.div`
@@ -134,17 +179,120 @@ export const FeedPost = styled.div`
     align-items : center;
     background-color : #f5f5f5;
     border-radius : 10px;
-    padding : 10px;
+    width : 100%;
     margin : 10px;
-    box-shadow : 0px 0px 10px 0px rgba(0,0,0,0.75);
-    max-height : 20vh;
+    justify-self : center;
     `;
 
 export const Post = styled.div`
     display : grid;
-    grid-template-columns : 1fr 1fr 1fr;
-    grif-template-rows : 1fr 1fr;
+    grid-template-columns : 1fr;
+    grif-template-rows : 1fr 1fr 1fr;
     width : 100%;
     row-gap : 0px;
-    background-color : blue;
+    min-height : 20vh;
+    margin: 10px;
+    `;
+
+export const PostTopContainer = styled.div`
+    display : grid;
+    grid-template-columns : 0.1fr 1fr 1fr;
+    justify-items : space-between;
+    grid-column : 1/-1
+    `;
+
+export const PostPicPet = styled.img`
+    width : 50px;
+    height : 50px;
+    border-radius : 50%;
+    margin: 10px;
+    `;
+
+export const PostPicUser = styled.img`
+    width : 50px;
+    height : 50px;
+    border-radius : 50%;
+    margin: 10px;
+    justify-self : end;
+    `;
+export const PostDetails = styled.div`
+    display : grid;
+    grid-template-columns : 1fr 1fr;
+    align-items : start;
+    justify-items : start;
+    margin: 10px;
+    `;
+export const PostDetailsSub = styled.div`
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    align-items : center;
+    `;
+
+export const PostUser = styled.div`
+    font-size : 20px;
+    grid-column : 1/-1;
+    `;
+export const PostLocation = styled.div`
+    font-size : 20px;
+    grid-column : 1/2;
+    `;
+
+export const PostTime = styled.div`
+    font-size : 20px;
+    grid-column : 2/-1;
+    `;
+
+export const PostPhotoContainer = styled.div`
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    width : 100%;
+    background-color : #f5f5f5;
+    `;
+
+export const PostPhoto = styled.img`
+    max-height : 40vh;
+    max-width : 100%;
+    border-radius : 10px;
+    `;
+export const PostPhotoSelect = styled.div`
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    align-items : center;
+    position : relative;
+    width : 80%;
+    height : 100%;
+    z-index : 1;
+    top : -50%;
+    `;
+
+export const PostphotoScroll = styled.button`
+    font-size : 20px;
+    border : 1px solid #e5e5e5;
+    border-radius : 10px;
+    height : 50px;
+    margin : 10px;
+    `;
+
+export const PostBottomContainer = styled.div`
+    display : grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    `;
+
+export const PostAboutContainer = styled.div`
+    font-size : 20px;
+    text-align : left;
+    margin : 10px;
+    `;
+
+export const PostButton = styled.button`
+    font-size : 20px;
+    border : 1px solid #e5e5e5;
+    border-radius : 10px;
+    margin : 10px;
+    height : 50px;
+    justify-self : center;
     `;
