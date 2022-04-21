@@ -2,6 +2,7 @@ import React from 'react'
 import { FeedBox1, FeedBox2, FeedBox3,FeedBox4,FeedContainer, FeedPost, ProfileBio, ProfileBox, ProfileData, ProfileName, ProfilePic,SearchFilter, SearchBar, SearchBox, SearchFilterOption, Post, PostTopContainer, PostPicPet, PostDetails, PostUser, PostLocation, PostTime, PostPicUser, PostDetailsSub, PostPhoto, PostPhotoContainer, PostPhotoSelect, PostphotoScroll, PostBottomContainer, PostButton, PostAboutContainer, MessageHeader, SideBarHeader, SideBarHeaderContainer, SideBarBackButton, SideBarItemsContainer, SideBarItems } from './FeedElements'
 import { useNavigate } from 'react-router-dom'
 import Messages from '../../Components/SideBar/Messages/Messages'
+import './Feed.css'
 
 const Feed = () => {
 
@@ -19,10 +20,10 @@ const Feed = () => {
   return (
     <div>
         <FeedContainer>
-            <FeedBox1>
-                <SearchBox>
-                    <SearchBar placeholder="Search" />
-                </SearchBox>
+            <FeedBox1 onClick={e => routeChange('/Profile')}>
+                <ProfilePic src="https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
+                <ProfileName>Harshavardhan Jothikumar</ProfileName>
+                <ProfileBio>"ajsh iaosjd asj da aks dkaj ka k ajsk"</ProfileBio>
             </FeedBox1>
             <FeedBox2>
                 <FeedPost>
@@ -91,28 +92,11 @@ const Feed = () => {
             </FeedBox2>
 
             <FeedBox3>
-                {sidebar === 'none' ? <SideBarItemsContainer>
-                    <SideBarItems onClick={(e) => setSideBar(e,'messages')}>Messages</SideBarItems>
-                    <SideBarItems>Notifications</SideBarItems>
-                    <SideBarItems>Bookmarks</SideBarItems>
-                    <SideBarItems>Lists</SideBarItems>
-                    <SideBarItems>Profile</SideBarItems>
-                    <SideBarItems>More</SideBarItems>
-                </SideBarItemsContainer> : null}
-                {sidebar === 'messages' ? <div><SideBarHeaderContainer>
-                    <SideBarBackButton>
-                        <img src="https://img.icons8.com/ios/50/000000/left-squared.png" onClick={(e) => setSideBar(e,'none')} />
-                    </SideBarBackButton>
-                    <SideBarHeader>{sidebar}</SideBarHeader>
+                <div className = 'loadIn'><SideBarHeaderContainer>
+                    <SideBarHeader>Messages</SideBarHeader>
                 </SideBarHeaderContainer>
-                <Messages/></div> : null}
+                <Messages/></div>
             </FeedBox3>
-
-            <FeedBox4 onClick={e => routeChange('/Profile')}>
-                <ProfilePic src="https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
-                <ProfileName>Harshavardhan Jothikumar</ProfileName>
-                <ProfileBio>"ajsh iaosjd asj da aks dkaj ka k ajsk"</ProfileBio>
-            </FeedBox4>
         </FeedContainer>
     </div>
   )

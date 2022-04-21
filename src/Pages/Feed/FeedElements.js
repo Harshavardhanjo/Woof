@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const FeedContainer = styled.div`
     display: grid;
-    grid-template-columns: 0.7fr 2fr 1fr;
+    grid-template-columns: 0.7fr 2fr 0.6fr;
     grid-template-rows: 1fr 1fr;
     `;
 
@@ -16,7 +16,8 @@ export const FeedBox1 = styled.div`
     background-color : #f5f5f5;
     border-radius : 10px;
     padding : 10px;
-    margin : 10px;
+    margin-top : 30px;
+    margin-left : 30px;
     border : 1px solid #e5e5e5;
 
     &:hover {
@@ -43,14 +44,15 @@ export const FeedBox2 = styled.div`
 
 export const FeedBox3 = styled.div`
     display : flex;
-    grid-row : 1/-1;
+    grid-row : 1/2;
     flex-direction : column;
     align-items : center;
     background-color : #f5f5f5;
     border-radius : 10px;
     border : 1px solid #e5e5e5;
     padding : 10px;
-    margin : 10px;
+    margin-top: 30px;
+    margin-right : 30px;
     `;
 
 export const FeedBox4 = styled.div`
@@ -129,9 +131,6 @@ export const SideBarHeaderContainer = styled.div`
     margin-bottom : 10px;
     `;
 export const SideBarBackButton = styled.button`
-    font-size : 20px;
-    width : 100%;
-    background-color : transparent;
     outline : none;
     border : none;
     font-weight : bold;
@@ -145,7 +144,7 @@ export const SideBarBackButton = styled.button`
     `;
 
 export const SideBarHeader = styled.h1`
-    font-size : 30px;
+    font-size : 20px;
     font-weight : bold;
     text-align : left;
     `;
@@ -211,6 +210,7 @@ export const Post = styled.div`
     border-radius : 10px;
     border : 1px solid #e5e5e5;
     height : auto;
+    background-color : white;
     `;
 
 export const PostTopContainer = styled.div`

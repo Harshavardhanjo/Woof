@@ -7,22 +7,10 @@ export const DisplayVendorContainer = styled.div`
     width: 100%;
     `;
 export const DisplayVendorTopBar = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #e3e3e3;
-    `;
-
-export const DisplayVendorTopBarLeft = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: #f5f5f5;
+    display : grid;
+    grid-template-columns: repeat(3,0.05fr);
+    grid-template-rows: 1fr;
+    height: 100%;
     `;
 
 export const DisplayVendorResult = styled.input`
@@ -36,11 +24,12 @@ export const DisplayVendorResult = styled.input`
 
 export const DisplayVendorServiceDropdown = styled.select`
     height : 3rem;
-    width : 12rem;
-    border-radius : 0.5rem;
+    width : rem;
+    font-size : 1rem;
     border : 1px solid #e3e3e3;
     padding : 0.5rem;
-    margin-right : 0.5rem;
+    margin : 0.5rem;
+    text-align : center;
     `;
 
 export const DisplayVendorServiceDropdownOption = styled.option`

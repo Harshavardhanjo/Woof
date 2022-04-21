@@ -145,7 +145,6 @@ const DisplayVendors = () => {
  
   return <div>
     <DisplayVendorTopBar>
-      <DisplayVendorTopBarLeft>
         <DisplayVendorServiceDropdown value = {pet} onChange={e => toVendorPet(e.target.value)}>
           {all_pets.map((pet,index) => {
             return <DisplayVendorServiceDropdownOption key={index} value = {pet}>{pet}</DisplayVendorServiceDropdownOption>
@@ -158,15 +157,11 @@ const DisplayVendors = () => {
             return <DisplayVendorServiceDropdownOption key={index} value = {service}>{service}</DisplayVendorServiceDropdownOption>
           })}
         </DisplayVendorServiceDropdown>
-      </DisplayVendorTopBarLeft>
-
-      <DisplayVendorTopBarRight>
       <DisplayVendorServiceDropdown value = {sort} onChange={e => toVendorSort(e.target.value)}>
       {all_sort.map((sort,index) => {
             return <DisplayVendorServiceDropdownOption key={index} value = {sort}>{sort}</DisplayVendorServiceDropdownOption>
           })}
         </DisplayVendorServiceDropdown>
-      </DisplayVendorTopBarRight>
     </DisplayVendorTopBar>
     <DisplayVendorContainer>
       {mini != null ?<div className='vendor'>{mini != null ? <Vendor className='vendor'/> : <div >Loading</div>}</div> : <DisplayVendorLoading>

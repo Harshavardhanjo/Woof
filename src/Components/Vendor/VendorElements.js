@@ -4,10 +4,8 @@ import loading_normal from '../../img/loading_normal.gif';
 export const VendorContainer = styled.div`
     display : grid;
     grid-template-columns : 1fr 1fr 1fr 1fr;
-    margin-top : 2rem;
-    margin-left : 2rem;
+    margin : 1rem;
     grid-gap : 1rem;
-    width : 100%;
     height : 100%;
     overflow-y : scroll;
     ::-webkit-scrollbar {
