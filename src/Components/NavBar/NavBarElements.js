@@ -7,25 +7,29 @@ export const NavContainer = styled.div`
     width: 100%;
     max-width: 100%;
     height : 60px;
-    position: absolute;
     background-color: black;
-    top : 0px;
+    align-items: center;
 `;
 export const NavSection1 = styled.div`
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    height: 100%;
 `
 export const Logo = styled.img`
     width: 100%;
     height: 100%;
     padding: 10px;
+    text-decoration: none;
+
 `
 
 export const Name = styled.h1`
     font-size: 2rem;
+    padding: 0px;
     color: white;
     font-weight: bold;
-    margin-left: 40px;
+    margin : 0px;
 `
 
 export const NavSection2 = styled.div`

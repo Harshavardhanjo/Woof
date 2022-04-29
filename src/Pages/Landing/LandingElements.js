@@ -9,6 +9,7 @@ export const LandingContainer = styled.div`
     overflow : hidden;
     padding : 0px;
     align-items : center;
+    background-color : black;
     `;
 
 export const LeftContainer = styled.div`

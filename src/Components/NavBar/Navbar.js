@@ -139,11 +139,11 @@ const Navbar = () => {
               <NavItems>Browse</NavItems>
             </NavSection2>
             <NavSection3>
-              <NavBarDropDownContainer>
+              { user ? <NavBarDropDownContainer>
                 {toggle ? <><NavBarDropDownItem onClick = {(e) => routeChange(e,'/Profile')}>Profile</NavBarDropDownItem>
                 <NavBarDropDownItem>Settings</NavBarDropDownItem>
-                <NavBarDropDownItem onClick = {(e) => handleDropdown(e)} >Back</NavBarDropDownItem></> : <NavBarDropDownItem onClick = {(e) => handleDropdown(e)}>Name</NavBarDropDownItem>}
-              </NavBarDropDownContainer>
+                <NavBarDropDownItem onClick = {(e) => handleDropdown(e)} >Back</NavBarDropDownItem></> : <NavBarDropDownItem onClick = {(e) => handleDropdown(e)}>{user.displayName}</NavBarDropDownItem>}
+              </NavBarDropDownContainer> : <NavItems onClick = {(e) => handleLogin(e)}>Login</NavItems>}
             </NavSection3>
           </NavContainer>
   </div>;
