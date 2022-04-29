@@ -1,22 +1,31 @@
 import styled from 'styled-components'
 import { Link as LinkR } from 'react-router-dom'
 
+export const NavContainer = styled.div`
+    display: grid;
+    grid-template-columns: 0.7fr 0.5fr 0.7fr;
+    width: 100%;
+    max-width: 100%;
+    height : 60px;
+    position: absolute;
+    background-color: black;
+    top : 0px;
+`;
 export const NavSection1 = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 `
 export const Logo = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     padding: 10px;
 `
 
 export const Name = styled.h1`
     font-size: 2rem;
     color: white;
-    padding: 10px;
+    font-weight: bold;
+    margin-left: 40px;
 `
 
 export const NavSection2 = styled.div`
@@ -27,24 +36,15 @@ export const NavSection2 = styled.div`
 `
 
 export const NavItems = styled.button`
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 1.2rem;
     color: white;
-    margin: 10px;
     border: none;
     background-color: transparent;
-    border-radius: 5px;
-    display: flex; 
-    align-self: center;
-    justify-content: center;
-    height: 40px;
-    padding-top: 10px;
+    display: inline-block; 
 
     &:hover {
         cursor: pointer;
-        background-color: white;
-        color: black;
-        transition: 0.5s;
+        border-bottom: 2px solid white;
     }
 `
 
@@ -60,7 +60,6 @@ export const NavBarDropDown = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: black;
     right: 100px;
     color: black;
     border-radius: 5px;
@@ -76,32 +75,48 @@ export const NavBarDropDown = styled.div`
     
 `
 
-export const NavBarDropDownItem = styled.li`
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    margin: 10px;
-    border: none;
-    background-color: blue;
-    border-radius: 5px;
+export const NavSection3 = styled.div`
     display: flex;
-    align-self: center;
+    flex-direction: row;
     justify-content: center;
-    height: 40px;
-    padding-top: 10px;
-`
+    align-items: center;
+    `;
 
-export const NavBarDropDownLogout = styled.li`
+export const NavBarDropDownContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: white;
+    width: 100%;
+    margin:0
+    padding: 0;
+    &:hover {
+        cursor: pointer;
+        color: black;
+        transition: 0.5s;
+    }
+    
+`;
+
+export const NavBarDropDownItem = styled.button`
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    margin: 10px;
+    min-width: 100px;
     border: none;
-    background-color: transparent;
-    border-radius: 5px;
+    outline: none;
     display: flex;
     align-self: center;
     justify-content: center;
+    background-color: transparent;
     height: 40px;
+    margin: 10px;
     padding-top: 10px;
-`
+    &:hover {
+        cursor: pointer;
+        transition: 0.5s;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+    }
+`;

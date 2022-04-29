@@ -28,16 +28,15 @@ function App() {
   const [{user}, dispatch] = useStateValue('');
   return (
     <div className='App'>
-      <GlobalStyles/>
       <Navbar/>
         <Routes>
-          { user ? <Route exact path = '/' element = {<Home/>}/> : <Route exact path = '/' element = {<Landing/>}/>}
+          <Route exact path = '/' element = {<Landing/>}/>
 
           <Route exact path = '/Profile' element ={<Profile/>}/>
 
           <Route exact path = '/Vendors' element ={<DisplayVendors/>}/>
           
-          <Route exact path = '/Bookings' element ={<Bookings/>}/>
+          <Route exact path = '/home' element ={<Home/>}/>
 
           <Route exact path = '/Favourites' element ={<Favourites/>}/>
 

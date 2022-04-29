@@ -13,7 +13,7 @@ const Home = () => {
 
   return <div>
       <Container>
-        <CoverTab>
+      <CoverTab>
           <CoverContainer>
             <HeroText>Wiggly tails is all we want</HeroText>
             <TabHolder>
