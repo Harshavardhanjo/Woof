@@ -7,14 +7,21 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
+    background-color: black;
 `;
 
 export const Section1 = styled.div`
-    display: flex;
-    flex-direction: row;
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    grid-gap: 20px;
     align-items: top;
-    justify-content: space-between;
     width: 100%;
+    align-items: center;
+    justify-items: center;
+    // background-color: red;
+    margin-bottom: 20px;
 `
 
 export const Section2 = styled.div`
@@ -24,46 +31,45 @@ export const Section2 = styled.div`
     justify-content: center;
 `
 
+export const HeaderText = styled.h1`
+    color : white;
+    font-size: 3em;
+    font-weight: bold;
+    grid-column: 1 / 3;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+`;
+
 export const IconsTab = styled.div`
     width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 2%;
-    margin-bottom: 10%;
-    margin-left: 2%;
-    margin-right: 2%;
+    grid-column: 2 / 3;
+    width: 90%;
+    border : 2px solid white;
+    border-radius : 0.5rem;
 `
 
 export const PetTab = styled.div`
     width: 100%;
-    margin-top: 2%;
-    margin-bottom: 10%;
-    margin-left: 2%;
-    margin-right: 2%;
-    justify-content: space-around;
+    grid-column: 1 / 2;
+    width: 90%;
+    border : 2px solid white;
+    border-radius : 0.5rem;
 `
 
 export const CoverTab = styled.div`
-    display: flex;
-    flex-direction: row;
+    display : grid;
+    grid-template-columns: 1fr;
     width: 100%;
-    height: 80vh;
-    justify-content: flex-end;
+    height: 50vh;
     align-items: center;
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/woof-dev-fed7f.appspot.com/o/cover.jpg?alt=media&token=27ff955a-7253-4d61-ae2a-9128d7837a2f');
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-color: black;
 `
 
 export const CoverContainer = styled.div`
     display: flex;
     flex-direction: column;
-    height : 20rem;
     align-items: center;
     justify-content: space-around;
-    padding-right: 7rem;
-    object-fit: cover;
 `
 
 export const TabHolder = styled.div`
@@ -92,15 +98,17 @@ export const Search = styled.button`
     height: 3rem;
     border-radius: 10px;
     border: none;
-    background-color: green;
+    background-color: black;
+    color: white;
+    border : 3px solid green;
     font-size: 1rem;
     margin-left: 10px;
     caret-color: red;
 
     &:hover {
         cursor: pointer;
-        background-color: white;
-        color: black;
+        background-color: green;
+        color: white;
         transition: 0.5s;
     }
 

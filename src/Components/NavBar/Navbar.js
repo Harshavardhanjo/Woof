@@ -134,8 +134,7 @@ const Navbar = () => {
               <Name onClick={(e) => routeChange(e,'/')}>WOOF</Name>
             </NavSection1>
             <NavSection2>
-              <NavItems>Services</NavItems>
-              <NavItems>Your Feed</NavItems>
+              <NavItems onClick = {(e)=>routeChange(e,'/feed')}>Your Feed</NavItems>
               <NavItems>Browse</NavItems>
             </NavSection2>
             <NavSection3>

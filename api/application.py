@@ -14,6 +14,10 @@ firebase_admin.initialize_app(cred)
 app = Flask(__name__)
 Cors.CORS(app)
 
+@app.route("/test")
+def test():
+    return "Hello World!"
+
 @app.route('/fetchVendors', methods=['POST','GET'])
 def get_Vendors():
     if request.method == "POST":

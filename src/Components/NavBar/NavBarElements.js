@@ -3,12 +3,12 @@ import { Link as LinkR } from 'react-router-dom'
 
 export const NavContainer = styled.div`
     display: grid;
-    grid-template-columns: 0.7fr 0.5fr 0.7fr;
+    grid-template-columns: 0.65fr 0.2fr 0.7fr;
     width: 100%;
-    max-width: 100%;
-    height : 60px;
-    background-color: black;
+    height : 50px;
+    background-color: #FCD900;
     align-items: center;
+    border-radius: 0px 0px 10px 10px;
 `;
 export const NavSection1 = styled.div`
     display: flex;
@@ -21,6 +21,7 @@ export const Logo = styled.img`
     height: 100%;
     padding: 10px;
     text-decoration: none;
+    color: black;
 
 `
 
@@ -30,6 +31,7 @@ export const Name = styled.h1`
     color: white;
     font-weight: bold;
     margin : 0px;
+    color: black;
 `
 
 export const NavSection2 = styled.div`
@@ -44,11 +46,11 @@ export const NavItems = styled.button`
     color: white;
     border: none;
     background-color: transparent;
-    display: inline-block; 
+    display: inline-block;
+    color:black;; 
 
     &:hover {
         cursor: pointer;
-        border-bottom: 2px solid white;
     }
 `
 
@@ -123,4 +125,5 @@ export const NavBarDropDownItem = styled.button`
         color: black;
         border-radius: 5px;
     }
+    color: black;
 `;

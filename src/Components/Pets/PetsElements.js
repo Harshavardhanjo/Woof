@@ -36,11 +36,11 @@ export const Row1 = styled.div`
     display : grid;
     gap : 1rem;
     grid-template-columns : 1fr 1fr 1fr 1fr;
-    box-shadow: 0px 0px 5px grey;
     border-radius: 10px;
     overflow-y: scroll;
     width: 100%;
     height: 100%;
+    
 
     ::-webkit-scrollbar {
         width: 0.5rem;
@@ -118,5 +118,6 @@ export const Icon = styled.img`
 
 export const Name = styled.h1`
     font-size: 1rem;
+    color: white;
     `
 

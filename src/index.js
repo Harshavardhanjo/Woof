@@ -8,7 +8,10 @@ import reducer, {initialState} from "./reducer";
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
+  
   <React.StrictMode>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA&libraries=places"></script>
+    <script src="bundle.js"></script>
     <BrowserRouter>
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />

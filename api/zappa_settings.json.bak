@@ -1,0 +1,9 @@
+{
+    "woof_aws": {
+        "app_function": "application.app",
+        "profile_name": null,
+        "project_name": "api",
+        "runtime": "python3.8",
+        "s3_bucket": "woofapi"
+    }
+}

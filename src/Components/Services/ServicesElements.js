@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import loading_normal from '../../img/loading_normal.gif';
 
 export const Container = styled.div`
     height: 20rem;
@@ -35,11 +36,11 @@ export const Row1 = styled.div`
     display : grid;
     gap : 1rem;
     grid-template-columns : 1fr 1fr 1fr 1fr;
-    box-shadow: 0px 0px 5px grey;
     border-radius: 10px;
     overflow-y: scroll;
     width: 100%;
     height: 100%;
+    
 
     ::-webkit-scrollbar {
         width: 0.5rem;
@@ -66,12 +67,33 @@ export const IconTab = styled.div`
     width: 70%;
     height: 70%;
     
+    
 
     &:hover {
         cursor: pointer;
         background-color: #d6d6d6;
         transition: 0.5s;
         border-radius: 10%;
+
+        // animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        // transform: translate3d(0, 0, 0);
+        // backface-visibility: hidden;
+        // perspective: 1000px;
+
+        // @keyframes shake {
+        //     10%, 90% {
+        //         transform: translate3d(-1px, 0, 0);
+        //     }
+        //     20%, 80% {
+        //         transform: translate3d(2px, 0, 0);
+        //     }
+        //     30%, 50%, 70% {
+        //         transform: translate3d(-4px, 0, 0);
+        //     }
+        //     40%, 60% {
+        //         transform: translate3d(4px, 0, 0);
+        //     }
+        // }
     }
 `
 
@@ -80,9 +102,9 @@ export const IconTabSelected = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 15px;
-    width: 7rem;
-    height: 100px;
+    margin: 1rem;
+    width: 70%;
+    height: 70%;
     background-color: #d6d6d6;
     border-radius: 10%;
     ;
@@ -96,5 +118,6 @@ export const Icon = styled.img`
 
 export const Name = styled.h1`
     font-size: 1rem;
+    color: white;
     `
 

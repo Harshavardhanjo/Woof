@@ -1,45 +1,117 @@
-import React from 'react'
-import { Container, Cover, GoButton, HeroText, HeroText1_1, HeroText2_1, HeroTextContainer, HeroTextContainer_1, LandingContainer, LeftContainer,LeftBox, RightContainer, Section1, ServiceImg, ServicesContainer, RightBox, RightImg } from './LandingElements'
-import happy from '../../img/happy.png'
-import comb from '../../img/comb.png'
-import care from '../../img/care.png'
-import toys from '../../img/toys.png'
-import aquarium from '../../img/aquarium.png'
-import stylist from '../../img/stylist.png'
+import React,{useEffect} from 'react'
 import {useNavigate } from "react-router-dom";
+import {ContentBox, ContentCard, ContentDescription, ContentImage,Option, ContentLocation, ContentTitle, LandingContainer, LocationBox, LocationIcon, LocationName, NavBox, OptionsBox, Search, SearchBox, SearchButton, Section1, Section2,TextBox, OptionDropdown, OptionDropdownItem, ContentView, ContentQuickView, LocationSearch, OptionExplore, LocationSearchDropdown, LocationButton } from './LandingElements'
+import location from '../../img/location.png';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng
+} from 'react-places-autocomplete';
+import axios from 'axios';
 
 const Landing = () => {
   const navigate = useNavigate();
   const routeChange = (e,path) =>{
     navigate(path);
   }
+
+  const [location, setLocation] = React.useState('');
+  const [toggle, setToggle] = React.useState(false);
+  const [result, setResult] = React.useState(['woses','','']);
+  const [gmapsLoaded, setGmapsLoaded] = React.useState(false);
+  const [coordinates, setCoordinates] = React.useState({
+    lat: null,
+    lng: null
+  });
+
+  const selectLocation = (res) => {
+    console.log('in',res);
+    setLocation(res);
+    setToggle(!toggle);
+    setResult(['','','']);
+  }
+
+  useEffect(() => {
+    window.initMap = () => setGmapsLoaded(true)
+    const gmapScriptEl = document.createElement(`script`)
+    gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA&libraries=places&callback=initMap`
+    document.querySelector(`body`).insertAdjacentElement(`beforeend`, gmapScriptEl)
+  }, [])
+
+  const handleSelect = async value => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    setLocation(value.split(',')[0]);
+    setCoordinates(latLng);
+    setToggle(!toggle);
+  };
   return (
     <>
-      <LandingContainer>
-        <LeftContainer>
-          <LeftBox>
-            <HeroTextContainer>
-              <HeroText>Explore the market</HeroText>
-            </HeroTextContainer>
-            <ServicesContainer>
-              <ServiceImg src={comb} />
-              <ServiceImg src={care} />
-              <ServiceImg src={toys} />
-            </ServicesContainer>
-            <GoButton onClick={(e)=>routeChange(e,'/home')}>Explore!</GoButton>
-          </LeftBox>
-        </LeftContainer>
+    <LandingContainer>
+      <Section1>
+        <TextBox>
+          <h1>Wiggly tails are all we want</h1>
+          <Search placeholder='Search for a service,provider etc..'/>
+        </TextBox>
+      </Section1>
+      
+      <Section2>
+        <NavBox>
+          <LocationBox>
+            {/* {toggle ? <LocationName onClick={(e) => setToggle(!toggle)}>{location}</LocationName> : <LocationSearch placeholder = 'select location' onKeyUp={(e) => getLocation(e.target.value)}/>}
+            {result[0] != '' ? <LocationButton onClick={() => selectLocation(result[0])}>{result[0]}</LocationButton> : null}
+            {result[1] != '' ? <LocationButton onClick={() => selectLocation(result[1])}>{result[1]}</LocationButton> : null}
+            {result[2] != '' ? <LocationButton onClick={() => selectLocation(result[2])}>{result[2]}</LocationButton> : null}
+            {console.log(toggle)}
+            {console.log('out',location)} */}
+        {!toggle ? <>
+        {gmapsLoaded == true ? <PlacesAutocomplete
+        value={location}
+        onChange={setLocation}
+        onSelect={handleSelect}>
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
 
-        <RightContainer>
-          <RightBox>
-            <HeroTextContainer>
-                <HeroText>Show off your Pet!</HeroText>
-              </HeroTextContainer>
-              <RightImg src = {happy} />
-              <GoButton onClick={(e)=>routeChange(e,'/feed')}>Lets Go!</GoButton>
-            </RightBox>
-        </RightContainer>
-      </LandingContainer>
+            <input {...getInputProps({ placeholder: "Type address" })} />
+
+            <div>
+              {loading ? <div>...loading</div> : null}
+
+              {suggestions.map(suggestion => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                };
+
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete> : <p>Loading..</p>}</>  : <LocationName onClick={(e) => setToggle(!toggle)}>{location}</LocationName>}
+          </LocationBox>
+
+          <OptionsBox>
+          <OptionDropdown>
+              <OptionDropdownItem>Closest</OptionDropdownItem>
+              <OptionDropdownItem>Best</OptionDropdownItem>
+            </OptionDropdown>
+            <OptionExplore>Explore</OptionExplore>
+          </OptionsBox>
+        </NavBox>
+        <ContentBox>
+          <ContentCard>
+            <ContentImage src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"/>
+            <ContentTitle>Title</ContentTitle>
+            <ContentDescription>asjkdh adjskh ajksd</ContentDescription>
+            <ContentLocation>city</ContentLocation>
+            <ContentView>Book</ContentView>
+          </ContentCard>
+        </ContentBox>
+      </Section2>
+    </LandingContainer>
     </>
   )
 }

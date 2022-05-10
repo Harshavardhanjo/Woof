@@ -1,110 +1,259 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const LandingContainer = styled.div`
+    width : 100%;
+    height : 100%;
     display : grid;
-    grid-template-columns : 1fr 1fr;
+    flex-direction : column;
+    justify-items : center;
+    align-content : center;
+    background-color : #f5f5f5;
+    `;
+
+export const Section1 = styled.div`
+    min-width : 100%;
+    background-color : #001E6C;
+    margin-bottom : 1rem;
+    height : 700px;
+    display : grid;
+    grid-template-columns : 1fr;
     grid-template-rows : 1fr;
-    width : 100%;
-    height : 100vh;
-    overflow : hidden;
-    padding : 0px;
-    align-items : center;
-    background-color : black;
-    `;
-
-export const LeftContainer = styled.div`
-    margin-top : 80px;
-    // background-color : red;
-    height : 90%;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    border-right : 1px solid white;
-    
-    `;
-
-export const RightContainer = styled.div`
-    margin-top : 80px;
-    height : 90%;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    border-left : 1px solid white;
-    `;
-
-export const LeftBox = styled.div`
-    display : grid;
-    grid-template-columns : 1fr;
-    grid-template-rows : 1fr 1fr 1fr;
     justify-items : center;
     align-items : center;
-    height : 80%;
-    width : 70%;
-    // border : 1px solid white;
+
     `;
 
-export const RightBox = styled.div`
-    display : grid;
-    grid-template-columns : 1fr;
-    grid-template-rows : 1fr 1fr 1fr;
-    justify-items : center;
-    align-items : center;
-    height : 80%;
-    width : 70%;
-    // border : 1px solid white;
+export const Search = styled.input`
+    height : 50px;
+    width : 700px;
+    border : none;
+    border-radius : 10px;
+    background-color : #f5f5f5;
+    font-size : 1.5rem;
+    color : black;
+    outline : none;
     `;
 
-export const HeroTextContainer = styled.div`
-    display : flex;
-    justify-content : center;
-    align-items : center;
+export const SearchButton = styled.button`
+    height : 50px;
+    width : 100px;
+    margin-left : 10px;
+    border : none;
+    border-radius : 10px;
+    background-color : #B9F8D3;
+    color : black;
+    font-size : 1.5rem;
+    outline : none;
+    cursor : pointer;
+
     `;
 
-export const HeroText = styled.h1`
-    font-size : 3rem;
-    font-weight : bold;
-    color : white;
-    `;
-
-export const ServicesContainer = styled.div`
-    display : grid;
-    grid-template-columns : 1fr 1fr 1fr;
-    grid-template-rows : 1fr 1fr;
-    height : 10rem;
-    width : 100%;
-    justify-items : center;
-    align-items : center;
-    `;
-
-export const ServiceImg = styled.img`
-    width : 5rem;
-    height : 5rem;
-    margin : 20px;
-    `;
-
-export const GoButton = styled.button`
+export const TextBox = styled.div`
     font-size : 2rem;
     font-weight : bold;
-    color : white;
-    border : 1px solid white;
-    background-color : black;
+    color : #fff;
     text-align : center;
-    border-radius : 5px;
+    width : 100%;
+    // background-color : red;
+    `;
+
+export const Section2 = styled.div`
+    width : 98%;
+    margin-bottom : 1rem;
+    display : grid;
+    grid-template-columns : 1fr;
+    grid-template-rows : 60px 1fr;
+    justify-items : center;
+    align-items : center;
+    border-radius : 10px;
+    background-color : white;
+    `;
+
+export const NavBox = styled.div`
+    width :98%;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    border-bottom : 2px solid #f5f5f5;
+`;
+
+export const LocationBox =  styled.div`
+    height : 60px;
+    display : flex;
+    flex-direction : row;
+    justify-content : flex-start;
+    align-items : center;
+    `;
+
+export const LocationName = styled.h1`
+    font-size : 1.5rem;
+    font-weight : bold;
+    margin : 0px;
+    padding : 0px;
+    `;
+
+export const LocationIcon = styled.img`
+    width : 30px;
+    height : 30px;
+    margin-left : 10px;
+    `;
+
+export const LocationSearch = styled.input`
+    height : 30px;
+    width : 300px;
+    border : none;
+    border-radius : 10px;
+    font-size : 1.5rem;
+    color : #FFAA4C;
     outline : none;
-    height : 5rem;
-    width : 10rem;
-    
-    &:hover {
+    `;
+
+export const LocationButton = styled.button`
+    height : 30px;
+    width : 100px;
+    border : none;
+    border-radius : 10px;
+    background-color : #FFAA4C;
+    color : #fff;
+    font-size : 1.5rem;
+    outline : none;
+    cursor : pointer;
+    `;
+
+export const OptionsBox = styled.div`
+    height : 60px;
+    display : flex;
+    flex-direction : row;
+    justify-content : flex-end;
+    align-items : center;
+    `;
+
+export const Option = styled.button`
+    height : 40px;
+    width : 100px;
+    border : none;
+    color : black;
+    font-size : 1.2rem;
+    outline : none;
+    cursor : pointer;
+    margin : 20px;
+    background-color : white;
+    `;
+export const OptionExplore = styled.button`
+    height : 40px;
+    width : 100px;
+    border : none;
+    color : #FFAA4C;
+    font-size : 1.2rem;
+    outline : none;
+    cursor : pointer;
+    margin : 20px;
+    background-color : white;
+    `;
+
+export const OptionDropdown = styled.select`
+    width : 100px;
+    font-size : 1.2rem;
+    text-align : center;
+    display : flex;
+    flex-direction : column;
+    border : none;
+    justify-content : center;
+    align-items : center;
+    `;
+
+export const OptionDropdownItem = styled.option`
+    height : 40px;
+    width : 100px;
+    border : none;
+    color : black;
+    font-size : 1.2rem;
+    outline : none;
+    cursor : pointer;
+    margin : 20px;
+    background-color : white;
+    `;
+
+
+
+export const ContentBox = styled.div`
+    width : 100%;
+    height : 100%;
+    display : grid;
+    grid-template-columns : 1fr 1fr 1fr 1fr;
+    justify-items : center;
+    align-items : top;
+    `;
+
+export const ContentCard = styled.div`
+    background-color : #fff;
+    width : 270px;
+    height : 370px;
+    margin : 10px;
+    display : grid;
+    grid-template-rows : 0.6fr 0.1fr 0.2fr 0.1fr 0.1fr;
+    // background-color : red;
+    padding : 10px;
+
+    &:hover{
         cursor : pointer;
-        background-color : white;
-        transition :0.5s;
-        color : black;
+        outline : 1px solid black;
+        // box-shadow : 0px 0px 10px black;
     }
     `;
-    
-export const RightImg = styled.img`
-    width : 10rem;
-    height : 10rem;
-    margin : 20px;
+
+export const ContentImage = styled.img`
+    width : 100%;
+    height : 100%;
     `;
+
+export const ContentTitle = styled.h1`
+    font-size : 1.5rem;
+    font-weight : bold;
+    margin : 0px;
+    padding : 0px;
+    text-align : left;
+    // background-color : blue;
+    `;
+
+export const ContentDescription = styled.div`
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    align-items : top;
+    // background-color : red;
+    `;
+
+export const ContentServiceImg = styled.img`
+    width : 30px;
+    height : 30px;
+    margin-right : 10px;
+    `;
+
+export const ContentLocation = styled.p`
+    font-size : 1rem;
+    font-weight : bold;
+    margin : 0px;
+    padding : 0px;
+    text-align : left;
+    // background-color : pink;
+    `;
+
+export const ContentView = styled.button`
+    display : none;
+
+    ${ContentCard}:hover & {
+        display : block;
+        font-size : 1.2rem;
+        margin : 0px;
+        padding : 0px;
+        text-align : center;
+        color : #0AA1DD;
+        border : none;
+        background-color : white;
+        z-index : 1;
+    }
+    `;
+
+
 
