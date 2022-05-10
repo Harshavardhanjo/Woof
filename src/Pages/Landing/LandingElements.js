@@ -83,6 +83,8 @@ export const LocationBox =  styled.div`
     flex-direction : row;
     justify-content : flex-start;
     align-items : center;
+    position : relative;
+    // background-color : red; 
     `;
 
 export const LocationName = styled.h1`
@@ -100,12 +102,34 @@ export const LocationIcon = styled.img`
 
 export const LocationSearch = styled.input`
     height : 30px;
-    width : 300px;
     border : none;
-    border-radius : 10px;
     font-size : 1.5rem;
-    color : #FFAA4C;
+    color : black;
     outline : none;
+    `;
+
+export const LocationSearchDropdown = styled.div`
+    border : none;
+    outline : none;
+    background-color : #f5f5f5;
+    display : flex;
+    flex-direction : column;
+    position : absolute;
+    top : 60px;
+    left : 0px;
+    z-index : 1;
+    overflow-y : scroll;
+    `;
+
+export const LocationSearchDropdownItem = styled.div`
+    display : flex;
+    flex-direction : row;
+    justify-content : flex-start;
+    align-items : center;
+    border-bottom : 1px solid black;
+    cursor : pointer;
+    overflow : hidden;
+    padding : 10px;
     `;
 
 export const LocationButton = styled.button`
@@ -130,7 +154,6 @@ export const OptionsBox = styled.div`
 
 export const Option = styled.button`
     height : 40px;
-    width : 100px;
     border : none;
     color : black;
     font-size : 1.2rem;
@@ -141,7 +164,6 @@ export const Option = styled.button`
     `;
 export const OptionExplore = styled.button`
     height : 40px;
-    width : 100px;
     border : none;
     color : #FFAA4C;
     font-size : 1.2rem;

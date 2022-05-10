@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import {useNavigate } from "react-router-dom";
-import {ContentBox, ContentCard, ContentDescription, ContentImage,Option, ContentLocation, ContentTitle, LandingContainer, LocationBox, LocationIcon, LocationName, NavBox, OptionsBox, Search, SearchBox, SearchButton, Section1, Section2,TextBox, OptionDropdown, OptionDropdownItem, ContentView, ContentQuickView, LocationSearch, OptionExplore, LocationSearchDropdown, LocationButton } from './LandingElements'
+import {ContentBox, ContentCard, ContentDescription, ContentImage,Option, ContentLocation, ContentTitle, LandingContainer, LocationBox, LocationIcon, LocationName, NavBox, OptionsBox, Search, SearchBox, SearchButton, Section1, Section2,TextBox, OptionDropdown, OptionDropdownItem, ContentView, ContentQuickView, LocationSearch, OptionExplore, LocationSearchDropdown, LocationButton, LocationSearchDropdownItem } from './LandingElements'
 import location from '../../img/location.png';
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -71,9 +71,10 @@ const Landing = () => {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
 
-            <input {...getInputProps({ placeholder: "Type address" })} />
+            <LocationSearch {...getInputProps({ placeholder: "Choose Location" })} />
 
             <div>
+            <LocationSearchDropdown>
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map(suggestion => {
@@ -82,11 +83,14 @@ const Landing = () => {
                 };
 
                 return (
-                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                  
+                    <LocationSearchDropdownItem {...getSuggestionItemProps(suggestion)}>
                     {suggestion.description}
-                  </div>
+                  </LocationSearchDropdownItem>
+                  
                 );
               })}
+              </LocationSearchDropdown>
             </div>
           </div>
         )}
@@ -98,7 +102,7 @@ const Landing = () => {
               <OptionDropdownItem>Closest</OptionDropdownItem>
               <OptionDropdownItem>Best</OptionDropdownItem>
             </OptionDropdown>
-            <OptionExplore>Explore</OptionExplore>
+            <OptionExplore>Explore More</OptionExplore>
           </OptionsBox>
         </NavBox>
         <ContentBox>
