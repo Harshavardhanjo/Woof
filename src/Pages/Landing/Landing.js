@@ -1,12 +1,13 @@
 import React,{useEffect} from 'react'
 import {useNavigate } from "react-router-dom";
-import {ContentBox, ContentCard, ContentDescription, ContentImage,Option, ContentLocation, ContentTitle, LandingContainer, LocationBox, LocationIcon, LocationName, NavBox, OptionsBox, Search, SearchBox, SearchButton, Section1, Section2,TextBox, OptionDropdown, OptionDropdownItem, ContentView, ContentQuickView, LocationSearch, OptionExplore, LocationSearchDropdown, LocationButton, LocationSearchDropdownItem } from './LandingElements'
+import {ContentBox, ContentCard, ContentDescription, ContentImage,Option, ContentLocation, ContentTitle, LandingContainer, LocationBox, LocationIcon, LocationName, NavBox, OptionsBox, Search, SearchBox, SearchButton, Section1, Section2,TextBox, OptionDropdown, OptionDropdownItem, ContentView, ContentQuickView, LocationSearch, OptionExplore, LocationSearchDropdown, LocationButton, LocationSearchDropdownItem, Header, Section3, Section4, ContentImgBox, ContentImg } from './LandingElements'
 import location from '../../img/location.png';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from 'react-places-autocomplete';
 import axios from 'axios';
+import {db} from '../../Firebase';
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -14,38 +15,115 @@ const Landing = () => {
     navigate(path);
   }
 
-  const [location, setLocation] = React.useState('');
-  const [toggle, setToggle] = React.useState(false);
-  const [result, setResult] = React.useState(['woses','','']);
-  const [gmapsLoaded, setGmapsLoaded] = React.useState(false);
-  const [coordinates, setCoordinates] = React.useState({
-    lat: null,
-    lng: null
-  });
-
-  const selectLocation = (res) => {
-    console.log('in',res);
-    setLocation(res);
-    setToggle(!toggle);
-    setResult(['','','']);
+  const [vendors,setVendors] = React.useState([]);
+  const [pimages,setPimages] = React.useState([]);
+  const [simages,setSimages] = React.useState([]);
+  const fetchVendor = async (v) => {
+    setVendors([]);
+    var keys = Object.keys(v);
+    console.log(keys.length);
+    for(let i = 0; i < keys.length; i++){
+      let key = keys[i].replace(/\s/g, '');
+      console.log(key);
+      let data = await db.collection('Vendors').doc(key).get();
+      var x = data.data();
+      x.description = v[keys[i]];
+      setVendors(vendors => [...vendors,x]);
+    }
+    
   }
 
-  useEffect(() => {
-    window.initMap = () => setGmapsLoaded(true)
-    const gmapScriptEl = document.createElement(`script`)
-    gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA&libraries=places&callback=initMap`
-    document.querySelector(`body`).insertAdjacentElement(`beforeend`, gmapScriptEl)
-  }, [])
+  // fetchVendor('hGzcExo6eYmPMiuc8qEN');
+  const fetchSVendors = async () => {
+    console.log('fetching data');
+    await db.collection('SVendor').get().then(snapshot => {
+      var temp = [];
+      snapshot.docs.forEach(doc => {
+        var data = doc.data();
+        temp.push(data.SVendors[0]);
+      });
+      if(temp.length === 0){
+        // console.log('no data');
+      }
+      else{
+        // console.log('data found');
+        // console.log('temp',typeof(temp[0]));
+        fetchVendor(temp[0]);
+      }
+    });
+  }
 
-  const handleSelect = async value => {
-    const results = await geocodeByAddress(value);
-    const latLng = await getLatLng(results[0]);
-    setLocation(value.split(',')[0]);
-    setCoordinates(latLng);
-    setToggle(!toggle);
-  };
+  const fetchImages = async () => {
+    console.log('fetching images');
+    await db.collection('Images').doc('pets').get().then(snapshot => {
+      var temp = snapshot.data()
+      if(temp.length === 0){
+        // console.log('no data');
+      }
+      else{
+        // console.log('data found');
+        // console.log('temp',typeof(temp));
+        // console.log('temp',temp);
+        setPimages(temp);
+      }
+    });
+
+    await db.collection('Images').doc('services and products').get().then(snapshot => {
+      var temp = snapshot.data()
+      if(temp.length === 0){
+        // console.log('no data');
+      }
+      else{
+        // console.log('data found');
+        // console.log('temp',typeof(temp));
+        // console.log('temp',temp);
+        setSimages(temp);
+      }
+    });
+  }
+
+  // fetchImages();
+
+  
+
+  useEffect(() => {
+    fetchSVendors();
+    fetchImages();
+  }, []);
+
+  // const [location, setLocation] = React.useState('');
+  // const [toggle, setToggle] = React.useState(false);
+  // const [result, setResult] = React.useState(['woses','','']);
+  // const [gmapsLoaded, setGmapsLoaded] = React.useState(false);
+  // const [coordinates, setCoordinates] = React.useState({
+  //   lat: null,
+  //   lng: null
+  // });
+
+  // const selectLocation = (res) => {
+  //   console.log('in',res);
+  //   setLocation(res);
+  //   setToggle(!toggle);
+  //   setResult(['','','']);
+  // }
+
+  // useEffect(() => {
+  //   window.initMap = () => setGmapsLoaded(true)
+  //   const gmapScriptEl = document.createElement(`script`)
+  //   gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyArGBLH2peMqqkooSiSWa-DrAovVQ4ydeA&libraries=places&callback=initMap`
+  //   document.querySelector(`body`).insertAdjacentElement(`beforeend`, gmapScriptEl)
+  // }, [])
+
+  // const handleSelect = async value => {
+  //   const results = await geocodeByAddress(value);
+  //   const latLng = await getLatLng(results[0]);
+  //   setLocation(value.split(',')[0]);
+  //   setCoordinates(latLng);
+  //   setToggle(!toggle);
+  // };
   return (
     <>
+    {console.log('pets',pimages)}
     <LandingContainer>
       <Section1>
         <TextBox>
@@ -56,13 +134,7 @@ const Landing = () => {
       
       <Section2>
         <NavBox>
-          <LocationBox>
-            {/* {toggle ? <LocationName onClick={(e) => setToggle(!toggle)}>{location}</LocationName> : <LocationSearch placeholder = 'select location' onKeyUp={(e) => getLocation(e.target.value)}/>}
-            {result[0] != '' ? <LocationButton onClick={() => selectLocation(result[0])}>{result[0]}</LocationButton> : null}
-            {result[1] != '' ? <LocationButton onClick={() => selectLocation(result[1])}>{result[1]}</LocationButton> : null}
-            {result[2] != '' ? <LocationButton onClick={() => selectLocation(result[2])}>{result[2]}</LocationButton> : null}
-            {console.log(toggle)}
-            {console.log('out',location)} */}
+          {/* <LocationBox>
         {!toggle ? <>
         {gmapsLoaded == true ? <PlacesAutocomplete
         value={location}
@@ -71,7 +143,7 @@ const Landing = () => {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
 
-            <LocationSearch {...getInputProps({ placeholder: "Choose Location" })} />
+            <LocationSearch {...getInputProps({ placeholder: "Choose Location" })} autoFocus/>
 
             <div>
             <LocationSearchDropdown>
@@ -95,26 +167,59 @@ const Landing = () => {
           </div>
         )}
       </PlacesAutocomplete> : <p>Loading..</p>}</>  : <LocationName onClick={(e) => setToggle(!toggle)}>{location}</LocationName>}
-          </LocationBox>
+          </LocationBox> */}
 
-          <OptionsBox>
+          {/* <OptionsBox>
           <OptionDropdown>
               <OptionDropdownItem>Closest</OptionDropdownItem>
-              <OptionDropdownItem>Best</OptionDropdownItem>
+              <OptionDropdownItem>Popular</OptionDropdownItem>
             </OptionDropdown>
             <OptionExplore>Explore More</OptionExplore>
-          </OptionsBox>
+          </OptionsBox> */}
+          <Header>Top Deals Today!</Header>
         </NavBox>
         <ContentBox>
-          <ContentCard>
-            <ContentImage src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"/>
-            <ContentTitle>Title</ContentTitle>
-            <ContentDescription>asjkdh adjskh ajksd</ContentDescription>
-            <ContentLocation>city</ContentLocation>
-            <ContentView>Book</ContentView>
-          </ContentCard>
+          {vendors.map((vendor,i) => {
+            return(
+              <ContentCard key={i}>
+                <ContentImage src={vendor.image}/>
+                <ContentTitle>{vendor.Name}</ContentTitle>
+                <ContentDescription>{vendor.description}</ContentDescription>
+                <ContentImgBox>
+                  {vendor.Services.map((service,j) => {
+
+                    return(
+                      <ContentImg src={simages[service]}/>
+                    )
+                  })}
+                </ContentImgBox>
+                <ContentImgBox>
+                  {vendor.Pets.map((pet,j) => {
+                    pet = pet.toLowerCase();
+                    return(
+                      console.log('pet',pet,pimages[pet]),
+                      <ContentImg src={pimages[pet]}/>
+                    )
+                  })}
+                </ContentImgBox>
+                <ContentView>View</ContentView>
+              </ContentCard>
+            )
+          })}
         </ContentBox>
       </Section2>
+
+      <Section3>
+        <NavBox>
+          <Header>Re-visit</Header>
+        </NavBox>
+      </Section3>
+
+      <Section4>
+        <NavBox>
+        <Header>Re-Buy</Header>
+        </NavBox>
+      </Section4>
     </LandingContainer>
     </>
   )

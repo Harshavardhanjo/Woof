@@ -18,6 +18,11 @@ Cors.CORS(app)
 def test():
     return "Hello World!"
 
+@app.route("/Popular",methods = ['GET','POST'])
+def PopularVendors():
+    data = request.get_json()
+    print(data)
+
 @app.route('/fetchVendors', methods=['POST','GET'])
 def get_Vendors():
     if request.method == "POST":

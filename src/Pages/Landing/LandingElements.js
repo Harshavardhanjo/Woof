@@ -75,7 +75,16 @@ export const NavBox = styled.div`
     flex-direction : row;
     justify-content : space-between;
     border-bottom : 2px solid #f5f5f5;
+    align-items : center;
 `;
+
+export const Header = styled.div`
+    text-align : center;
+    font-size : 2rem;
+    font-weight : bold;
+    color : #001E6C;
+    margin-bottom : 0.2rem;
+    `;
 
 export const LocationBox =  styled.div`
     height : 60px;
@@ -106,6 +115,7 @@ export const LocationSearch = styled.input`
     font-size : 1.5rem;
     color : black;
     outline : none;
+    width : 100%;
     `;
 
 export const LocationSearchDropdown = styled.div`
@@ -196,13 +206,13 @@ export const OptionDropdownItem = styled.option`
     background-color : white;
     `;
 
-
+ 
 
 export const ContentBox = styled.div`
     width : 100%;
     height : 100%;
     display : grid;
-    grid-template-columns : 1fr 1fr 1fr 1fr;
+    grid-template-columns : 1fr 1fr 1fr 1fr 1fr;
     justify-items : center;
     align-items : top;
     `;
@@ -210,10 +220,10 @@ export const ContentBox = styled.div`
 export const ContentCard = styled.div`
     background-color : #fff;
     width : 270px;
-    height : 370px;
+    height : 400px;
     margin : 10px;
     display : grid;
-    grid-template-rows : 0.6fr 0.1fr 0.2fr 0.1fr 0.1fr;
+    grid-template-rows : 0.9fr 0.1fr 0.15fr 0.1fr 0.1fr 0.2fr;
     // background-color : red;
     padding : 10px;
 
@@ -246,10 +256,32 @@ export const ContentDescription = styled.div`
     // background-color : red;
     `;
 
-export const ContentServiceImg = styled.img`
+export const ContentImgBox = styled.div`
+    display : flex;
+    flex-direction : row;
+    justify-items : space-around;
+    overflow-x : auto;
+    overflow-y : hidden;
+    align-items : center;
+    // background-color : red;
+    height : 50px;
+
+    ::-webkit-scrollbar {
+        height: 5px;
+        background-color: #f5f5f5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #FFAA4C;
+        border-radius: 10px;
+    }
+    `;
+
+export const ContentImg = styled.img`
     width : 30px;
     height : 30px;
-    margin-right : 10px;
+    padding : 5px;
+    margin-bottom : 10px;
     `;
 
 export const ContentLocation = styled.p`
@@ -265,7 +297,7 @@ export const ContentView = styled.button`
     display : none;
 
     ${ContentCard}:hover & {
-        display : block;
+        display : flex;
         font-size : 1.2rem;
         margin : 0px;
         padding : 0px;
@@ -273,8 +305,42 @@ export const ContentView = styled.button`
         color : #0AA1DD;
         border : none;
         background-color : white;
-        z-index : 1;
+        justify-content : center;
+        align-items : center;
+        justify-self : center;
+        cursor : pointer;
+        width : fit-content;
     }
+
+    ${ContentCard}:hover &:hover {
+        cursor : pointer;
+        color : #FFAA4C;
+        background-color : white;
+    }
+    `;
+
+export const Section3 = styled.div`
+    width : 98%;
+    margin-bottom : 1rem;
+    display : grid;
+    grid-template-columns : 1fr;
+    grid-template-rows : 60px 1fr;
+    justify-items : center;
+    align-items : center;
+    border-radius : 10px;
+    background-color : white;
+    `;
+
+export const Section4 = styled.div`
+    width : 98%;
+    margin-bottom : 1rem;
+    display : grid;
+    grid-template-columns : 1fr;
+    grid-template-rows : 60px 1fr;
+    justify-items : center;
+    align-items : center;
+    border-radius : 10px;
+    background-color : white;
     `;
 
 
