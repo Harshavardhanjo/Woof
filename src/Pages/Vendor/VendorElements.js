@@ -15,11 +15,12 @@ export const VendorBox = styled.div`
     width: 98%;
     height : 100%;
     display : grid;
-    grid-template-columns: 0.4fr 0.6fr;
-    grid-template-rows: 0.8fr 0.2fr;
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: 0.4fr 0.6fr;
     justify-items: center;
     grid-gap: 20px;
     align-items: center;
+    transition: all 0.3s ease-in-out;
     `;
 
 
@@ -119,6 +120,30 @@ export const Section2 = styled.div`
     justify-items: center;
     // grid-row : 1/-1;
     grid-column : 2/-1;
+    `;
+
+export const ProfileNavigation = styled.div`
+    width: 100%;
+    height : 2rem;
+    display : grid;
+    grid-template-columns : 0.1fr 1fr 1fr;
+    grid-template-rows : 1fr;
+    grid-gap: 10px;
+    `;
+
+export const ProfileNavigationItem = styled.div`
+    width: 100%;
+    height: 100%;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    `;
+
+export const ProfileNavigationItemImg = styled.img`
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    overflow: hidden;
     `;
 
 export const ProfileOffersBox = styled.div`

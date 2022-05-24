@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStateValue } from '../../StateProvider';
-import { ProfileBox1, Section1, Section2, Section3, VendorBox, VendorContainer,ProfilePhotoBox,ProfilePhoto, ProfileName, ProfileDescription, ProfileContentBox, ProfileServiceBox, ProfilePets, ProfileService, ProfileButton, ProfilePostsBox, PostPhotoBox, PostPhoto, PostOptionsBox, PostOptions, PostOptionsButton, PostBox, ProfileButtonBox, ProfileOffersBox } from './VendorElements';
+import { ProfileBox1, Section1, Section2, Section3, VendorBox, VendorContainer,ProfilePhotoBox,ProfilePhoto, ProfileName, ProfileDescription, ProfileContentBox, ProfileServiceBox, ProfilePets, ProfileService, ProfileButton, ProfilePostsBox, PostPhotoBox, PostPhoto, PostOptionsBox, PostOptions, PostOptionsButton, PostBox, ProfileButtonBox, ProfileOffersBox, ProfileNavigation, ProfileNavigationItem, ProfileNavigationItemImg } from './VendorElements';
 import { db } from '../../Firebase';
 import { useEffect } from 'react';
 
@@ -8,6 +8,7 @@ const Vendor = () => {
 
     const [{selectedVendor}, dispatch] = useStateValue();
     const [vendor, setVendor] = React.useState(null);
+    const [side, setSide] = React.useState(false);
 
     const fetchVendor = async (v) => {
         console.log('fetching data');
@@ -31,8 +32,9 @@ const Vendor = () => {
 
   return (
     <div>
+      {console.log('side', side)}
       {vendor ? <VendorContainer>
-        <VendorBox>
+        <VendorBox isSelected = {side}>
           <Section1>
             <ProfilePhotoBox>
               <ProfilePhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
@@ -50,12 +52,16 @@ const Vendor = () => {
 
           <Section2>
             <ProfileOffersBox>
-              sada
+              <ProfileNavigation>
+                <ProfileNavigationItem>
+                  <ProfileNavigationItemImg src = 'https://www.w3schools.com/howto/img_avatar.png' onClick = {()=>setSide(!side)}/>
+                </ProfileNavigationItem>
+              </ProfileNavigation>
             </ProfileOffersBox>
             <ProfileButtonBox>
               <ProfileButton primaryColor = 'white'>Book</ProfileButton>
               <ProfileButton>Favourite</ProfileButton>
-              <ProfileButton>Report</ProfileButton>
+              <ProfileButton>Offers</ProfileButton>
               <ProfileButton>View in Maps</ProfileButton>
             </ProfileButtonBox>
           </Section2>
