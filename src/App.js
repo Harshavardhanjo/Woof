@@ -16,6 +16,7 @@ import Landing from './Pages/Landing/Landing';
 import { createGlobalStyle } from "styled-components";
 import VendorProfile from './Components/VendorProfile/VendorProfile';
 import Feed from './Pages/Feed/Feed';
+import Vendor from './Pages/Vendor/Vendor';
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&family=Ms+Madi&family=Plus+Jakarta+Sans&display=swap');
   body {
@@ -35,6 +36,8 @@ function App() {
           <Route exact path = '/Profile' element ={<Profile/>}/>
 
           <Route exact path = '/Vendors' element ={<DisplayVendors/>}/>
+
+          <Route exact path = '/Vendor' element ={<Vendor/>}/>
           
           <Route exact path = '/home' element ={<Home/>}/>
 

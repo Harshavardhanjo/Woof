@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react'
 import {useNavigate } from "react-router-dom";
+import { useStateValue } from '../../StateProvider';
 import {ContentBox, ContentCard, ContentDescription, ContentImage,Option, ContentLocation, ContentTitle, LandingContainer, LocationBox, LocationIcon, LocationName, NavBox, OptionsBox, Search, SearchBox, SearchButton, Section1, Section2,TextBox, OptionDropdown, OptionDropdownItem, ContentView, ContentQuickView, LocationSearch, OptionExplore, LocationSearchDropdown, LocationButton, LocationSearchDropdownItem, Header, Section3, Section4, ContentImgBox, ContentImg } from './LandingElements'
 import location from '../../img/location.png';
 import PlacesAutocomplete, {
@@ -8,26 +9,37 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import axios from 'axios';
 import {db} from '../../Firebase';
+import loading from '../../img/loading.gif';
 
 const Landing = () => {
   const navigate = useNavigate();
-  const routeChange = (e,path) =>{
+  const routeChange = (e,path,id) =>{
+    e.preventDefault();
     navigate(path);
+
+    if(path = '/vendor'){
+      dispatch({
+        type : "SET_SELECTED_VENDOR",
+        selectedVendor: id,
+      });
+    }
   }
 
   const [vendors,setVendors] = React.useState([]);
+  const [vendorKeys,setVendorKeys] = React.useState([]);
   const [pimages,setPimages] = React.useState([]);
   const [simages,setSimages] = React.useState([]);
+  const [{selectedVendor},dispatch] = useStateValue();
   const fetchVendor = async (v) => {
     setVendors([]);
+    setVendorKeys([]);
     var keys = Object.keys(v);
-    console.log(keys.length);
     for(let i = 0; i < keys.length; i++){
       let key = keys[i].replace(/\s/g, '');
-      console.log(key);
       let data = await db.collection('Vendors').doc(key).get();
       var x = data.data();
       x.description = v[keys[i]];
+      setVendorKeys(vendorKeys => [...vendorKeys,keys[i]]);
       setVendors(vendors => [...vendors,x]);
     }
     
@@ -35,7 +47,6 @@ const Landing = () => {
 
   // fetchVendor('hGzcExo6eYmPMiuc8qEN');
   const fetchSVendors = async () => {
-    console.log('fetching data');
     await db.collection('SVendor').get().then(snapshot => {
       var temp = [];
       snapshot.docs.forEach(doc => {
@@ -54,7 +65,6 @@ const Landing = () => {
   }
 
   const fetchImages = async () => {
-    console.log('fetching images');
     await db.collection('Images').doc('pets').get().then(snapshot => {
       var temp = snapshot.data()
       if(temp.length === 0){
@@ -89,6 +99,10 @@ const Landing = () => {
   useEffect(() => {
     fetchSVendors();
     fetchImages();
+    dispatch({
+      type: 'SET_SELECTED_VENDOR',
+      selectedVendor: null
+    });
   }, []);
 
   // const [location, setLocation] = React.useState('');
@@ -123,7 +137,6 @@ const Landing = () => {
   // };
   return (
     <>
-    {console.log('pets',pimages)}
     <LandingContainer>
       <Section1>
         <TextBox>
@@ -189,7 +202,8 @@ const Landing = () => {
                   {vendor.Services.map((service,j) => {
 
                     return(
-                      <ContentImg src={simages[service]}/>
+                        <ContentImg src={simages[service]}/>
+
                     )
                   })}
                 </ContentImgBox>
@@ -197,15 +211,16 @@ const Landing = () => {
                   {vendor.Pets.map((pet,j) => {
                     pet = pet.toLowerCase();
                     return(
-                      console.log('pet',pet,pimages[pet]),
-                      <ContentImg src={pimages[pet]}/>
+                      <ContentImg src={pimages[pet] } />
                     )
                   })}
                 </ContentImgBox>
-                <ContentView>View</ContentView>
+                <ContentView onClick= {(e) => routeChange(e,'/Vendor',vendorKeys[i])}>View</ContentView>
               </ContentCard>
             )
           })}
+
+          
         </ContentBox>
       </Section2>
 

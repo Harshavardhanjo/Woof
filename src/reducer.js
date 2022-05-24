@@ -9,6 +9,8 @@ export const initialState = {
     all_pets : JSON.parse(localStorage.getItem('all_pets')),
     sort : 'Distance',
     all_sort : ['Distance','Rating','Price'],
+    pet_images : null,
+    service_images : null,
 };
 
 
@@ -65,6 +67,18 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 mini : action.mini,
+            }
+
+        case "SET_PET_IMAGES":
+            return {
+                ...state,
+                pet_images : action.pet_images,
+            }
+
+        case "SET_SERVICE_IMAGES":
+            return {
+                ...state,
+                service_images : action.service_images,
             }
     
         default:

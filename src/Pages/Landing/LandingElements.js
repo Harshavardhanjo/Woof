@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const LandingContainer = styled.div`
     width : 100%;
@@ -254,6 +254,7 @@ export const ContentDescription = styled.div`
     justify-content : space-between;
     align-items : top;
     // background-color : red;
+    font-size : 1.2rem;
     `;
 
 export const ContentImgBox = styled.div`
