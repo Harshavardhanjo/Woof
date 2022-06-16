@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 export const VendorContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     // background-color : red;
+    overflow: hidden;
     `;
 
 export const VendorBox = styled.div`
@@ -15,8 +16,9 @@ export const VendorBox = styled.div`
     width: 98%;
     height : 100%;
     display : grid;
-    grid-template-columns: 0.7fr 0.3fr;
-    grid-template-rows: 0.4fr 0.6fr;
+    grid-template-columns: ${props => props.box};
+    {console.log(props.box[0])}
+    grid-template-rows: 0.3fr 0.7fr;
     justify-items: center;
     grid-gap: 20px;
     align-items: center;
@@ -31,8 +33,8 @@ export const Section1 = styled.div`
     background-color : white;
     display : grid;
     grid-gap: 10px;
-    grid-template-columns : 0.2fr 1fr;
-    grid-template-rows : 0.3fr 1fr;
+    grid-template-columns : 0.2fr 0.8fr;
+    grid-template-rows : 0.2fr 0.8fr;
     justify-items: flex-start;
     align-items: center;
     `;
@@ -43,12 +45,16 @@ export const ProfilePhotoBox = styled.div`
     display : flex;
     justify-content: center;
     align-items: center;
+    grid-row: 1/-1;
+    // background-color : red;
+
     `;
 
 export const ProfilePhoto = styled.img`
     width: 93%;
     height: 93%;
     border-radius: 10px;
+    object-fit: contain;
     `;
 
 export const ProfileContentBox = styled.div`
@@ -64,9 +70,9 @@ export const ProfileServiceBox = styled.div`
     display : grid;
     grid-template-columns : 1fr;
     grid-template-rows : 1fr 1fr;
-    grid-column : 1/-1;
+    grid-column : 2/-1;
     justify-items: start;
-    background-color : pink;
+    // background-color : pink;
     `;
 
 export const ProfileName = styled.div`
@@ -93,19 +99,77 @@ export const ProfileDescription = styled.div`
 export const ProfileService = styled.div`
     width: 100%;
     height: 100%;
-    background-color : red;
+    // background-color : red;
     display : flex;
     justify-content: flex-start;
     flex-direction: row;
+    overflow-x: scroll;
+
+    ::-webkit-scrollbar {
+        height: 10px;
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    `;
+
+export const ProfileServiceImgBox = styled.div`
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    `;
+export const ProfileServiceName = styled.div`
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    `;
+
+export const ProfileServiceImg = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
     `;
 
 export const ProfilePets = styled.div`
     width: 100%;
     height: 100%;
-    background-color : blue;
+    // background-color : blue;
     display : flex;
     justify-content: flex-start;
     flex-direction: row;
+    overflow-x: scroll;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    `;
+
+export const ProfilePetImgBox = styled.div`
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    `;
+
+export const ProfilePetName = styled.div`
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    `;
+
+export const ProfilePetImg = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
     `;
 
 export const Section2 = styled.div`
@@ -115,35 +179,11 @@ export const Section2 = styled.div`
     border-radius: 10px;
     display : grid;
     grid-template-columns : 0.7fr 0.3fr;
-    grid-template-rows : 1fr 1fr;
+    grid-template-rows : 1fr;
     grid-gap: 10px;
     justify-items: center;
     // grid-row : 1/-1;
     grid-column : 2/-1;
-    `;
-
-export const ProfileNavigation = styled.div`
-    width: 100%;
-    height : 2rem;
-    display : grid;
-    grid-template-columns : 0.1fr 1fr 1fr;
-    grid-template-rows : 1fr;
-    grid-gap: 10px;
-    `;
-
-export const ProfileNavigationItem = styled.div`
-    width: 100%;
-    height: 100%;
-    display : flex;
-    justify-content: center;
-    align-items: center;
-    `;
-
-export const ProfileNavigationItemImg = styled.img`
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-    overflow: hidden;
     `;
 
 export const ProfileOffersBox = styled.div`
@@ -161,6 +201,7 @@ export const ProfileButtonBox = styled.div`
     height: 100%;
     display : grid;
     grid-template-columns : 1fr;
+    grid-template-rows : 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
     justify-items: center;
     `;
@@ -173,8 +214,8 @@ export const ProfileButton = styled.button`
     border: none;
     border-bottom: 2px solid #001E6C;
     outline: none;
-    color: black;
-    font-size: 1.2rem;
+    color: white;
+    font-size: 1rem;
     font-weight: bold;
 
     &:hover {
@@ -186,21 +227,34 @@ export const ProfileButton = styled.button`
 
 export const Section3 = styled.div`
     width: 100%;
-    height: 100%;
+    height: stretch;
     background-color: white;
     border-radius: 10px;
-    grid-column: 1/-1;
+    grid-column: 1/2;
     display : grid;
     grid-template-columns : 1fr;
     grid-gap: 10px;
     justify-items: center;
+    overflow-y: scroll;
+
+    
+    ::-webkit-scrollbar {
+        width: 10px;
+        }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        }
+    ::-webkit-scrollbar-thumb {
+        background: #001E6C;
+
+        }
     `;
 
 export const ProfilePostsBox = styled.div`
     width: 98%;
     display : grid;
     grid-template-columns : 1fr 1fr 1fr 1fr;
-    grid-template-rows : auto;
+    grid-template-rows : 1fr 1fr;
     grid-gap: 10px;
     justify-items: center;
     margin-top: 10px;
@@ -252,6 +306,50 @@ export const PostOptionsButton = styled.img`
     height: 30px;
     border-radius: 10px;
 
+    `;
+
+export const Section4 = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display : grid;
+    grid-template-columns : 1fr;
+    grid-gap: 10px;
+    justify-items: center;
+    overflow-y: scroll;
+    grid-column : 2/-1;
+    grid-row : 1/-1;
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #001E6C;
+        height: 50px;
+        }
+    `;
+
+export const TopBar = styled.div`
+    width: 100%;
+    height : 50px;
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: red;
+    `;
+
+export const TopBarExpand = styled.img`
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 10px;
     `;
 
 

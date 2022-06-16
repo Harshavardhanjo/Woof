@@ -75,6 +75,10 @@ const Landing = () => {
         // console.log('temp',typeof(temp));
         // console.log('temp',temp);
         setPimages(temp);
+        dispatch({
+          type : "SET_PET_IMAGES",
+          pet_images : temp,
+        });
       }
     });
 
@@ -88,6 +92,10 @@ const Landing = () => {
         // console.log('temp',typeof(temp));
         // console.log('temp',temp);
         setSimages(temp);
+        dispatch({
+          type : "SET_SERVICE_IMAGES",
+          service_images : temp,
+        });
       }
     });
   }
