@@ -16,13 +16,13 @@ export const VendorBox = styled.div`
     width: 98%;
     height : 100%;
     display : grid;
+    transition: all 0.3s ease-in-out;
     grid-template-columns: ${props => props.box};
     {console.log(props.box[0])}
-    grid-template-rows: 0.3fr 0.7fr;
+    grid-template-rows: 0.3fr 1fr;
     justify-items: center;
     grid-gap: 20px;
     align-items: center;
-    transition: all 0.3s ease-in-out;
     `;
 
 
@@ -94,6 +94,7 @@ export const ProfileDescription = styled.div`
     margin-left: 10px;
     display : flex;
     justify-content: flex-start;
+    text-align: left;
     `;
 
 export const ProfileService = styled.div`
@@ -103,20 +104,7 @@ export const ProfileService = styled.div`
     display : flex;
     justify-content: flex-start;
     flex-direction: row;
-    overflow-x: scroll;
-
-    ::-webkit-scrollbar {
-        height: 10px;
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-    }
+    flex-wrap: wrap;
     `;
 
 export const ProfileServiceImgBox = styled.div`
@@ -133,8 +121,8 @@ export const ProfileServiceName = styled.div`
     `;
 
 export const ProfileServiceImg = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
     `;
 
@@ -145,11 +133,7 @@ export const ProfilePets = styled.div`
     display : flex;
     justify-content: flex-start;
     flex-direction: row;
-    overflow-x: scroll;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
+    flex-wrap: wrap;
     `;
 
 export const ProfilePetImgBox = styled.div`
@@ -167,8 +151,8 @@ export const ProfilePetName = styled.div`
     `;
 
 export const ProfilePetImg = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
     `;
 
@@ -227,26 +211,28 @@ export const ProfileButton = styled.button`
 
 export const Section3 = styled.div`
     width: 100%;
-    height: stretch;
+    height: 100%;
     background-color: white;
     border-radius: 10px;
     grid-column: 1/2;
     display : grid;
     grid-template-columns : 1fr;
-    grid-gap: 10px;
     justify-items: center;
     overflow-y: scroll;
-
     
-    ::-webkit-scrollbar {
-        width: 10px;
-        }
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        }
-    ::-webkit-scrollbar-thumb {
-        background: #001E6C;
+    // ::-webkit-scrollbar {
+    //     width: 10px;
+    //     }
+    // ::-webkit-scrollbar-track {
+    //     background: #f1f1f1;
+    //     }
+    // ::-webkit-scrollbar-thumb {
+    //     background: #001E6C;
 
+    //     }
+
+    ::-webkit-scrollbar {
+        display: none;
         }
     `;
 
@@ -257,7 +243,8 @@ export const ProfilePostsBox = styled.div`
     grid-template-rows : 1fr 1fr;
     grid-gap: 10px;
     justify-items: center;
-    margin-top: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     `;
 
 export const PostBox = styled.div`
@@ -315,29 +302,18 @@ export const Section4 = styled.div`
     border-radius: 10px;
     display : grid;
     grid-template-columns : 1fr;
-    grid-gap: 10px;
-    justify-items: center;
+    grid-template-rows : 50px auto;
     overflow-y: scroll;
     grid-column : 2/-1;
     grid-row : 1/-1;
 
     ::-webkit-scrollbar {
-        width: 10px;
-        }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        }
-    
-    ::-webkit-scrollbar-thumb {
-        background: #001E6C;
-        height: 50px;
+        display: none;
         }
     `;
 
 export const TopBar = styled.div`
     width: 100%;
-    height : 50px;
     display : flex;
     flex-direction: row;
     align-items: center;

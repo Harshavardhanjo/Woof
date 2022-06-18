@@ -58,14 +58,14 @@ const Vendor = () => {
             </ProfilePhotoBox>
             <ProfileContentBox>
               <ProfileName>{vendor.Name}</ProfileName>
-              <ProfileDescription></ProfileDescription>
+              <ProfileDescription> awd akjwnd akwdjawhjdklaw asdnmb asnmbajs dujkash kjahsdjkasjkdasjk hjkasd jkashd jkash djk ashjkhaskj asjkdhajksdhhjkas hdkjashdjkashdjk ashjk</ProfileDescription>
             </ProfileContentBox>
             <ProfileServiceBox>
               <ProfilePets>
                 {Object.keys(pet_images).map((key,index) => {
                   return <ProfilePetImgBox>
                     <ProfilePetImg src = {pet_images[key]}/>
-                    <ProfilePetName>{key}</ProfilePetName>
+                    {/* <ProfilePetName>{key}</ProfilePetName> */}
                   </ProfilePetImgBox>
                 })}
               </ProfilePets>
@@ -73,7 +73,7 @@ const Vendor = () => {
                 {Object.keys(service_images).map((key,index) => {
                   return <ProfileServiceImgBox>
                     <ProfileServiceImg src = {service_images[key]} key = {index}/>
-                    <ProfileServiceName>{key}</ProfileServiceName>
+                    {/* <ProfileServiceName>{key}</ProfileServiceName> */}
                   </ProfileServiceImgBox>
                 })}
               </ProfileService>
