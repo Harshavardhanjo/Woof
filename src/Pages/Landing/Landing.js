@@ -25,7 +25,7 @@ const Landing = () => {
     }
   }
 
-  const [vendors,setVendors] = React.useState([]);
+  const [vendors,setVendors] = React.useState();
   const [vendorKeys,setVendorKeys] = React.useState([]);
   const [pimages,setPimages] = React.useState([]);
   const [simages,setSimages] = React.useState([]);
@@ -200,7 +200,8 @@ const Landing = () => {
           <Header>Top Deals Today!</Header>
         </NavBox>
         <ContentBox>
-          {vendors.map((vendor,i) => {
+          {console.log('vendors',vendors)}
+          {vendors ? vendors.map((vendor,i) => {
             return(
               <ContentCard key={i}>
                 <ContentImage src={vendor.image}/>
@@ -226,7 +227,16 @@ const Landing = () => {
                 <ContentView onClick= {(e) => routeChange(e,'/Vendor',vendorKeys[i])}>View</ContentView>
               </ContentCard>
             )
-          })}
+          }) : <ContentCard>
+            <ContentImage />
+            <ContentTitle>Loading...</ContentTitle>
+            <ContentDescription>Loading...</ContentDescription>
+            <ContentImgBox>
+              <ContentImg />
+              <ContentImg />
+              <ContentImg />
+            </ContentImgBox>
+              </ContentCard>} 
 
           
         </ContentBox>

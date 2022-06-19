@@ -11,6 +11,7 @@ const Vendor = () => {
     const [vendor, setVendor] = React.useState(null);
     const [side, setSide] = React.useState(true);
     const [boxvalue, setBoxvalue] = React.useState('');
+    const [display, setDisplay] = React.useState(null);
 
     const fetchVendor = async (v) => {
         console.log('fetching data');
@@ -37,7 +38,7 @@ const Vendor = () => {
         setSide(!side);
         if(side == false){
 
-            setBoxvalue('0.2fr 0.8fr');
+            setBoxvalue('none');
         }
 
         else{
@@ -52,8 +53,8 @@ const Vendor = () => {
       {console.log('side', side)}
       {vendor ? <VendorContainer>
         <VendorBox box = {boxvalue} isSelected = {side}>
-          <Section1>
-            {!side ? <><ProfilePhotoBox>
+        {!side ? <Section1>
+            <ProfilePhotoBox>
               <ProfilePhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
             </ProfilePhotoBox>
             <ProfileContentBox>
@@ -77,178 +78,51 @@ const Vendor = () => {
                   </ProfileServiceImgBox>
                 })}
               </ProfileService>
-            </ProfileServiceBox> </> : 'close to render'}
-          </Section1>
+            </ProfileServiceBox> 
+          </Section1>: null}
 
 
 
-          <Section3>
-            {!side ? <ProfilePostsBox>
+          {!side ? <Section3>
+            <ProfilePostsBox>
               <PostBox>
                 <PostPhotoBox>
                   <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
                 </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
               </PostBox>
 
               <PostBox>
                 <PostPhotoBox>
                   <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
                 </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
               </PostBox>
 
               <PostBox>
                 <PostPhotoBox>
                   <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
                 </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
               </PostBox>
 
               <PostBox>
                 <PostPhotoBox>
                   <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
                 </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
               </PostBox>
+
               <PostBox>
                 <PostPhotoBox>
                   <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
                 </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
               </PostBox>
+
               <PostBox>
                 <PostPhotoBox>
                   <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
                 </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
               </PostBox>
-              <PostBox>
-                <PostPhotoBox>
-                  <PostPhoto src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostPhotoBox>
-                <PostOptionsBox>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                  <PostOptionsButton src = 'https://www.w3schools.com/howto/img_avatar.png'/>
-                </PostOptionsBox>
-              </PostBox>
-            </ProfilePostsBox> : 'close to render'}
-          </Section3>
+               
+            </ProfilePostsBox> 
+          </Section3>: null}
 
           <Section4>
             <TopBar>

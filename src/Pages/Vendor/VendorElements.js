@@ -240,7 +240,7 @@ export const ProfilePostsBox = styled.div`
     width: 98%;
     display : grid;
     grid-template-columns : 1fr 1fr 1fr 1fr;
-    grid-template-rows : 1fr 1fr;
+    grid-template-rows : 1fr 1fr auto;
     grid-gap: 10px;
     justify-items: center;
     margin-top: 40px;
@@ -252,9 +252,7 @@ export const PostBox = styled.div`
     max-width: 100%;
     max-height: 100%;
     grid-template-rows : 0.9fr 0.1fr;
-    grid-gap: 10px;
     justify-items: center;
-    background-color : #001E6C;
     `;
 
 export const PostPhotoBox = styled.div`
@@ -327,5 +325,6 @@ export const TopBarExpand = styled.img`
     border-radius: 10px;
     margin: 10px;
     `;
+
 
 
