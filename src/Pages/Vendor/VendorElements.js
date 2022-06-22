@@ -2,24 +2,19 @@ import styled from 'styled-components';
 
 export const VendorContainer = styled.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // background-color : red;
-    overflow: hidden;
     `;
 
 export const VendorBox = styled.div`
-    margin-top : 20px;
     width: 98%;
-    height : 100%;
+    height : 98%;
     display : grid;
     transition: all 0.3s ease-in-out;
     grid-template-columns: ${props => props.box};
-    {console.log(props.box[0])}
-    grid-template-rows: 0.3fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
     justify-items: center;
     grid-gap: 20px;
     align-items: center;
@@ -166,8 +161,7 @@ export const Section2 = styled.div`
     grid-template-rows : 1fr;
     grid-gap: 10px;
     justify-items: center;
-    // grid-row : 1/-1;
-    grid-column : 2/-1;
+    grid-row : 1/2;
     `;
 
 export const ProfileOffersBox = styled.div`
@@ -301,9 +295,8 @@ export const Section4 = styled.div`
     display : grid;
     grid-template-columns : 1fr;
     grid-template-rows : 50px auto;
-    overflow-y: scroll;
     grid-column : 2/-1;
-    grid-row : 1/-1;
+    grid-row : ${props => props.gridRow};
 
     ::-webkit-scrollbar {
         display: none;
@@ -316,7 +309,10 @@ export const TopBar = styled.div`
     flex-direction: row;
     align-items: center;
     margin-bottom: 10px;
-    background-color: red;
+    position : sticky;
+    top : 0px;
+    border-radius: 10px;
+    background-color : #001E6C;
     `;
 
 export const TopBarExpand = styled.img`
@@ -325,6 +321,39 @@ export const TopBarExpand = styled.img`
     border-radius: 10px;
     margin: 10px;
     `;
+
+export const List = styled.div`
+    width: 100%;
+    display : grid;
+    grid-template-columns : 1fr;
+    grid-template-rows : 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: top;
+    margin-bottom: 10px;
+    `;
+
+export const TopBarButton = styled.button`
+    width : 90%;
+    background-color : white;
+    outline: none;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    color: white;
+    background-color: ${props => props.primaryColor};
+
+    &:hover {
+        color: ${props => props.primaryColor};
+        background-color: white;
+        cursor: pointer;
+        outline: none;
+        border: 2px solid ${props => props.primaryColor};
+        }
+    `;
+
+
+
 
 
 

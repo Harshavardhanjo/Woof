@@ -3,44 +3,87 @@ import styled from 'styled-components';
 export const BookContainer = styled.div`
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-columns: 0.4fr 0.6fr;
     grid-gap: 10px;
-    padding: 10px;
+    height: 100%;
     `;
 
 export const BookBox = styled.div`
     display: grid;
     grid-template-rows: auto;
+    grid-wrap: 1fr;
     grid-gap: 10px;
     padding: 10px;
-    // border: 1px solid black;
 `;
 
 export const ServiceBox = styled.div`
     display: grid;
-    grid-template-columns: 0.7fr 0.2fr 0.1fr;
-    padding: 10px;
-    border-bottom : 1px solid #e6e6e6;
+    border-bottom : 1px solid black;
     border-radius: 10px;
-
+    padding: 10px;
+    grid-gap: 10px;
     &:hover {
-        background-color: #e6e6e6;
         cursor: pointer;
     }
 
-    &:active {
-        background-color: #e6e6e6;
-    }
-
     &:focus {
-        background-color: #e6e6e6;
-    }
+        display: grid;
+        grid-template-rows: 0.2fr 0.9fr 0.2fr;
+        grid-gap: 10px;
+        border : 1px solid black;
+        overflow-y: scroll;
 
-    &:focus-within {
-        background-color: #e6e6e6;
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
     }
     
 
+    `;
+
+export const ServiceTop = styled.div`
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 0.7fr 0.3fr;
+    padding: 10px;
+    `;
+
+export const ServiceBody = styled.div`
+    ${ServiceBox}:focus & {
+        display: grid;
+        grid-gap: 10px;
+        height: 100%;
+        width: 100%;
+        justify-items: center;
+    }
+    display: none;
+    `;
+
+export const ServiceDescription = styled.div`
+    display : block;
+    text-align: left;
+    padding: 10px;
+    font-size: 1.5rem;
+    width: 100%;
+    `;
+
+export const ServicePets = styled.div`
+    display : flex;
+    max-height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    border-radius: 10px;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    `;
+
+export const ServicePetImg = styled.img`
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 10px;
     `;
 
 export const ServiceName = styled.div`
@@ -54,9 +97,9 @@ export const ServiceName = styled.div`
 
 export const ServicePrice = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: right;
     align-items: center;
-    text-align: center;
+    text-align: right;
     `;
 
 export const ServiceBook = styled.div`
@@ -67,22 +110,26 @@ export const ServiceBook = styled.div`
     `;
 
 export const BookButton = styled.button`
-    background-color: green;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    width: 100%;
+    
+    ${ServiceBox}:focus & {
+        display: block;
+        background-color: green;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        width: 50%;
+        height: 100%;
+    }
+    display : none;
     `;
 
 
-export const DetailsBox = styled.div`
+export const InterfaceBox = styled.div`
     display: grid;
     grid-template-rows: 0.1fr 0.5fr 0.2fr auto;
     justify-items: left;
@@ -90,13 +137,13 @@ export const DetailsBox = styled.div`
     border: 1px solid black;
     padding: 10px;
     grid-gap: 10px;
-    max-width: 100%;
-    max-height : 300px;
-    min-height : 300px;
+    height: 400px;
     border-radius: 10px;
+    position: sticky;
+    top : 50px;
     `;
 
-export const DetailsHeading = styled.div`
+export const InterfaceHeading = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
@@ -107,21 +154,16 @@ export const DetailsHeading = styled.div`
     min-height: 100%;
     `;
 
-export const DetailsContent = styled.div`
+export const InterfaceContent = styled.div`
     display: flex;
     justify-content: left;
     align-items: top;
     text-align: left;
     min-width: 100%;
     min-height: 100%;
-    overflow-y: scroll;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
     `;
 
-export const DetailsPets = styled.div`
+export const InterfacePets = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
@@ -130,7 +172,7 @@ export const DetailsPets = styled.div`
     min-height: 100%;
     `;
 
-export const DetailsPetsImg = styled.img`
+export const InterfacePetsImg = styled.img`
     width: 50px;
     height: 50px;
     margin-right: 10px;
